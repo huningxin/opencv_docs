@@ -153,21 +153,88 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 <h2>Code Demo </h2>
 <p>Here we will create a simple application which blends two images. We will let the user enter the weight by using the trackbar.</p>
-<p>First, we need to creat three canvas elements, two for input and one for output. Please refer to the tutorial <a class="el" href="tutorial_js_image_display.html">Getting Started with Images</a>. </p><div class="fragment"><div class="line">var src1 = <a class="code" href="d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56">imread</a>(<span class="stringliteral">&quot;canvas1&quot;</span>);</div><div class="line">var src2 = <a class="code" href="d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56">imread</a>(<span class="stringliteral">&quot;canvas2&quot;</span>);</div></div><!-- fragment --><p>Then we use HTML DOM Input Range Object to implement the trackbar, which is shown as below. </p><div class="image">
+<p>First, we need to creat three canvas elements, two for input and one for output. Please refer to the tutorial <a class="el" href="tutorial_js_image_display.html">Getting Started with Images</a>. </p><div class="fragment"><div class="line">var src1 = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(<span class="stringliteral">&quot;canvas1&quot;</span>);</div><div class="line">var src2 = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(<span class="stringliteral">&quot;canvas2&quot;</span>);</div></div><!-- fragment --><p>Then we use HTML DOM Input Range Object to implement the trackbar, which is shown as below. </p><div class="image">
 <img src="Trackbar_Tutorial_Range.png" alt="Trackbar_Tutorial_Range.png"/>
 </div>
 <dl class="section note"><dt>Note</dt><dd>&lt;input&gt; elements with type="range" are not supported in Internet Explorer 9 and earlier versions.</dd></dl>
-<p>You can create an &lt;input&gt; element with type="range" by using the document.createElement() method: </p><div class="fragment"><div class="line">var x = document.createElement(<span class="stringliteral">&quot;INPUT&quot;</span>);</div><div class="line">x.setAttribute(<span class="stringliteral">&quot;type&quot;</span>, <span class="stringliteral">&quot;range&quot;</span>);</div></div><!-- fragment --><p>You can access an &lt;input&gt; element with type="range" by using getElementById(): </p><div class="fragment"><div class="line">var x = document.getElementById(<span class="stringliteral">&quot;myRange&quot;</span>);</div></div><!-- fragment --><p>As a trackbar, the range element need a trackbar name, the default value, minimum value, maximum value, step and the callback function which is executed everytime trackbar value changes. The callback function always has a default argument which is the trackbar position. Additionally, a text element to display the trackbar value is fine. In our case, we can create the trackbar as below: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;Weight: &lt;input type=&quot;range&quot; id=&quot;trackbar&quot; value=&quot;50&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; oninput=&quot;addWeighted(this.value)&quot;&gt;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;&lt;input type=&quot;text&quot; id=&quot;weightValue&quot; size=&quot;3&quot; value=&quot;50&quot;/&gt;</div></div><!-- fragment --><p>Finally, we can use the trackbar value in the callback function, blend the two images and display the result. </p><div class="fragment"><div class="line"><span class="keyword">function</span> <a class="code" href="d2/de8/group__core__array.html#gafafb2513349db3bcff51f54ee5592a19">addWeighted</a>(value) {</div><div class="line">    document.getElementById(<span class="stringliteral">&quot;weightValue&quot;</span>).value = value;</div><div class="line">    var alpha = value/document.getElementById(<span class="stringliteral">&quot;trackbar&quot;</span>).max;</div><div class="line">    var beta = ( 1.0 - alpha );</div><div class="line">    var dst = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>();</div><div class="line">    <a class="code" href="d2/d75/namespacecv.html">cv</a>.addWeighted( src1, alpha, src2, beta, 0.0, dst, -1);</div><div class="line">    <a class="code" href="d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563">imshow</a>(<span class="stringliteral">&quot;canvas3&quot;</span>, dst);</div><div class="line">    dst.delete();</div><div class="line">}</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="d2/de8/group__core__array.html#gafafb2513349db3bcff51f54ee5592a19" title="Calculates the weighted sum of two arrays. ">cv.addWeighted</a></dd></dl>
+<p>You can create an &lt;input&gt; element with type="range" by using the document.createElement() method: </p><div class="fragment"><div class="line">var x = document.createElement(<span class="stringliteral">&quot;INPUT&quot;</span>);</div><div class="line">x.setAttribute(<span class="stringliteral">&quot;type&quot;</span>, <span class="stringliteral">&quot;range&quot;</span>);</div></div><!-- fragment --><p>You can access an &lt;input&gt; element with type="range" by using getElementById(): </p><div class="fragment"><div class="line">var x = document.getElementById(<span class="stringliteral">&quot;myRange&quot;</span>);</div></div><!-- fragment --><p>As a trackbar, the range element need a trackbar name, the default value, minimum value, maximum value, step and the callback function which is executed everytime trackbar value changes. The callback function always has a default argument which is the trackbar position. Additionally, a text element to display the trackbar value is fine. In our case, we can create the trackbar as below: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;Weight: &lt;input type=&quot;range&quot; id=&quot;trackbar&quot; value=&quot;50&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; oninput=&quot;addWeighted(this.value)&quot;&gt;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;&lt;input type=&quot;text&quot; id=&quot;weightValue&quot; size=&quot;3&quot; value=&quot;50&quot;/&gt;</div></div><!-- fragment --><p>Finally, we can use the trackbar value in the callback function, blend the two images and display the result. </p><div class="fragment"><div class="line"><span class="keyword">function</span> <a class="code" href="d2/de8/group__core__array.html#gafafb2513349db3bcff51f54ee5592a19">addWeighted</a>(value) {</div><div class="line">    document.getElementById(<span class="stringliteral">&quot;weightValue&quot;</span>).value = value;</div><div class="line">    var alpha = value/document.getElementById(<span class="stringliteral">&quot;trackbar&quot;</span>).max;</div><div class="line">    var beta = ( 1.0 - alpha );</div><div class="line">    var dst = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>();</div><div class="line">    <a class="code" href="d2/d75/namespacecv.html">cv</a>.addWeighted( src1, alpha, src2, beta, 0.0, dst, -1);</div><div class="line">    <a class="code" href="d2/d75/namespacecv.html">cv</a>.imshow(<span class="stringliteral">&quot;canvas3&quot;</span>, dst);</div><div class="line">    dst.delete();</div><div class="line">}</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="d2/de8/group__core__array.html#gafafb2513349db3bcff51f54ee5592a19" title="Calculates the weighted sum of two arrays. ">cv.addWeighted</a></dd></dl>
 <h2>Try it </h2>
-<p>The result of the code demo as below: </p><div class="image">
-<img src="Trackbar_Tutorial_Result.png" alt="Trackbar_Tutorial_Result.png"/>
+<p>Here is the demo for above code. Trackbar and input images are ready. Slide the trackbar to see the result. And you can change the callback function and investigate more.</p>
+<p> 
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div id="CodeArea">
+<h2>Input your code</h2>
+<textarea rows="8" cols="70" id="TestCode" spellcheck="false">
+var alpha = value/document.getElementById("trackbar").max;
+var beta = ( 1.0 - alpha );
+var dst = new cv.Mat();
+cv.addWeighted( src1, alpha, src2, beta, 0.0, dst, -1);
+cv.imshow("canvas3", dst);
+dst.delete();
+</textarea>
 </div>
-<p>And there is an interactive webpage for this tutorial, <a href="tutorial_js_interactive_trackbar.html">createTrackbar</a>. You can change the callback function and investigate more. </p>
+<div id="showcase">
+    <div>
+        <canvas id="canvas1"></canvas>
+        <canvas id="canvas2"></canvas>
+    </div>
+    Weight: <input type="range"  id="trackbar" value="50" min="0" max="100" step="1" 
+    oninput="addWeighted(this.value)"><input type="text" id="weightValue" size="3" value="50"><br>
+    <canvas id="canvas3"></canvas>
+</div>
+<script async src="opencv.js"  id="opencvjs"></script>
+<script>
+function addWeighted(value) {
+    document.getElementById("weightValue").value = value;    
+    var text = document.getElementById("TestCode").value;
+    eval(text);
+}
+
+var canvas1 = document.getElementById("canvas1");
+var ctx1 = canvas1.getContext("2d");
+var url1 = "LinuxLogo.jpg";
+var img1 = new Image();
+img1.onload = function() {
+    canvas1.width = img1.width;
+    canvas1.height = img1.height;
+    ctx1.drawImage(img1,0,0,img1.width,img1.height);
+}
+img1.src = url1;
+
+var canvas2 = document.getElementById("canvas2");
+var ctx2 = canvas2.getContext("2d");
+var url2 = "WindowsLogo.jpg";
+var img2 = new Image();
+img2.onload = function() {
+    canvas2.width = img2.width;
+    canvas2.height = img2.height;
+    ctx2.drawImage(img2,0,0,img2.width,img2.height);
+}
+img2.src = url2;
+
+var src1, src2;
+document.getElementById("opencvjs").onload = function() {
+    src1 = cv.imread("canvas1");
+    src2 = cv.imread("canvas2");
+    var value = document.getElementById("trackbar").value;
+    var text = document.getElementById("TestCode").value;
+    eval(text);
+};
+</script>
+</body>
+ </p>
 </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2017 17:46:49 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 4 2017 21:31:52 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

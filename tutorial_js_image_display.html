@@ -156,16 +156,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dl class="section see"><dt>See also</dt><dd>Please refer to canvas docs for more details.</dd></dl>
 <p>First, creat an ImageData obj from canvas. </p><div class="fragment"><div class="line">var canvas = document.getElementById(canvas_id);</div><div class="line">var ctx = canvas.getContext(<span class="stringliteral">&quot;2d&quot;</span>);</div><div class="line">var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);</div></div><!-- fragment --><p>Then use cv.matFromArray to construct a <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a>. </p><div class="fragment"><div class="line">var src = <a class="code" href="d2/d75/namespacecv.html">cv</a>.matFromArray(imgData, <a class="code" href="d2/d75/namespacecv.html">cv</a>.CV_8UC4);</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Cause canvas only support 8-bit RGBA image, the <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a> type is cv.CV_8UC4.</dd></dl>
 <h2>Display an image </h2>
-<p>First, convert the type of src to cv.CV_8UC4. </p><div class="fragment"><div class="line">var dst = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>();</div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.cvtColor(src, dst, <a class="code" href="d2/d75/namespacecv.html">cv</a>.ColorConversionCodes.COLOR_***2RGBA.value, 0); <span class="comment">//*** is the type of src</span></div></div><!-- fragment --><p>Then new an ImageData obj from dst. </p><div class="fragment"><div class="line">var imgData = <span class="keyword">new</span> ImageData(<span class="keyword">new</span> Uint8ClampedArray(dst.data()), dst.cols, dst.rows);</div></div><!-- fragment --><p>Finally, display it. </p><div class="fragment"><div class="line">var canvas = document.getElementById(canvas_id);</div><div class="line">var ctx = canvas.getContext(<span class="stringliteral">&quot;2d&quot;</span>);</div><div class="line">ctx.clearRect(0, 0, canvas.width, canvas.height);</div><div class="line">canvas.width = imgData.width;</div><div class="line">canvas.height = imgData.height;</div><div class="line">ctx.putImageData(imgData, 0, 0);</div></div><!-- fragment --><p>In addition, OpenCV-JavaScript implements imread and imshow using the above method. You can use imread and imshow to read image from html canvas and display it. </p><div class="fragment"><div class="line">var img = <a class="code" href="d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56">imread</a>(<span class="stringliteral">&quot;canvas1&quot;</span>);</div><div class="line"><a class="code" href="d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563">imshow</a>(<span class="stringliteral">&quot;canvas2&quot;</span>, img);</div><div class="line">img.delete();</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>todo: imread =&gt; <a class="el" href="d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56" title="Loads an image from a file. ">cv.imread</a>, imshow =&gt; <a class="el" href="d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563" title="Displays an image in the specified window. ">cv.imshow</a></dd></dl>
-<h2>Try it </h2>
-<p>Let's try the above code in the interactive webpage for this tutorial, <a href="tutorial_js_interactive_imshow.html">imshow</a>. </p><div class="fragment"><div class="line">var src = <a class="code" href="d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56">imread</a>(<span class="stringliteral">&quot;canvas1&quot;</span>);</div><div class="line">var dst = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>();</div><div class="line"><span class="comment">// To distinguish the input and output, we graying the image.</span></div><div class="line"><span class="comment">// You can try more different conversion.</span></div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.cvtColor(src, dst, <a class="code" href="d2/d75/namespacecv.html">cv</a>.ColorConversionCodes.COLOR_RGBA2GRAY.value, 0);</div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.cvtColor(dst, dst, <a class="code" href="d2/d75/namespacecv.html">cv</a>.ColorConversionCodes.COLOR_GRAY2RGBA.value, 0);</div><div class="line"><a class="code" href="d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563">imshow</a>(<span class="stringliteral">&quot;canvas2&quot;</span>, dst);</div><div class="line">src.delete();</div><div class="line">dst.delete();</div></div><!-- fragment --><p> Result as below </p><div class="image">
-<img src="Imread_Imshow_Tutorial_Result.png" alt="Imread_Imshow_Tutorial_Result.png"/>
+<p>First, convert the type of src to cv.CV_8UC4. </p><div class="fragment"><div class="line">var dst = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>();</div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.cvtColor(src, dst, <a class="code" href="d2/d75/namespacecv.html">cv</a>.ColorConversionCodes.COLOR_***2RGBA.value, 0); <span class="comment">//*** is the type of src</span></div></div><!-- fragment --><p>Then new an ImageData obj from dst. </p><div class="fragment"><div class="line">var imgData = <span class="keyword">new</span> ImageData(<span class="keyword">new</span> Uint8ClampedArray(dst.data()), dst.cols, dst.rows);</div></div><!-- fragment --><p>Finally, display it. </p><div class="fragment"><div class="line">var canvas = document.getElementById(canvas_id);</div><div class="line">var ctx = canvas.getContext(<span class="stringliteral">&quot;2d&quot;</span>);</div><div class="line">ctx.clearRect(0, 0, canvas.width, canvas.height);</div><div class="line">canvas.width = imgData.width;</div><div class="line">canvas.height = imgData.height;</div><div class="line">ctx.putImageData(imgData, 0, 0);</div></div><!-- fragment --><p>In addition, OpenCV-JavaScript implements image read and show using the above method. You can use <a class="el" href="d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56" title="Loads an image from a file. ">cv.imread</a> and <a class="el" href="d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563" title="Displays an image in the specified window. ">cv.imshow</a> to read image from html canvas and display it. </p><div class="fragment"><div class="line">var img = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(<span class="stringliteral">&quot;canvas1&quot;</span>);</div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.imshow(<span class="stringliteral">&quot;canvas2&quot;</span>, img);</div><div class="line">img.delete();</div></div><!-- fragment --><h2>Try it </h2>
+<p>Here is the demo for above code. Canvas elements named canvas1 and canvas2 have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p> 
+<!DOCTYPE html>
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div id="CodeArea">
+<h2>Input your code</h2>
+<button onclick="executeCode()">Try it</button><br>
+<textarea rows="11" cols="80" id="TestCode" spellcheck="false">
+var src = cv.imread("canvas1");
+var dst = new cv.Mat();
+// To distinguish the input and output, we graying the image.
+// You can try more different conversion
+cv.cvtColor(src, dst, cv.ColorConversionCodes.COLOR_RGBA2GRAY.value, 0);
+cv.cvtColor(dst, dst, cv.ColorConversionCodes.COLOR_GRAY2RGBA.value, 0);
+cv.imshow("canvas2", dst);
+src.delete();
+dst.delete();
+</textarea>
 </div>
- </div></div><!-- contents -->
+<div id="showcase">
+    <div>
+        <canvas id="canvas1"></canvas>
+        <canvas id="canvas2"></canvas>
+    </div>
+    <input type="file" id="input" name="file" />
+</div>
+<script async src="opencv.js"></script>
+<script>
+function executeCode() {
+    var text = document.getElementById("TestCode").value;
+    eval(text);
+}
+
+var inputElement = document.getElementById("input");
+inputElement.addEventListener("change", handleFiles, false);
+function handleFiles(e) {
+    var canvas = document.getElementById("canvas1");
+    var ctx = canvas.getContext("2d");
+    var url = URL.createObjectURL(e.target.files[0]);
+    var img = new Image();
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+    }
+    img.src = url;
+}
+</script>
+</body>
+ </p>
+</div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 30 2017 17:46:49 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 4 2017 21:31:52 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
