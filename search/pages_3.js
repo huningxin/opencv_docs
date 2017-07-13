@@ -13,6 +13,8 @@ var searchData=
   ['creating_20widgets',['Creating Widgets',['../tutorial_creating_widgets.html',1,'tutorial_table_of_content_viz']]],
   ['creating_20yor_20own_20corner_20detector',['Creating yor own corner detector',['../tutorial_generic_corner_detector.html',1,'tutorial_table_of_content_features2d']]],
   ['convex_20hull',['Convex Hull',['../tutorial_hull.html',1,'tutorial_table_of_content_imgproc']]],
+  ['canny_20edge_20detection',['Canny Edge Detection',['../tutorial_js_canny.html',1,'tutorial_js_table_of_contents_imgproc']]],
+  ['changing_20colorspaces',['Changing Colorspaces',['../tutorial_js_colorspaces.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['camera_20calibration',['Camera Calibration',['../tutorial_py_calibration.html',1,'tutorial_py_table_of_contents_calib3d']]],
   ['canny_20edge_20detection',['Canny Edge Detection',['../tutorial_py_canny.html',1,'tutorial_py_table_of_contents_imgproc']]],
   ['changing_20colorspaces',['Changing Colorspaces',['../tutorial_py_colorspaces.html',1,'tutorial_py_table_of_contents_imgproc']]],

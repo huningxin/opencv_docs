@@ -123,5 +123,6 @@ var searchData=
   ['util_5finl_2ehpp',['util_inl.hpp',['../d7/dab/util__inl_8hpp.html',1,'']]],
   ['utility_2ehpp',['utility.hpp',['../d1/d4e/utility_8hpp.html',1,'']]],
   ['utility_2ehpp',['utility.hpp',['../df/dc3/cuda_2utility_8hpp.html',1,'']]],
+  ['utils_2ejs',['utils.js',['../d9/d44/utils_8js.html',1,'']]],
   ['utraindesccollection',['utrainDescCollection',['../db/d39/classcv_1_1DescriptorMatcher.html#a66bd1ba0753ab3ebb792e7b4bf5af2ab',1,'cv::DescriptorMatcher']]]
 ];
