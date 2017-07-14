@@ -13,6 +13,7 @@ var searchData=
   ['introduction_20to_20java_20development',['Introduction to Java Development',['../tutorial_java_dev_intro.html',1,'tutorial_table_of_content_introduction']]],
   ['image_20gradients',['Image Gradients',['../tutorial_js_gradients.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['introduction_20to_20opencv_2djavascript_20tutorials',['Introduction to OpenCV-JavaScript Tutorials',['../tutorial_js_intro.html',1,'tutorial_js_table_of_contents_setup']]],
+  ['image_20pyramids',['Image Pyramids',['../tutorial_js_pyramids.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['install_20opencv_2djavascript_20in_20ubuntu',['Install OpenCV-JavaScript in Ubuntu',['../tutorial_js_setup_in_ubuntu.html',1,'tutorial_js_table_of_contents_setup']]],
   ['image_20processing_20in_20opencv',['Image Processing in OpenCV',['../tutorial_js_table_of_contents_imgproc.html',1,'tutorial_js_root']]],
   ['introduction_20to_20opencv',['Introduction to OpenCV',['../tutorial_js_table_of_contents_setup.html',1,'tutorial_js_root']]],

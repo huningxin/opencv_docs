@@ -187,7 +187,7 @@ image</div></div>
 </ol>
 <p>So what we finally get is strong edges in the image.</p>
 <h2>Canny Edge Detection in OpenCV </h2>
-<p>We use the function: <b>cv.Canny(image, edges, threshold1, threshold2, apertureSize, L2gradient)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga04723e007ed888ddf11d9ba04e2232de" title="Finds edges in an image using the Canny algorithm  . ">cv.Canny</a>(image, edges, threshold1, threshold2, apertureSize = 3, L2gradient = false)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">image</td><td>8-bit input image. </td></tr>
     <tr><td class="paramname">edges</td><td>output edge map; single channels 8-bit image, which has the same size as image. </td></tr>
@@ -216,7 +216,7 @@ canvas {
 <textarea rows="8" cols="80" id="CannyTestCode" spellcheck="false">
 var src = cv.imread("CannyCanvasInput");
 var dst = new cv.Mat();
-cv.cvtColor(src, src, cv.ColorConversionCodes.COLOR_RGB2GRAY.value, 0);
+cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
 // You can try more different conversion
 cv.Canny(src, dst, 150, 100, 3, false);
 cv.imshow("CannyCanvasOutput", dst);
@@ -245,9 +245,14 @@ function CannyHandleFiles(e) {
     var CannyUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(CannyUrl, "CannyCanvasInput");
 }
-document.getElementById("opencvjs").onload = function() {
+function onReady() {
     document.getElementById("CannyTryIt").disabled = false;
-};
+}
+if (typeof cv !== 'undefined') {
+    onReady();
+} else {
+    document.getElementById("opencvjs").onload = onReady;
+}
 </script>
 </body>
  </p>
@@ -255,7 +260,7 @@ document.getElementById("opencvjs").onload = function() {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 10:05:16 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 14 2017 17:09:14 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

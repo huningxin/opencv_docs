@@ -205,12 +205,17 @@ loadImageToCanvas("LinuxLogo.jpg", "canvasInput1");
 loadImageToCanvas("WindowsLogo.jpg", "canvasInput2");
 
 var src1, src2;
-document.getElementById("opencvjs").onload = function() {
+function onReady() {
     src1 = cv.imread("canvasInput1");
     src2 = cv.imread("canvasInput2");
     addWeighted(trackbar.value);
     trackbar.disabled = false;
-};
+}
+if (typeof cv !== 'undefined') {
+    onReady();
+} else {
+    document.getElementById("opencvjs").onload = onReady;
+}
 </script>
 </body>
  </p>
@@ -218,7 +223,7 @@ document.getElementById("opencvjs").onload = function() {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 10:05:16 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 14 2017 17:09:14 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

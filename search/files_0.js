@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['adapter_2ejs',['adapter.js',['../dd/df8/adapter_8js.html',1,'']]],
   ['adding_5fimages_2emarkdown',['adding_images.markdown',['../d3/dd6/adding__images_8markdown.html',1,'']]],
   ['affine_2ehpp',['affine.hpp',['../de/d48/affine_8hpp.html',1,'']]],
   ['agast_2etxt',['agast.txt',['../dc/d8b/agast_8txt.html',1,'']]],

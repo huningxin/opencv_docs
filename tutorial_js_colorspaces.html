@@ -154,16 +154,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 <h2>cvtColor </h2>
 <p>There are more than 150 color-space conversion methods available in OpenCV. But we will look into the most widely used one: BGR \(\leftrightarrow\) Gray.</p>
-<p>We use the function: <b>cv.cvtColor(src, dst, code, dstCn)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b><a class="el" href="d7/d1b/group__imgproc__misc.html#ga397ae87e1288a81d2363b61574eb8cab" title="Converts an image from one color space to another. ">cv.cvtColor</a> (src, dst, code, dstCn = 0)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input image. </td></tr>
-    <tr><td class="paramname">dst</td><td>output image. </td></tr>
-    <tr><td class="paramname">code</td><td>color space conversion code. </td></tr>
+    <tr><td class="paramname">dst</td><td>output image of the same size and depth as src </td></tr>
+    <tr><td class="paramname">code</td><td>color space conversion code(see <b><a class="el" href="d7/d1b/group__imgproc__misc.html#ga4e0972be5de079fed4e3a10e24ef5ef0">cv.ColorConversionCodes</a></b>). </td></tr>
     <tr><td class="paramname">dstCn</td><td>number of channels in the destination image; if the parameter is 0, the number of the channels is derived automatically from src and code.</td></tr>
   </table>
   </dd>
 </dl>
-<p>For BGR \(\rightarrow\) Gray conversion we use the codes cv.ColorConversionCodes.COLOR_RGBA2GRAY.value.</p>
+<p>For BGR \(\rightarrow\) Gray conversion we use the code <a class="el" href="d7/d1b/group__imgproc__misc.html#gga4e0972be5de079fed4e3a10e24ef5ef0a85254b7acc2eb0171639906911f612e8">cv.COLOR_RGBA2GRAY</a>.</p>
 <h2>Try it </h2>
 <p>Here is a demo. Canvas elements named cvtColorCanvasInput and cvtColorCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
 <p> 
@@ -183,7 +183,7 @@ canvas {
 var src = cv.imread("cvtColorCanvasInput");
 var dst = new cv.Mat();
 // You can try more different conversion
-cv.cvtColor(src, dst, cv.ColorConversionCodes.COLOR_RGBA2GRAY.value, 0);
+cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY, 0);
 cv.imshow("cvtColorCanvasOutput", dst);
 src.delete();
 dst.delete();
@@ -211,18 +211,17 @@ function cvtColorHandleFiles(e) {
     var cvtColorUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(cvtColorUrl, "cvtColorCanvasInput");
 }
-
 </script>
 </body>
 </p>
 <h2>inRange </h2>
 <p>Checks if array elements lie between the elements of two other arrays.</p>
-<p>We use the function: <b>cv.inRange(src, lowerb, upperb, dst)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b><a class="el" href="d2/de8/group__core__array.html#ga48af0ab51e36436c5d04340e036ce981" title="Checks if array elements lie between the elements of two other arrays. ">cv.inRange</a> (src, lowerb, upperb, dst)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>first input image. </td></tr>
     <tr><td class="paramname">lowerb</td><td>inclusive lower boundary Mat of the same size as src. </td></tr>
     <tr><td class="paramname">upperb</td><td>inclusive upper boundary Mat of the same size as src. </td></tr>
-    <tr><td class="paramname">dst</td><td>output image of the same size as src and CV_8U type.</td></tr>
+    <tr><td class="paramname">dst</td><td>output image of the same size as src and cv.CV_8U type.</td></tr>
   </table>
   </dd>
 </dl>
@@ -244,13 +243,12 @@ canvas {
 <textarea rows="12" cols="80" id="inRangeTestCode" spellcheck="false">
 var src = cv.imread("inRangeCanvasInput");
 var dst = new cv.Mat();
-var lowScalar = new cv.Scalar(0,0,0,0);
-var highScalar = new cv.Scalar(200,150,200,255);
+var lowScalar = new cv.Scalar(0, 0, 0, 0);
+var highScalar = new cv.Scalar(150, 150, 150, 255);
 var low = new cv.Mat(src.cols , src.rows, src.type(), lowScalar);
 var high = new cv.Mat(src.cols , src.rows, src.type(), highScalar);
 // You can try more different conversion
 cv.inRange(src, low, high, dst);
-cv.cvtColor(dst, dst, cv.ColorConversionCodes.COLOR_GRAY2RGBA.value, 0);
 cv.imshow("inRangeCanvasOutput", dst);
 src.delete(); dst.delete(); low.delete(); high.delete(); lowScalar.delete(); highScalar.delete();
 </textarea>
@@ -275,11 +273,15 @@ function inRangeHandleFiles(e) {
     var inRangeUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(inRangeUrl, "inRangeCanvasInput");
 }
-
-document.getElementById("opencvjs").onload = function() {
+function onReady() {
     document.getElementById("inRangeTryIt").disabled = false;
     document.getElementById("cvtColorTryIt").disabled = false;
-};
+}
+if (typeof cv !== 'undefined') {
+    onReady();
+} else {
+    document.getElementById("opencvjs").onload = onReady;
+}
 </script>
 </body>
  </p>
@@ -287,7 +289,7 @@ document.getElementById("opencvjs").onload = function() {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 10:05:16 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 14 2017 17:09:14 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
