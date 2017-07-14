@@ -197,7 +197,7 @@ canvas {
 var src = cv.imread("transposeCanvasInput");
 var dst = new cv.Mat();
 cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
-cv.threshold(src, src, 120, 200, cv.ThresholdTypes.THRESH_BINARY.value);
+cv.threshold(src, src, 120, 200, cv.THRESH_BINARY);
 cv.transpose(src, dst)
 cv.imshow("transposeCanvasOutput", dst);
 src.delete(); dst.delete();
@@ -252,7 +252,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 17:09:14 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 14 2017 17:24:09 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
