@@ -173,7 +173,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </table>
   </dd>
 </dl>
-<p><b><a class="el" href="d6/d6e/group__imgproc__draw.html#ga746c0625f1781f1ffc9056259103edbc" title="Draws contours outlines or filled contours. ">cv.drawContours</a> (image, contours, contourIdx, color, thickness = 1, lineType = <a class="el" href="d0/de1/group__core.html#ggaf076ef45de481ac96e0ab3dc2c29a777a5d32eda7017db273a37f158e5b51442a" title="8-connected line ">cv.LINE_8</a>, hierarchy = <a class="el" href="dc/d84/group__core__basic.html#ga599fe92e910c027be274233eccad7beb">Scalar()</a>, maxLevel = INT_MAX, offset = [0, 0])</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p><b><a class="el" href="d6/d6e/group__imgproc__draw.html#ga746c0625f1781f1ffc9056259103edbc" title="Draws contours outlines or filled contours. ">cv.drawContours</a> (image, contours, contourIdx, color, thickness = 1, lineType = <a class="el" href="d0/de1/group__core.html#ggaf076ef45de481ac96e0ab3dc2c29a777a5d32eda7017db273a37f158e5b51442a" title="8-connected line ">cv.LINE_8</a>, hierarchy = <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat()</a>, maxLevel = INT_MAX, offset = [0, 0])</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">image</td><td>destination image. </td></tr>
     <tr><td class="paramname">contours</td><td>all the input contours. </td></tr>
@@ -181,7 +181,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <tr><td class="paramname">color</td><td>color of the contours. </td></tr>
     <tr><td class="paramname">thickness</td><td>thickness of lines the contours are drawn with. If it is negative, the contour interiors are drawn. </td></tr>
     <tr><td class="paramname">lineType</td><td>line connectivity(see <a class="el" href="d0/de1/group__core.html#gaf076ef45de481ac96e0ab3dc2c29a777" title="type of line ">cv.LineTypes</a>). </td></tr>
-    <tr><td class="paramname">hierarchy</td><td>optional information about hierarchy. It is only needed if you want to draw only some of the contours (see maxLevel ).</td></tr>
+    <tr><td class="paramname">hierarchy</td><td>optional information about hierarchy. It is only needed if you want to draw only some of the contours(see maxLevel).</td></tr>
     <tr><td class="paramname">maxLevel</td><td>maximal level for drawn contours. If it is 0, only the specified contour is drawn. If it is 1, the function draws the contour(s) and all the nested contours. If it is 2, the function draws the contours, all the nested contours, all the nested-to-nested contours, and so on. This parameter is only taken into account when there is hierarchy available. </td></tr>
     <tr><td class="paramname">offset</td><td>optional contour shift parameter.</td></tr>
   </table>
@@ -196,13 +196,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 canvas {
     border: 1px solid black;
 }
+.err {
+    color: red;
+}
 </style>
 </head>
 <body>
 <div id="contoursCodeArea">
 <h2>Input your code</h2>
 <button id="contoursTryIt" disabled="true" onclick="contoursExecuteCode()">Try it</button><br>
-<textarea rows="17" cols="80" id="contoursTestCode" spellcheck="false">
+<textarea rows="17" cols="90" id="contoursTestCode" spellcheck="false">
 var src = cv.imread("contoursCanvasInput");
 var dst = new cv.Mat.zeros(src.cols, src.rows, cv.CV_8UC3);
 cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
@@ -211,7 +214,7 @@ var contours  = new cv.MatVector();
 var hierarchy = new cv.Mat();
 // You can try more different conversion
 cv.findContours(src, contours, hierarchy, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE, [0, 0]);
-for (var i=0; i<contours.size(); ++i)
+for (var i = 0; i < contours.size(); ++i)
 {
     var color = new cv.Scalar(Math.random()*255, Math.random()*255, Math.random()*255);
     cv.drawContours(dst, contours, i, color, 1, cv.LINE_8, hierarchy, 100, [0, 0]);
@@ -220,6 +223,7 @@ for (var i=0; i<contours.size(); ++i)
 cv.imshow("contoursCanvasOutput", dst);
 src.delete(); dst.delete(); contours.delete(); hierarchy.delete(); 
 </textarea>
+<p class="err" id="contoursErr"></p>
 </div>
 <div id="contoursShowcase">
     <div>
@@ -233,7 +237,12 @@ src.delete(); dst.delete(); contours.delete(); hierarchy.delete();
 <script>
 function contoursExecuteCode() {
     var contoursText = document.getElementById("contoursTestCode").value;
-    eval(contoursText);
+    try {
+        eval(contoursText);
+        document.getElementById("contoursErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("contoursErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "contoursCanvasInput");
@@ -263,7 +272,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 17:24:09 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

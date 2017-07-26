@@ -182,6 +182,9 @@ image</div></div>
 canvas {
     border: 1px solid black;
 }
+.err{
+    color: red;
+}
 </style>
 </head>
 <body>
@@ -192,12 +195,13 @@ canvas {
 var src = cv.imread("erodeCanvasInput");
 var dst = new cv.Mat();
 var M = cv.Mat.ones(5, 5, cv.CV_8U);
-var S = new cv.Scalar();
+var color = new cv.Scalar();
 // You can try more different conversion
-cv.erode(src, dst, M, [-1, -1], 1, cv.BORDER_CONSTANT, S)
+cv.erode(src, dst, M, [-1, -1], 1, cv.BORDER_CONSTANT, color)
 cv.imshow("erodeCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); S.delete();
+src.delete(); dst.delete(); M.delete(); color.delete();
 </textarea>
+<p class="err" id="erodeErr"></p>
 </div>
 <div id="erodeShowcase">
     <div>
@@ -211,7 +215,12 @@ src.delete(); dst.delete(); M.delete(); S.delete();
 <script>
 function erodeExecuteCode() {
     var erodeText = document.getElementById("erodeTestCode").value;
-    eval(erodeText);
+    try {
+        eval(erodeText);
+        document.getElementById("erodeErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("erodeErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("LinuxLogo.jpg", "erodeCanvasInput");
@@ -257,12 +266,13 @@ canvas {
 var src = cv.imread("dilateCanvasInput");
 var dst = new cv.Mat();
 var M = cv.Mat.ones(5, 5, cv.CV_8U);
-var S = new cv.Scalar();
+var color = new cv.Scalar();
 // You can try more different conversion
-cv.dilate(src, dst, M, [-1, -1], 1, cv.BORDER_CONSTANT, S)
+cv.dilate(src, dst, M, [-1, -1], 1, cv.BORDER_CONSTANT, color)
 cv.imshow("dilateCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); S.delete();
+src.delete(); dst.delete(); M.delete(); color.delete();
 </textarea>
+<p class="err" id="dilateErr"></p>
 </div>
 <div id="dilateShowcase">
     <div>
@@ -274,7 +284,12 @@ src.delete(); dst.delete(); M.delete(); S.delete();
 <script>
 function dilateExecuteCode() {
     var dilateText = document.getElementById("dilateTestCode").value;
-    eval(dilateText);
+    try {
+        eval(dilateText);
+        document.getElementById("dilateErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("dilateErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("LinuxLogo.jpg", "dilateCanvasInput");
@@ -284,10 +299,19 @@ function dilateHandleFiles(e) {
     var dilateUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(dilateUrl, "dilateCanvasInput");
 }
+function onReady() {
+    document.getElementById("erodeTryIt").disabled = false;
+    document.getElementById("dilateTryIt").disabled = false;
+}
+if (typeof cv !== 'undefined') {
+    onReady();
+} else {
+    document.getElementById("opencvjs").onload = onReady;
+}
 </script>
 </body>
 </p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="d4/d86/group__imgproc__filter.html#ga67493776e3ad1a3df63883829375201f" title="Performs advanced morphological transformations. ">cv.morphologyEx()</a> should be in the white list to implement following functions.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd><a class="el" href="d4/d86/group__imgproc__filter.html#ga67493776e3ad1a3df63883829375201f" title="Performs advanced morphological transformations. ">cv.morphologyEx()</a> which can do Opening, Closing, Morphological Gradient and Top Hat morphological operation is not in the white list.</dd></dl>
 <h3>3. Opening</h3>
 <p>Opening is just another name of <b>erosion followed by dilation</b>. It is useful in removing noise, as we explained above.</p>
 <h3>4. Closing</h3>
@@ -301,64 +325,12 @@ function dilateHandleFiles(e) {
 <p>It is the difference between the closing of the input image and input image.</p>
 <h2>Structuring Element </h2>
 <p>We manually created a structuring elements in the previous examples with help of Numpy. It is rectangular shape. But in some cases, you may need elliptical/circular shaped kernels. So for this purpose, OpenCV has a function, <b><a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement()</a></b>. You just pass the shape and size of the kernel, you get the desired kernel.</p>
-<h2>Try it </h2>
-<p>Here is a demo. Canvas elements named getStructuringElementCanvasInput and getStructuringElementCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement()</a> should be in the white list to implement Structuring Element.</dd></dl>
-<p> 
-<!DOCTYPE html>
-<head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
-</head>
-<body>
-<div id="getStructuringElementCodeArea">
-<h2>Input your code</h2>
-<button id="getStructuringElementTryIt" disabled="true" onclick="getStructuringElementExecuteCode()">Try it</button><br>
-<textarea rows="11" cols="80" id="getStructuringElementTestCode" spellcheck="false">
-
-</textarea>
-</div>
-<div id="getStructuringElementShowcase">
-    <div>
-        <canvas id="getStructuringElementCanvasInput"></canvas>
-        <canvas id="getStructuringElementCanvasOutput"></canvas>
-    </div>
-    <input type="file" id="getStructuringElementInput" name="file" />
-</div>
-<script>
-function getStructuringElementExecuteCode() {
-    var getStructuringElementText = document.getElementById("getStructuringElementTestCode").value;
-    eval(getStructuringElementText);
-}
-
-loadImageToCanvas("lena.jpg", "getStructuringElementCanvasInput");
-var getStructuringElementInputElement = document.getElementById("getStructuringElementInput");
-getStructuringElementInputElement.addEventListener("change", getStructuringElementHandleFiles, false);
-function getStructuringElementHandleFiles(e) {
-    var getStructuringElementUrl = URL.createObjectURL(e.target.files[0]);
-    loadImageToCanvas(getStructuringElementUrl, "getStructuringElementCanvasInput");
-}
-function onReady() {
-    document.getElementById("erodeTryIt").disabled = false;
-    document.getElementById("dilateTryIt").disabled = false;
-    document.getElementById("getStructuringElementTryIt").disabled = false;
-}
-if (typeof cv !== 'undefined') {
-    onReady();
-} else {
-    document.getElementById("opencvjs").onload = onReady;
-}
-</script>
-</body>
- </p>
+<dl class="section note"><dt>Note</dt><dd><a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement()</a> which can generate elliptical/circular shaped kernels in morphological operation is not in the white list. </dd></dl>
 </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 17:24:09 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -149,11 +149,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
 <ul>
-<li>In this tutorial, you will learn how to convert images from one color-space to another, like BGR \(\leftrightarrow\) Gray, BGR \(\leftrightarrow\) HSV etc.</li>
+<li>In this tutorial, you will learn how to convert images from one color-space to another, like RGB \(\leftrightarrow\) Gray, RGB \(\leftrightarrow\) HSV etc.</li>
 <li>You will learn following functions : <b><a class="el" href="d7/d1b/group__imgproc__misc.html#ga397ae87e1288a81d2363b61574eb8cab" title="Converts an image from one color space to another. ">cv.cvtColor()</a></b>, <b><a class="el" href="d2/de8/group__core__array.html#ga48af0ab51e36436c5d04340e036ce981" title="Checks if array elements lie between the elements of two other arrays. ">cv.inRange()</a></b> etc.</li>
 </ul>
 <h2>cvtColor </h2>
-<p>There are more than 150 color-space conversion methods available in OpenCV. But we will look into the most widely used one: BGR \(\leftrightarrow\) Gray.</p>
+<p>There are more than 150 color-space conversion methods available in OpenCV. But we will look into the most widely used one: RGB \(\leftrightarrow\) Gray.</p>
 <p>We use the function: <b><a class="el" href="d7/d1b/group__imgproc__misc.html#ga397ae87e1288a81d2363b61574eb8cab" title="Converts an image from one color space to another. ">cv.cvtColor</a> (src, dst, code, dstCn = 0)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input image. </td></tr>
@@ -163,7 +163,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </table>
   </dd>
 </dl>
-<p>For BGR \(\rightarrow\) Gray conversion we use the code <a class="el" href="d7/d1b/group__imgproc__misc.html#gga4e0972be5de079fed4e3a10e24ef5ef0a85254b7acc2eb0171639906911f612e8">cv.COLOR_RGBA2GRAY</a>.</p>
+<p>For RGB \(\rightarrow\) Gray conversion we use the code <a class="el" href="d7/d1b/group__imgproc__misc.html#gga4e0972be5de079fed4e3a10e24ef5ef0a85254b7acc2eb0171639906911f612e8">cv.COLOR_RGBA2GRAY</a>.</p>
 <h2>Try it </h2>
 <p>Here is a demo. Canvas elements named cvtColorCanvasInput and cvtColorCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
 <p> 
@@ -173,13 +173,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 canvas {
     border: 1px solid black;
 }
+.err {
+    color: red;
+}
 </style>
 </head>
 <body>
 <div id="cvtColorCodeArea">
 <h2>Input your code</h2>
 <button id="cvtColorTryIt" disabled="true" onclick="cvtColorExecuteCode()">Try it</button><br>
-<textarea rows="8" cols="80" id="cvtColorTestCode" spellcheck="false">
+<textarea rows="7" cols="80" id="cvtColorTestCode" spellcheck="false">
 var src = cv.imread("cvtColorCanvasInput");
 var dst = new cv.Mat();
 // You can try more different conversion
@@ -188,6 +191,7 @@ cv.imshow("cvtColorCanvasOutput", dst);
 src.delete();
 dst.delete();
 </textarea>
+<p class="err" id="cvtColorErr"></p>
 </div>
 <div id="cvtColorShowcase">
     <div>
@@ -201,7 +205,12 @@ dst.delete();
 <script>
 function cvtColorExecuteCode() {
     var cvtColorText = document.getElementById("cvtColorTestCode").value;
-    eval(cvtColorText);
+    try {
+        eval(cvtColorText);
+        document.getElementById("cvtColorErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("cvtColorErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "cvtColorCanvasInput");
@@ -245,13 +254,14 @@ var src = cv.imread("inRangeCanvasInput");
 var dst = new cv.Mat();
 var lowScalar = new cv.Scalar(0, 0, 0, 0);
 var highScalar = new cv.Scalar(150, 150, 150, 255);
-var low = new cv.Mat(src.cols , src.rows, src.type(), lowScalar);
-var high = new cv.Mat(src.cols , src.rows, src.type(), highScalar);
+var low = new cv.Mat(src.rows , src.cols, src.type(), lowScalar);
+var high = new cv.Mat(src.rows , src.cols, src.type(), highScalar);
 // You can try more different conversion
 cv.inRange(src, low, high, dst);
 cv.imshow("inRangeCanvasOutput", dst);
 src.delete(); dst.delete(); low.delete(); high.delete(); lowScalar.delete(); highScalar.delete();
 </textarea>
+<p class="err" id="inRangeErr"></p>
 </div>
 <div id="inRangeShowcase">
     <div>
@@ -263,7 +273,12 @@ src.delete(); dst.delete(); low.delete(); high.delete(); lowScalar.delete(); hig
 <script>
 function inRangeExecuteCode() {
     var inRangeText = document.getElementById("inRangeTestCode").value;
-    eval(inRangeText);
+    try {
+        eval(inRangeText);
+        document.getElementById("inRangeErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("inRangeErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "inRangeCanvasInput");
@@ -289,7 +304,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 17:24:09 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

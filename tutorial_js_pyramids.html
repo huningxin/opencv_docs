@@ -176,6 +176,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 canvas {
     border: 1px solid black;
 }
+.err {
+    color: red;
+}
 </style>
 </head>
 <body>
@@ -191,6 +194,7 @@ cv.imshow("pyrDownCanvasOutput", dst);
 src.delete(); 
 dst.delete();
 </textarea>
+<p class="err" id="pyrDownErr"></p>
 </div>
 <div id="pyrDownShowcase">
     <div>
@@ -204,7 +208,12 @@ dst.delete();
 <script>
 function pyrDownExecuteCode() {
     var pyrDownText = document.getElementById("pyrDownTestCode").value;
-    eval(pyrDownText);
+    try {
+        eval(pyrDownText);
+        document.getElementById("pyrDownErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("pyrDownErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "pyrDownCanvasInput");
@@ -251,6 +260,7 @@ cv.imshow("pyrUpCanvasOutput", dst);
 src.delete(); 
 dst.delete();
 </textarea>
+<p class="err" id="pyrUpErr"></p>
 </div>
 <div id="pyrUpShowcase">
     <div>
@@ -262,7 +272,12 @@ dst.delete();
 <script>
 function pyrUpExecuteCode() {
     var pyrUpText = document.getElementById("pyrUpTestCode").value;
-    eval(pyrUpText);
+    try {
+        eval(pyrUpText);
+        document.getElementById("pyrUpErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("pyrUpErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "pyrUpCanvasInput");
@@ -288,7 +303,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 17:24:09 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

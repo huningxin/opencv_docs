@@ -184,6 +184,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 canvas {
     border: 1px solid black;
 }
+.err{
+    color: red;
+}
 </style>
 </head>
 <body>
@@ -199,6 +202,7 @@ cv.imshow("resizeCanvasOutput", dst);
 src.delete();
 dst.delete();
 </textarea>
+<p class="err" id="resizeErr"></p>
 </div>
 <div id="resizeShowcase">
     <div>
@@ -212,7 +216,12 @@ dst.delete();
 <script>
 function resizeExecuteCode() {
     var resizeText = document.getElementById("resizeTestCode").value;
-    eval(resizeText);
+    try {
+        eval(resizeText);
+        document.getElementById("resizeErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("resizeErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "resizeCanvasInput");
@@ -236,8 +245,8 @@ function resizeHandleFiles(e) {
     <tr><td class="paramname">dst</td><td>output image that has the size dsize and the same type as src. </td></tr>
     <tr><td class="paramname">Mat</td><td>2 × 3 transformation matrix(cv.CV_64FC1 type). </td></tr>
     <tr><td class="paramname">dsize</td><td>size of the output image. </td></tr>
-    <tr><td class="paramname">flags</td><td>combination of interpolation methods and the optional flag WARP_INVERSE_MAP that means that M is the inverse transformation ( 𝚍𝚜𝚝→𝚜𝚛𝚌 ) </td></tr>
-    <tr><td class="paramname">borderMode</td><td>pixel extrapolation method(see <a class="el" href="da/d54/group__imgproc__transform.html#ga5bb5a1fea74ea38e1a5445ca803ff121" title="interpolation algorithm ">cv.InterpolationFlags</a>) ; when borderMode = BORDER_TRANSPARENT, it means that the pixels in the destination image corresponding to the "outliers" in the source image are not modified by the function. </td></tr>
+    <tr><td class="paramname">flags</td><td>combination of interpolation methods(see <a class="el" href="da/d54/group__imgproc__transform.html#ga5bb5a1fea74ea38e1a5445ca803ff121" title="interpolation algorithm ">cv.InterpolationFlags</a>) and the optional flag WARP_INVERSE_MAP that means that M is the inverse transformation ( 𝚍𝚜𝚝→𝚜𝚛𝚌 ) </td></tr>
+    <tr><td class="paramname">borderMode</td><td>pixel extrapolation method (see <a class="el" href="d2/de8/group__core__array.html#ga209f2f4869e304c82d07739337eae7c5">cv.BorderTypes</a>); when borderMode = BORDER_TRANSPARENT, it means that the pixels in the destination image corresponding to the "outliers" in the source image are not modified by the function. </td></tr>
     <tr><td class="paramname">borderValue</td><td>value used in case of a constant border; by default, it is 0.</td></tr>
   </table>
   </dd>
@@ -270,6 +279,7 @@ cv.warpAffine(src, dst, M, [src.rows, src.cols], cv.INTER_LINEAR, cv.BORDER_CONS
 cv.imshow("warpAffineCanvasOutput", dst);
 src.delete(); dst.delete(); M.delete(); color.delete()
 </textarea>
+<p class="err" id="warpAffineErr"></p>
 </div>
 <div id="warpAffineShowcase">
     <div>
@@ -281,7 +291,12 @@ src.delete(); dst.delete(); M.delete(); color.delete()
 <script>
 function warpAffineExecuteCode() {
     var warpAffineText = document.getElementById("warpAffineTestCode").value;
-    eval(warpAffineText);
+    try {
+        eval(warpAffineText);
+        document.getElementById("warpAffineErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("warpAffineErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "warpAffineCanvasInput");
@@ -310,7 +325,7 @@ function warpAffineHandleFiles(e) {
 <p>We use the function: <b><a class="el" href="da/d54/group__imgproc__transform.html#ga0203d9ee5fcd28d40dbc4a1ea4451983" title="Applies an affine transformation to an image. ">cv.warpAffine</a> (src, dst, M, dsize, flags, borderMode, borderValue)</b></p>
 <h2>Try it </h2>
 <p>Here is a demo. Canvas elements named rotateWarpAffineCanvasInput and rotateWarpAffineCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="da/d54/group__imgproc__transform.html#gafbbc470ce83812914a70abfb604f4326" title="Calculates an affine matrix of 2D rotation. ">cv.getRotationMatrix2D()</a> should be in the white list to simplify the operation.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd><a class="el" href="da/d54/group__imgproc__transform.html#gafbbc470ce83812914a70abfb604f4326" title="Calculates an affine matrix of 2D rotation. ">cv.getRotationMatrix2D()</a> which can find an affine matrix of 2D rotation is not in the white list.</dd></dl>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -344,6 +359,7 @@ cv.warpAffine(src, dst, M, [src.rows, src.cols], cv.INTER_LINEAR, cv.BORDER_CONS
 cv.imshow("rotateWarpAffineCanvasOutput", dst);
 src.delete(); dst.delete(); M.delete(); color.delete();
 </textarea>
+<p class="err" id="rotateWarpAffineErr"></p>
 </div>
 <div id="rotateWarpAffineShowcase">
     <div>
@@ -355,7 +371,12 @@ src.delete(); dst.delete(); M.delete(); color.delete();
 <script>
 function rotateWarpAffineExecuteCode() {
     var rotateWarpAffineText = document.getElementById("rotateWarpAffineTestCode").value;
-    eval(rotateWarpAffineText);
+    try {
+        eval(rotateWarpAffineText);
+        document.getElementById("rotateWarpAffineErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("rotateWarpAffineErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "rotateWarpAffineCanvasInput");
@@ -371,7 +392,7 @@ function rotateWarpAffineHandleFiles(e) {
 </p>
 <h3>Affine Transformation</h3>
 <p>In affine transformation, all parallel lines in the original image will still be parallel in the output image. To find the transformation matrix, we need three points from input image and their corresponding locations in output image. Then <b><a class="el" href="da/d54/group__imgproc__transform.html#ga8f6d378f9f8eebb5cb55cd3ae295a999" title="Calculates an affine transform from three pairs of the corresponding points. ">cv.getAffineTransform</a></b> will create a 2x3 matrix which is to be passed to <b><a class="el" href="da/d54/group__imgproc__transform.html#ga0203d9ee5fcd28d40dbc4a1ea4451983" title="Applies an affine transformation to an image. ">cv.warpAffine</a></b>.</p>
-<p>We use the function: <b><a class="el" href="da/d54/group__imgproc__transform.html#ga8f6d378f9f8eebb5cb55cd3ae295a999" title="Calculates an affine transform from three pairs of the corresponding points. ">cv.getAffineTransform</a> (src, dst)</b> and <b>cv.warpAffine(src, dst, M, dsize, flags, borderMode, borderValue)</b></p>
+<p>We use the function: <b><a class="el" href="da/d54/group__imgproc__transform.html#ga8f6d378f9f8eebb5cb55cd3ae295a999" title="Calculates an affine transform from three pairs of the corresponding points. ">cv.getAffineTransform</a> (src, dst)</b></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>three points([3, 1] size and cv.CV_32FC2 type) from input imag. </td></tr>
@@ -399,12 +420,13 @@ var src = cv.imread("getAffineTransformCanvasInput");
 var dst = new cv.Mat(src.cols, src.rows, src.type());
 var srcTri = new cv.Mat(3, 1, cv.CV_32FC2); 
 var dstTri = new cv.Mat(3, 1, cv.CV_32FC2);
+var color = new cv.Scalar();
 
-//(data32f()[0],data32f()[1]) is the first point
+//[data32f()[0], data32f()[1]] is the first point
 srcTri.data32f()[0] = 0; srcTri.data32f()[1] = 0;
-//(data32f()[2],data32f()[3]) is the sescond point
+//[data32f()[2], data32f()[3]] is the sescond point
 srcTri.data32f()[2] = 0; srcTri.data32f()[3] = 1;
-//(data32f()[4],data32f()[5]) is the third point
+//[data32f()[4], data32f()[5]] is the third point
 srcTri.data32f()[4] = 1; srcTri.data32f()[5] = 0;
 
 dstTri.data32f()[0] = 0.6; dstTri.data32f()[1] = 0.2;
@@ -413,10 +435,11 @@ dstTri.data32f()[4] = 1.5; dstTri.data32f()[5] = 0.3;
 var M = new cv.Mat([2, 3], cv.CV_64FC1);
 M = cv.getAffineTransform(srcTri, dstTri);
 // You can try more different conversion
-cv.warpAffine(src, dst, M, [src.rows, src.cols], cv.INTER_LINEAR, cv.BORDER_CONSTANT, new cv.Scalar());
+cv.warpAffine(src, dst, M, [src.rows, src.cols], cv.INTER_LINEAR, cv.BORDER_CONSTANT, color);
 cv.imshow("getAffineTransformCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); srcTri.delete(); dstTri.delete();
+src.delete(); dst.delete(); M.delete(); srcTri.delete(); dstTri.delete(); color.delete();
 </textarea>
+<p class="err" id="getAffineTransformErr"></p>
 </div>
 <div id="getAffineTransformShowcase">
     <div>
@@ -428,7 +451,12 @@ src.delete(); dst.delete(); M.delete(); srcTri.delete(); dstTri.delete();
 <script>
 function getAffineTransformExecuteCode() {
     var getAffineTransformText = document.getElementById("getAffineTransformTestCode").value;
-    eval(getAffineTransformText);
+    try {
+        eval(getAffineTransformText);
+        document.getElementById("getAffineTransformErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("getAffineTransformErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "getAffineTransformCanvasInput");
@@ -484,6 +512,7 @@ cv.warpPerspective(src, dst, M, [src.rows, src.cols], cv.INTER_LINEAR, cv.BORDER
 cv.imshow("warpPerspectiveCanvasOutput", dst);
 src.delete(); dst.delete(); M.delete(); color.delete();
 </textarea>
+<p class="err" id="warpPerspectiveErr"></p>
 </div>
 <div id="warpPerspectiveShowcase">
     <div>
@@ -495,7 +524,12 @@ src.delete(); dst.delete(); M.delete(); color.delete();
 <script>
 function warpPerspectiveExecuteCode() {
     var warpPerspectiveText = document.getElementById("warpPerspectiveTestCode").value;
-    eval(warpPerspectiveText);
+    try {
+        eval(warpPerspectiveText);
+        document.getElementById("warpPerspectiveErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("warpPerspectiveErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "warpPerspectiveCanvasInput");
@@ -521,12 +555,12 @@ if (typeof cv !== 'undefined') {
 </script>
 </body>
 </p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="da/d54/group__imgproc__transform.html#ga8c1ae0e3589a9d77fffc962c49b22043" title="returns 3x3 perspective transformation for the corresponding 4 point pairs. ">cv.getPerspectiveTransform()</a> should be in the white list to find the transformation matrix from 4 points on the input image and corresponding points on the output image. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd><a class="el" href="da/d54/group__imgproc__transform.html#ga8c1ae0e3589a9d77fffc962c49b22043" title="returns 3x3 perspective transformation for the corresponding 4 point pairs. ">cv.getPerspectiveTransform()</a> which can find the transformation matrix from 4 points on the input image and corresponding points on the output image is not in the white list. </dd></dl>
 </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 17:24:09 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -154,8 +154,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>OpenCV functions for that : <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga04723e007ed888ddf11d9ba04e2232de" title="Finds edges in an image using the Canny algorithm  . ">cv.Canny()</a></b></li>
 </ul>
 <h2>Theory </h2>
-<p>Canny Edge Detection is a popular edge detection algorithm. It was developed by John F. Canny in</p><ol type="1">
-<li>It is a multi-stage algorithm and we will go through each stages.</li>
+<p>Canny Edge Detection is a popular edge detection algorithm. It was developed by John F. Canny in 1986. It is a multi-stage algorithm and we will go through each stages.</p>
+<ol type="1">
 <li><p class="startli"><b>Noise Reduction</b></p>
 <p class="startli">Since edge detection is susceptible to noise in the image, first step is to remove the noise in the image with a 5x5 Gaussian filter. We have already seen this in previous chapters.</p>
 </li>
@@ -207,6 +207,9 @@ image</div></div>
 canvas {
     border: 1px solid black;
 }
+.err {
+    color: red;
+}
 </style>
 </head>
 <body>
@@ -218,10 +221,11 @@ var src = cv.imread("CannyCanvasInput");
 var dst = new cv.Mat();
 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
 // You can try more different conversion
-cv.Canny(src, dst, 150, 100, 3, false);
+cv.Canny(src, dst, 50, 100, 3, false);
 cv.imshow("CannyCanvasOutput", dst);
 src.delete(); dst.delete();
 </textarea>
+<p class="err" id="CannyErr"></p>
 </div>
 <div id="CannyShowcase">
     <div>
@@ -235,7 +239,12 @@ src.delete(); dst.delete();
 <script>
 function CannyExecuteCode() {
     var CannyText = document.getElementById("CannyTestCode").value;
-    eval(CannyText);
+    try {
+        eval(CannyText);
+        document.getElementById("CannyErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("CannyErr").innerHTML = err;
+    }
 }
 
 loadImageToCanvas("lena.jpg", "CannyCanvasInput");
@@ -260,7 +269,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 14 2017 17:24:09 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
