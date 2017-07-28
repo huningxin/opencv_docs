@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>OpenCV: Hough Circle Transform (cv.HoughCircles() is not in the white list)</title>
+<title>OpenCV: Hough Circle Transform</title>
 <link href="opencv.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -144,28 +144,114 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Hough Circle Transform (<a class="el" href="dd/d1a/group__imgproc__feature.html#ga47849c3be0d0406ad3ca45db65a25d2d" title="Finds circles in a grayscale image using the Hough transform. ">cv.HoughCircles()</a> is not in the white list) </div>  </div>
+<div class="title">Hough Circle Transform </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
 <p>In this chapter,</p><ul>
 <li>We will learn to use Hough Transform to find circles in an image.</li>
-<li>We will see these functions: <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga47849c3be0d0406ad3ca45db65a25d2d" title="Finds circles in a grayscale image using the Hough transform. ">cv2.HoughCircles()</a></b></li>
+<li>We will see these functions: <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga47849c3be0d0406ad3ca45db65a25d2d" title="Finds circles in a grayscale image using the Hough transform. ">cv.HoughCircles()</a></b></li>
 </ul>
 <h2>Theory </h2>
 <p>A circle is represented mathematically as \((x-x_{center})^2 + (y - y_{center})^2 = r^2\) where \((x_{center},y_{center})\) is the center of the circle, and \(r\) is the radius of the circle. From equation, we can see we have 3 parameters, so we need a 3D accumulator for hough transform, which would be highly ineffective. So OpenCV uses more trickier method, <b>Hough Gradient Method</b> which uses the gradient information of edges.</p>
-<p>The function we use here is <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga47849c3be0d0406ad3ca45db65a25d2d" title="Finds circles in a grayscale image using the Hough transform. ">cv2.HoughCircles()</a></b>. It has plenty of arguments which are well explained in the documentation. So we directly go to the code. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> cv2</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;img = cv2.imread(<span class="stringliteral">&#39;opencv-logo-white.png&#39;</span>,0)</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;img = cv2.medianBlur(img,5)</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,20,</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                            param1=50,param2=30,minRadius=0,maxRadius=0)</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;circles = np.uint16(np.around(circles))</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordflow">for</span> i <span class="keywordflow">in</span> circles[0,:]:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment"># draw the outer circle</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    cv2.circle(cimg,(i[0],i[1]),i[2],(0,255,0),2)</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment"># draw the center of the circle</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    cv2.circle(cimg,(i[0],i[1]),2,(0,0,255),3)</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;cv2.imshow(<span class="stringliteral">&#39;detected circles&#39;</span>,cimg)</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;cv2.waitKey(0)</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;cv2.destroyAllWindows()</div></div><!-- fragment --><p> Result is shown below:</p>
-<div class="image">
-<img src="houghcircles2.jpg" alt="houghcircles2.jpg"/>
-<div class="caption">
-image</div></div>
- <h2>Additional Resources </h2>
-<h2>Exercises </h2>
+<p>We use the function: <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga47849c3be0d0406ad3ca45db65a25d2d" title="Finds circles in a grayscale image using the Hough transform. ">cv.HoughCircles</a> (image, circles, method, dp, minDist, param1 = 100, param2 = 100, minRadius = 0, maxRadius = 0)</b></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>8-bit, single-channel, grayscale input image. </td></tr>
+    <tr><td class="paramname">circles</td><td>output vector of found circles(cv.CV_32FC3 type). Each vector is encoded as a 3-element floating-point vector (x,y,radius) . </td></tr>
+    <tr><td class="paramname">method</td><td>detection method(see <a class="el" href="d7/dbd/group__imgproc.html#ga073687a5b96ac7a3ab5802eb5510fe65" title="Variants of a Hough transform. ">cv.HoughModes</a>). Currently, the only implemented method is HOUGH_GRADIENT </td></tr>
+    <tr><td class="paramname">dp</td><td>inverse ratio of the accumulator resolution to the image resolution. For example, if dp = 1 , the accumulator has the same resolution as the input image. If dp = 2 , the accumulator has half as big width and height. </td></tr>
+    <tr><td class="paramname">minDist</td><td>minimum distance between the centers of the detected circles. If the parameter is too small, multiple neighbor circles may be falsely detected in addition to a true one. If it is too large, some circles may be missed. </td></tr>
+    <tr><td class="paramname">param1</td><td>first method-specific parameter. In case of HOUGH_GRADIENT , it is the higher threshold of the two passed to the Canny edge detector (the lower one is twice smaller). </td></tr>
+    <tr><td class="paramname">param2</td><td>second method-specific parameter. In case of HOUGH_GRADIENT , it is the accumulator threshold for the circle centers at the detection stage. The smaller it is, the more false circles may be detected. Circles, corresponding to the larger accumulator values, will be returned first. </td></tr>
+    <tr><td class="paramname">minRadius</td><td>minimum circle radius. </td></tr>
+    <tr><td class="paramname">maxRadius</td><td>maximum circle radius.</td></tr>
+  </table>
+  </dd>
+</dl>
+<h2>Try it </h2>
+<p>Here is a demo. Canvas elements named HoughCirclesPCanvasInput and HoughCirclesPCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p> 
+<!DOCTYPE html>
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+.err {
+    color: red;
+}
+</style>
+</head>
+<body>
+<div id="HoughCirclesPCodeArea">
+<h2>Input your code</h2>
+<button id="HoughCirclesPTryIt" disabled="true" onclick="HoughCirclesPExecuteCode()">Try it</button><br>
+<textarea rows="17" cols="80" id="HoughCirclesPTestCode" spellcheck="false">
+var src = cv.imread("HoughCirclesPCanvasInput");
+var dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8U);
+var circles = new cv.Mat();
+var color = new cv.Scalar(255, 0, 0);
+cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
+// You can try more different conversion
+cv.HoughCircles(src, circles, cv.HOUGH_GRADIENT, 1, 45, 75, 40, 0, 0);
+// draw circles
+for(var i = 0; i < circles.cols; ++i)
+{
+    var x = circles.data32f()[i * 3];
+    var y = circles.data32f()[i * 3 + 1];
+    var radius = circles.data32f()[i * 3 + 2];
+    cv.circle(dst, [x, y], radius, color);
+}
+cv.imshow("HoughCirclesPCanvasOutput", dst);
+src.delete(); dst.delete(); circles.delete(); color.delete();
+</textarea>
+<p class="err" id="HoughCirclesPErr"></p>
+</div>
+<div id="HoughCirclesPShowcase">
+    <div>
+        <canvas id="HoughCirclesPCanvasInput"></canvas>
+        <canvas id="HoughCirclesPCanvasOutput"></canvas>
+    </div>
+    <input type="file" id="HoughCirclesPInput" name="file" />
+</div>
+<script src="utils.js"></script>
+<script async src="opencv.js" id="opencvjs"></script>
+<script>
+function HoughCirclesPExecuteCode() {
+    var HoughCirclesPText = document.getElementById("HoughCirclesPTestCode").value;
+    try {
+        eval(HoughCirclesPText);
+        document.getElementById("HoughCirclesPErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("HoughCirclesPErr").innerHTML = err;
+    }
+}
+
+loadImageToCanvas("coins.jpg", "HoughCirclesPCanvasInput");
+var HoughCirclesPInputElement = document.getElementById("HoughCirclesPInput");
+HoughCirclesPInputElement.addEventListener("change", HoughCirclesPHandleFiles, false);
+function HoughCirclesPHandleFiles(e) {
+    var HoughCirclesPUrl = URL.createObjectURL(e.target.files[0]);
+    loadImageToCanvas(HoughCirclesPUrl, "HoughCirclesPCanvasInput");
+}
+
+function onReady() {
+    document.getElementById("HoughCirclesPTryIt").disabled = false;
+}
+if (typeof cv !== 'undefined') {
+    onReady();
+} else {
+    document.getElementById("opencvjs").onload = onReady;
+}
+</script>
+</body>
+ </p>
 </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 28 2017 21:09:35 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

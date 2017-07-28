@@ -332,7 +332,15 @@ function LaplacianHandleFiles(e) {
 <p>If you want to detect both edges, better option is to keep the output datatype to some higher forms, like cv.CV_16S, cv.CV_64F etc, take its absolute value and then convert back to cv.CV_8U. Below code demonstrates this procedure for a horizontal Sobel filter and difference in results.</p>
 <h2>Try it </h2>
 <p>Here is a demo. Canvas elements named absSobelCanvasInput, absSobelCanvasOutput8U and absSobelCanvasOutput64F have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="d2/de8/group__core__array.html#ga3460e9c9f37b563ab9dd550c4d8c4e7d" title="Scales, calculates absolute values, and converts the result to 8-bit. ">cv.convertScaleAbs()</a> should be in the white list to simplify the operation.</dd></dl>
+<p>We use the function: <b><a class="el" href="d2/de8/group__core__array.html#ga3460e9c9f37b563ab9dd550c4d8c4e7d" title="Scales, calculates absolute values, and converts the result to 8-bit. ">cv.convertScaleAbs</a> (src, dst, alpha = 1, beta = 0)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>input array. </td></tr>
+    <tr><td class="paramname">dst</td><td>output array. </td></tr>
+    <tr><td class="paramname">alpha</td><td>optional scale factor. </td></tr>
+    <tr><td class="paramname">beta</td><td>optional delta added to the scaled values.</td></tr>
+  </table>
+  </dd>
+</dl>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -346,7 +354,7 @@ canvas {
 <div id="absSobelCodeArea">
 <h2>Input your code</h2>
 <button id="absSobelTryIt" disabled="true" onclick="absSobelExecuteCode()">Try it</button><br>
-<textarea rows="15" cols="80" id="absSobelTestCode" spellcheck="false">
+<textarea rows="11" cols="80" id="absSobelTestCode" spellcheck="false">
 var src = cv.imread("absSobelCanvasInput");
 var dstx = new cv.Mat();
 var absDstx = new cv.Mat();
@@ -354,10 +362,7 @@ cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
 // You can try more different conversion
 cv.Sobel(src, dstx, cv.CV_8U, 1, 0, 3, 1, 0, cv.BORDER_DEFAULT);
 cv.Sobel(src, absDstx, cv.CV_64F, 1, 0, 3, 1, 0, cv.BORDER_DEFAULT);
-for (var i=0; i<absDstx.cols*absDstx.rows*absDstx.channels(); ++i) {
-    absDstx.data64f()[i] = Math.abs(absDstx.data64f()[i]);
-}
-cv.normalize(absDstx, absDstx, 1, 0, cv.NORM_INF);
+cv.convertScaleAbs(absDstx, absDstx, 1, 0);
 cv.imshow("absSobelCanvasOutput8U", dstx);
 cv.imshow("absSobelCanvasOutput64F", absDstx); 
 src.delete(); dstx.delete(); absDstx.delete();
@@ -415,7 +420,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 28 2017 21:09:35 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

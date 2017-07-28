@@ -232,8 +232,86 @@ function equalizeHistHandleFiles(e) {
     var equalizeHistUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(equalizeHistUrl, "equalizeHistCanvasInput");
 }
+</script>
+</body>
+</p>
+<h2>CLAHE (Contrast Limited Adaptive Histogram Equalization) </h2>
+<p>In <b>adaptive histogram equalization</b>, image is divided into small blocks called "tiles" (tileSize is 8x8 by default in OpenCV). Then each of these blocks are histogram equalized as usual. So in a small area, histogram would confine to a small region (unless there is noise). If noise is there, it will be amplified. To avoid this, <b>contrast limiting</b> is applied. If any histogram bin is above the specified contrast limit (by default 40 in OpenCV), those pixels are clipped and distributed uniformly to other bins before applying histogram equalization. After equalization, to remove artifacts in tile borders, bilinear interpolation is applied.</p>
+<p>We use the function: <b><a class="el" href="d6/db6/classcv_1_1CLAHE.html">cv.CLAHE</a> (clipLimit = 40, tileGridSize = [8, 8])</b></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clipLimit</td><td>threshold for contrast limiting. </td></tr>
+    <tr><td class="paramname">tileGridSize</td><td>size of grid for histogram equalization. Input image will be divided into equally sized rectangular tiles. tileGridSize defines the number of tiles in row and column.</td></tr>
+  </table>
+  </dd>
+</dl>
+<h2>Try it </h2>
+<p>Here is a demo. Canvas elements named createCLAHECanvasInput, equalCanvasOutput and createCLAHECanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p> 
+<!DOCTYPE html>
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+.err {
+    color: red;
+}
+</style>
+</head>
+<body>
+<div id="createCLAHECodeArea">
+<h2>Input your code</h2>
+<button id="createCLAHETryIt" disabled="true" onclick="createCLAHEExecuteCode()">Try it</button><br>
+<textarea rows="9" cols="80" id="createCLAHETestCode" spellcheck="false">
+var src = cv.imread("createCLAHECanvasInput");
+var equalDst = new cv.Mat(), claheDst = new cv.Mat();
+cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
+cv.equalizeHist(src, equalDst);
+var clahe = new cv.CLAHE(40, [8, 8]);
+clahe.apply(src, claheDst);
+cv.imshow("equalCanvasOutput", equalDst);
+cv.imshow("createCLAHECanvasOutput", claheDst);
+src.delete(); equalDst.delete(); claheDst.delete();
+</textarea>
+<p class="err" id="createCLAHEErr"></p>
+</div>
+<div id="createCLAHEShowcase">
+    <div>
+        <p>Original</p>
+        <canvas id="createCLAHECanvasInput"></canvas>
+        <input type="file" id="createCLAHEInput" name="file" />
+    </div>
+    <div>
+        <p>EqualizeHist Image</p>
+        <canvas id="equalCanvasOutput"></canvas>
+    </div>
+    <div>
+        <p>CreateCLAHE Image</p>
+        <canvas id="createCLAHECanvasOutput"></canvas>
+    </div>
+</div>
+<script>
+function createCLAHEExecuteCode() {
+    var createCLAHEText = document.getElementById("createCLAHETestCode").value;
+    try {
+        eval(createCLAHEText);
+        document.getElementById("createCLAHEErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("createCLAHEErr").innerHTML = err;
+    }
+}
+
+loadImageToCanvas("lena.jpg", "createCLAHECanvasInput");
+var createCLAHEInputElement = document.getElementById("createCLAHEInput");
+createCLAHEInputElement.addEventListener("change", createCLAHEHandleFiles, false);
+function createCLAHEHandleFiles(e) {
+    var createCLAHEUrl = URL.createObjectURL(e.target.files[0]);
+    loadImageToCanvas(createCLAHEUrl, "createCLAHECanvasInput");
+}
 
 function onReady() {
+    document.getElementById("createCLAHETryIt").disabled = false;
     document.getElementById("equalizeHistTryIt").disabled = false;
 }
 if (typeof cv !== 'undefined') {
@@ -243,26 +321,12 @@ if (typeof cv !== 'undefined') {
 }
 </script>
 </body>
-</p>
-<h2>CLAHE (Contrast Limited Adaptive Histogram Equalization) </h2>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="d7/dbd/group__imgproc.html#gad689d2607b7b3889453804f414ab1018">cv.createCLAHE()</a> is not in the white list.</dd></dl>
-<p>The first histogram equalization we just saw, considers the global contrast of the image. In many cases, it is not a good idea. For example, below image shows an input image and its result after global histogram equalization.</p>
-<div class="image">
-<img src="clahe_1.jpg" alt="clahe_1.jpg"/>
-<div class="caption">
-image</div></div>
-<p> It is true that the background contrast has improved after histogram equalization. But compare the face of statue in both images. We lost most of the information there due to over-brightness. It is because its histogram is not confined to a particular region as we saw in previous cases (Try to plot histogram of input image, you will get more intuition).</p>
-<p>So to solve this problem, <b>adaptive histogram equalization</b> is used. In this, image is divided into small blocks called "tiles" (tileSize is 8x8 by default in OpenCV). Then each of these blocks are histogram equalized as usual. So in a small area, histogram would confine to a small region (unless there is noise). If noise is there, it will be amplified. To avoid this, <b>contrast limiting</b> is applied. If any histogram bin is above the specified contrast limit (by default 40 in OpenCV), those pixels are clipped and distributed uniformly to other bins before applying histogram equalization. After equalization, to remove artifacts in tile borders, bilinear interpolation is applied.</p>
-<p>Below code snippet shows how to apply CLAHE in OpenCV: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">import</span> cv2</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;img = cv2.imread(<span class="stringliteral">&#39;tsukuba_l.png&#39;</span>,0)</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"># create a CLAHE object (Arguments are optional).</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;cl1 = clahe.apply(img)</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;cv2.imwrite(<span class="stringliteral">&#39;clahe_2.jpg&#39;</span>,cl1)</div></div><!-- fragment --><p> See the result below and compare it with results above, especially the statue region:</p>
-<div class="image">
-<img src="clahe_2.jpg" alt="clahe_2.jpg"/>
-<div class="caption">
-image</div></div>
+ </p>
 </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 28 2017 21:09:35 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

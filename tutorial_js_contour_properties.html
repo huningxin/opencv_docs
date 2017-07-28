@@ -246,8 +246,15 @@ if (typeof cv !== 'undefined') {
 </body>
 </p>
 <h2>7. Maximum Value, Minimum Value and their locations </h2>
-<p>We can find these parameters using a mask image. </p><div class="fragment"></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd><a class="el" href="d2/de8/group__core__array.html#gab473bf2eb6d14ff97e89b355dac20707" title="Finds the global minimum and maximum in an array. ">cv.minMaxLoc()</a> which can finds the global minimum and maximum in an array is in ignore_list.</dd></dl>
-<h2>8. Mean Color or Mean Intensity </h2>
+<p>We use the function: <b>cv.minMaxLoc(src, result, mask)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>input single-channel array. </td></tr>
+    <tr><td class="paramname">result</td><td>result include minVal, maxVal, minLoc and maxLoc </td></tr>
+    <tr><td class="paramname">mask</td><td>optional mask used to select a sub-array.</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line">var result = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.MinMaxLocResult();</div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.minMaxLoc(src, result, mask);</div><div class="line">var minVal = result.minVal;</div><div class="line">var maxVal = result.maxVal;</div><div class="line">var minLoc = result.minLoc;</div><div class="line">var maxLoc = result.maxLoc;</div><div class="line">result.delete();</div></div><!-- fragment --><h2>8. Mean Color or Mean Intensity </h2>
 <p>Here, we can find the average color of an object. Or it can be average intensity of the object in grayscale mode. We again use the same mask to do it.</p>
 <p>We use the function: <b>cv.mean(src, mask)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -260,7 +267,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 28 2017 21:09:35 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

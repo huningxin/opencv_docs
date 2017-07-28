@@ -366,7 +366,7 @@ var searchData=
   ['install_20opencv_2djavascript_20in_20ubuntu',['Install OpenCV-JavaScript in Ubuntu',['../tutorial_js_setup_in_ubuntu.html',1,'tutorial_js_table_of_contents_setup']]],
   ['image_20processing_20in_20opencv',['Image Processing in OpenCV',['../tutorial_js_table_of_contents_imgproc.html',1,'tutorial_js_root']]],
   ['introduction_20to_20opencv',['Introduction to OpenCV',['../tutorial_js_table_of_contents_setup.html',1,'tutorial_js_root']]],
-  ['image_20transforms_20in_20opencv_20_28cv_2edft_28_29_20is_20not_20in_20the_20white_20list_29',['Image Transforms in OpenCV (cv.dft() is not in the white list)',['../tutorial_js_table_of_contents_transforms.html',1,'tutorial_js_table_of_contents_imgproc']]],
+  ['image_20transforms_20in_20opencv',['Image Transforms in OpenCV',['../tutorial_js_table_of_contents_transforms.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['image_20thresholding',['Image Thresholding',['../tutorial_js_thresholding.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['image_20segmentation_20with_20watershed_20algorithm',['Image Segmentation with Watershed Algorithm',['../tutorial_js_watershed.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['installation_20in_20linux',['Installation in Linux',['../tutorial_linux_install.html',1,'tutorial_table_of_content_introduction']]],

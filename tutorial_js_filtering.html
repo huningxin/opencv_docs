@@ -158,7 +158,77 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p class="formulaDsp">
 \[K = \frac{1}{25} \begin{bmatrix} 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \end{bmatrix}\]
 </p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="d4/d86/group__imgproc__filter.html#ga27c049795ce870216ddfb366086b5a04" title="Convolves an image with the kernel. ">cv.filter2D()</a> which can convolve an arbitrary kernel with an image is not in the white list.</dd></dl>
+<p>We use the functions: <b><a class="el" href="d4/d86/group__imgproc__filter.html#ga27c049795ce870216ddfb366086b5a04" title="Convolves an image with the kernel. ">cv.filter2D</a> (src, dst, ddepth, kernel, anchor = [-1, -1], delta = 0, borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5afe14c13a4ea8b8e3b3ef399013dbae01" title="same as BORDER_REFLECT_101 ">cv.BORDER_DEFAULT</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>input image. </td></tr>
+    <tr><td class="paramname">dst</td><td>output image of the same size and the same number of channels as src. </td></tr>
+    <tr><td class="paramname">ddepth</td><td>desired depth of the destination image. </td></tr>
+    <tr><td class="paramname">kernel</td><td>convolution kernel (or rather a correlation kernel), a single-channel floating point matrix; if you want to apply different kernels to different channels, split the image into separate color planes using split and process them individually. </td></tr>
+    <tr><td class="paramname">anchor</td><td>anchor of the kernel that indicates the relative position of a filtered point within the kernel; the anchor should lie within the kernel; default value [-1, -1] means that the anchor is at the kernel center. </td></tr>
+    <tr><td class="paramname">delta</td><td>optional value added to the filtered pixels before storing them in dst. </td></tr>
+    <tr><td class="paramname">borderType</td><td>pixel extrapolation method(see <a class="el" href="d2/de8/group__core__array.html#ga209f2f4869e304c82d07739337eae7c5">cv.BorderTypes</a>).</td></tr>
+  </table>
+  </dd>
+</dl>
+<h2>Try it </h2>
+<p>Here is a demo. Canvas elements named filterCanvasInput and filterCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p> 
+<!DOCTYPE html>
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+.err{
+    color: red;
+}
+</style>
+</head>
+<body>
+<div id="filterCodeArea">
+<h2>Input your code</h2>
+<button id="filterTryIt" disabled="true" onclick="filterExecuteCode()">Try it</button><br>
+<textarea rows="7" cols="80" id="filterTestCode" spellcheck="false">
+var src = cv.imread("filterCanvasInput");
+var dst = new cv.Mat();
+var M = cv.Mat.eye(3, 3, cv.CV_32FC1);
+// You can try more different conversion
+cv.filter2D(src, dst, cv.CV_8U, M, [-1, -1], 0, cv.BORDER_DEFAULT);
+cv.imshow("filterCanvasOutput", dst);
+src.delete(); dst.delete(); M.delete();
+</textarea>
+<p class="err" id="filterErr"></p>
+</div>
+<div id="filterShowcase">
+    <div>
+        <canvas id="filterCanvasInput"></canvas>
+        <canvas id="filterCanvasOutput"></canvas>
+    </div>
+    <input type="file" id="filterInput" name="file" />
+</div>
+<script src="utils.js"></script>
+<script async src="opencv.js" id="opencvjs"></script>
+<script>
+function filterExecuteCode() {
+    var filterText = document.getElementById("filterTestCode").value;
+    try {
+        eval(filterText);
+        document.getElementById("filterErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("filterErr").innerHTML = err;
+    }
+}
+
+loadImageToCanvas("lena.jpg", "filterCanvasInput");
+var filterInputElement = document.getElementById("filterInput");
+filterInputElement.addEventListener("change", filterHandleFiles, false);
+function filterHandleFiles(e) {
+    var filterUrl = URL.createObjectURL(e.target.files[0]);
+    loadImageToCanvas(filterUrl, "filterCanvasInput");
+}
+</script>
+</body>
+</p>
 <h2>Image Blurring (Image Smoothing) </h2>
 <p>Image blurring is achieved by convolving the image with a low-pass filter kernel. It is useful for removing noises. It actually removes high frequency content (eg: noise, edges) from the image. So edges are blurred a little bit in this operation. (Well, there are blurring techniques which doesn't blur the edges too). OpenCV provides mainly four types of blurring techniques.</p>
 <h3>1. Averaging</h3>
@@ -198,9 +268,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 canvas {
     border: 1px solid black;
 }
-.err{
-    color: red;
-}
 </style>
 </head>
 <body>
@@ -226,8 +293,6 @@ dst.delete();
     </div>
     <input type="file" id="blurInput" name="file" />
 </div>
-<script src="utils.js"></script>
-<script async src="opencv.js" id="opencvjs"></script>
 <script>
 function blurExecuteCode() {
     var blurText = document.getElementById("blurTestCode").value;
@@ -454,6 +519,7 @@ function onReady() {
     document.getElementById("GaussianBlurTryIt").disabled = false;
     document.getElementById("medianBlurTryIt").disabled = false;
     document.getElementById("bilateralFilterTryIt").disabled = false;
+    document.getElementById("filterTryIt").disabled = false;
 }
 if (typeof cv !== 'undefined') {
     onReady();
@@ -467,7 +533,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 28 2017 21:09:35 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

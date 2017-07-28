@@ -166,7 +166,7 @@ image</div></div>
     <tr><td class="paramname">src</td><td>input image; the number of channels can be arbitrary, but the depth should be one of cv.CV_8U, cv.CV_16U, cv.CV_16S, cv.CV_32F or cv.CV_64F. </td></tr>
     <tr><td class="paramname">dst</td><td>output image of the same size and type as src. </td></tr>
     <tr><td class="paramname">kernel</td><td>structuring element used for erosion. </td></tr>
-    <tr><td class="paramname">anchor</td><td>position of the anchor within the element; default value (-1, -1) means that the anchor is at the element center. </td></tr>
+    <tr><td class="paramname">anchor</td><td>position of the anchor within the element; default value [-1, -1] means that the anchor is at the element center. </td></tr>
     <tr><td class="paramname">iterations</td><td>number of times erosion is applied. </td></tr>
     <tr><td class="paramname">borderType</td><td>pixel extrapolation method(see <a class="el" href="d2/de8/group__core__array.html#ga209f2f4869e304c82d07739337eae7c5">cv.BorderTypes</a>). </td></tr>
     <tr><td class="paramname">borderValue</td><td>border value in case of a constant border</td></tr>
@@ -240,9 +240,9 @@ function erodeHandleFiles(e) {
     <tr><td class="paramname">src</td><td>input image; the number of channels can be arbitrary, but the depth should be one of cv.CV_8U, cv.CV_16U, cv.CV_16S, cv.CV_32F or cv.CV_64F. </td></tr>
     <tr><td class="paramname">dst</td><td>output image of the same size and type as src. </td></tr>
     <tr><td class="paramname">kernel</td><td>structuring element used for dilation. </td></tr>
-    <tr><td class="paramname">anchor</td><td>position of the anchor within the element; default value (-1, -1) means that the anchor is at the element center. </td></tr>
+    <tr><td class="paramname">anchor</td><td>position of the anchor within the element; default value [-1, -1] means that the anchor is at the element center. </td></tr>
     <tr><td class="paramname">iterations</td><td>number of times dilation is applied. </td></tr>
-    <tr><td class="paramname">borderType</td><td>pixel extrapolation method. </td></tr>
+    <tr><td class="paramname">borderType</td><td>pixel extrapolation method(see <a class="el" href="d2/de8/group__core__array.html#ga209f2f4869e304c82d07739337eae7c5">cv.BorderTypes</a>). </td></tr>
     <tr><td class="paramname">borderValue</td><td>border value in case of a constant border</td></tr>
   </table>
   </dd>
@@ -299,9 +299,384 @@ function dilateHandleFiles(e) {
     var dilateUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(dilateUrl, "dilateCanvasInput");
 }
+</script>
+</body>
+</p>
+<h3>3. Opening</h3>
+<p>Opening is just another name of <b>erosion followed by dilation</b>. It is useful in removing noise.</p>
+<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#ga67493776e3ad1a3df63883829375201f" title="Performs advanced morphological transformations. ">cv.morphologyEx</a> (src, dst, op, kernel, anchor = [-1, -1], iterations = 1, borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5aed2e4346047e265c8c5a6d0276dcd838" title="iiiiii|abcdefgh|iiiiiii with some specified i ">cv.BORDER_CONSTANT</a>, borderValue = <a class="el" href="d4/d86/group__imgproc__filter.html#ga94756fad83d9d24d29c9bf478558c40a" title="returns &quot;magic&quot; border value for erosion and dilation. It is automatically transformed to Scalar::all...">cv.morphologyDefaultBorderValue()</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>source image. The number of channels can be arbitrary. The depth should be one of cv.CV_8U, cv.CV_16U, cv.CV_16S, cv.CV_32F or cv.CV_64F </td></tr>
+    <tr><td class="paramname">dst</td><td>destination image of the same size and type as source image. </td></tr>
+    <tr><td class="paramname">op</td><td>type of a morphological operation, (see <a class="el" href="d4/d86/group__imgproc__filter.html#ga7be549266bad7b2e6a04db49827f9f32" title="type of morphological operation ">cv.MorphTypes</a>). </td></tr>
+    <tr><td class="paramname">kernel</td><td>structuring element. It can be created using <a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement</a>. </td></tr>
+    <tr><td class="paramname">anchor</td><td>anchor position with the kernel. Negative values mean that the anchor is at the kernel center. </td></tr>
+    <tr><td class="paramname">iterations</td><td>number of times dilation is applied. </td></tr>
+    <tr><td class="paramname">borderType</td><td>pixel extrapolation method(see <a class="el" href="d2/de8/group__core__array.html#ga209f2f4869e304c82d07739337eae7c5">cv.BorderTypes</a>). </td></tr>
+    <tr><td class="paramname">borderValue</td><td>border value in case of a constant border. The default value has a special meaning.</td></tr>
+  </table>
+  </dd>
+</dl>
+<h2>Try it </h2>
+<p>Here is a demo. Canvas elements named openingCanvasInput and openingCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p> 
+<!DOCTYPE html>
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div id="openingCodeArea">
+<h2>Input your code</h2>
+<button id="openingTryIt" disabled="true" onclick="openingExecuteCode()">Try it</button><br>
+<textarea rows="9" cols="80" id="openingTestCode" spellcheck="false">
+var src = cv.imread("openingCanvasInput");
+var dst = new cv.Mat();
+var M = cv.Mat.ones(5, 5, cv.CV_8U);
+var color = new cv.Scalar();
+// You can try more different conversion
+cv.morphologyEx(src, dst, cv.MORPH_OPEN, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+cv.imshow("openingCanvasOutput", dst);
+src.delete(); dst.delete(); M.delete(); color.delete();
+</textarea>
+<p class="err" id="openingErr"></p>
+</div>
+<div id="openingShowcase">
+    <div>
+        <canvas id="openingCanvasInput"></canvas>
+        <canvas id="openingCanvasOutput"></canvas>
+    </div>
+    <input type="file" id="openingInput" name="file" />
+</div>
+<script>
+function openingExecuteCode() {
+    var openingText = document.getElementById("openingTestCode").value;
+    try {
+        eval(openingText);
+        document.getElementById("openingErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("openingErr").innerHTML = err;
+    }
+}
+
+loadImageToCanvas("LinuxLogo.jpg", "openingCanvasInput");
+var openingInputElement = document.getElementById("openingInput");
+openingInputElement.addEventListener("change", openingHandleFiles, false);
+function openingHandleFiles(e) {
+    var openingUrl = URL.createObjectURL(e.target.files[0]);
+    loadImageToCanvas(openingUrl, "openingCanvasInput");
+}
+</script>
+</body>
+</p>
+<h3>4. Closing</h3>
+<p>Closing is reverse of Opening, <b>Dilation followed by Erosion</b>. It is useful in closing small holes inside the foreground objects, or small black points on the object.</p>
+<h2>Try it </h2>
+<p>Here is a demo. Canvas elements named closingCanvasInput and closingCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p> 
+<!DOCTYPE html>
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div id="closingCodeArea">
+<h2>Input your code</h2>
+<button id="closingTryIt" disabled="true" onclick="closingExecuteCode()">Try it</button><br>
+<textarea rows="9" cols="80" id="closingTestCode" spellcheck="false">
+var src = cv.imread("closingCanvasInput");
+var dst = new cv.Mat();
+var M = cv.Mat.ones(5, 5, cv.CV_8U);
+var color = new cv.Scalar();
+// You can try more different conversion
+cv.morphologyEx(src, dst, cv.MORPH_CLOSE, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+cv.imshow("closingCanvasOutput", dst);
+src.delete(); dst.delete(); M.delete(); color.delete();
+</textarea>
+<p class="err" id="closingErr"></p>
+</div>
+<div id="closingShowcase">
+    <div>
+        <canvas id="closingCanvasInput"></canvas>
+        <canvas id="closingCanvasOutput"></canvas>
+    </div>
+    <input type="file" id="closingInput" name="file" />
+</div>
+<script>
+function closingExecuteCode() {
+    var closingText = document.getElementById("closingTestCode").value;
+    try {
+        eval(closingText);
+        document.getElementById("closingErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("closingErr").innerHTML = err;
+    }
+}
+
+loadImageToCanvas("LinuxLogo.jpg", "closingCanvasInput");
+var closingInputElement = document.getElementById("closingInput");
+closingInputElement.addEventListener("change", closingHandleFiles, false);
+function closingHandleFiles(e) {
+    var closingUrl = URL.createObjectURL(e.target.files[0]);
+    loadImageToCanvas(closingUrl, "closingCanvasInput");
+}
+</script>
+</body>
+</p>
+<h3>5. Morphological Gradient</h3>
+<p>It is the difference between dilation and erosion of an image.</p>
+<p>The result will look like the outline of the object.</p>
+<h2>Try it </h2>
+<p>Here is a demo. Canvas elements named gradientCanvasInput and gradientCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p> 
+<!DOCTYPE html>
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div id="gradientCodeArea">
+<h2>Input your code</h2>
+<button id="gradientTryIt" disabled="true" onclick="gradientExecuteCode()">Try it</button><br>
+<textarea rows="9" cols="80" id="gradientTestCode" spellcheck="false">
+var src = cv.imread("gradientCanvasInput");
+cv.cvtColor(src, src, cv.COLOR_RGBA2RGB);
+var dst = new cv.Mat();
+var M = cv.Mat.ones(5, 5, cv.CV_8U);
+var color = new cv.Scalar();
+// You can try more different conversion
+cv.morphologyEx(src, dst, cv.MORPH_GRADIENT, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+cv.imshow("gradientCanvasOutput", dst);
+src.delete(); dst.delete(); M.delete(); color.delete();
+</textarea>
+<p class="err" id="gradientErr"></p>
+</div>
+<div id="gradientShowcase">
+    <div>
+        <canvas id="gradientCanvasInput"></canvas>
+        <canvas id="gradientCanvasOutput"></canvas>
+    </div>
+    <input type="file" id="gradientInput" name="file" />
+</div>
+<script>
+function gradientExecuteCode() {
+    var gradientText = document.getElementById("gradientTestCode").value;
+    try {
+        eval(gradientText);
+        document.getElementById("gradientErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("gradientErr").innerHTML = err;
+    }
+}
+
+loadImageToCanvas("LinuxLogo.jpg", "gradientCanvasInput");
+var gradientInputElement = document.getElementById("gradientInput");
+gradientInputElement.addEventListener("change", gradientHandleFiles, false);
+function gradientHandleFiles(e) {
+    var gradientUrl = URL.createObjectURL(e.target.files[0]);
+    loadImageToCanvas(gradientUrl, "gradientCanvasInput");
+}
+</script>
+</body>
+</p>
+<h3>6. Top Hat</h3>
+<p>It is the difference between input image and Opening of the image.</p>
+<h2>Try it </h2>
+<p>Here is a demo. Canvas elements named topHatCanvasInput and topHatCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p> 
+<!DOCTYPE html>
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div id="topHatCodeArea">
+<h2>Input your code</h2>
+<button id="topHatTryIt" disabled="true" onclick="topHatExecuteCode()">Try it</button><br>
+<textarea rows="9" cols="80" id="topHatTestCode" spellcheck="false">
+var src = cv.imread("topHatCanvasInput");
+cv.cvtColor(src, src, cv.COLOR_RGBA2RGB);
+var dst = new cv.Mat();
+var M = cv.Mat.ones(5, 5, cv.CV_8U);
+var color = new cv.Scalar();
+// You can try more different conversion
+cv.morphologyEx(src, dst, cv.MORPH_TOPHAT, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+cv.imshow("topHatCanvasOutput", dst);
+src.delete(); dst.delete(); M.delete(); color.delete();
+</textarea>
+<p class="err" id="topHatErr"></p>
+</div>
+<div id="topHatShowcase">
+    <div>
+        <canvas id="topHatCanvasInput"></canvas>
+        <canvas id="topHatCanvasOutput"></canvas>
+    </div>
+    <input type="file" id="topHatInput" name="file" />
+</div>
+<script>
+function topHatExecuteCode() {
+    var topHatText = document.getElementById("topHatTestCode").value;
+    try {
+        eval(topHatText);
+        document.getElementById("topHatErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("topHatErr").innerHTML = err;
+    }
+}
+
+loadImageToCanvas("LinuxLogo.jpg", "topHatCanvasInput");
+var topHatInputElement = document.getElementById("topHatInput");
+topHatInputElement.addEventListener("change", topHatHandleFiles, false);
+function topHatHandleFiles(e) {
+    var topHatUrl = URL.createObjectURL(e.target.files[0]);
+    loadImageToCanvas(topHatUrl, "topHatCanvasInput");
+}
+</script>
+</body>
+</p>
+<h3>7. Black Hat</h3>
+<p>It is the difference between the closing of the input image and input image.</p>
+<h2>Try it </h2>
+<p>Here is a demo. Canvas elements named blackHatCanvasInput and blackHatCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p> 
+<!DOCTYPE html>
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div id="blackHatCodeArea">
+<h2>Input your code</h2>
+<button id="blackHatTryIt" disabled="true" onclick="blackHatExecuteCode()">Try it</button><br>
+<textarea rows="9" cols="80" id="blackHatTestCode" spellcheck="false">
+var src = cv.imread("blackHatCanvasInput");
+cv.cvtColor(src, src, cv.COLOR_RGBA2RGB);
+var dst = new cv.Mat();
+var M = cv.Mat.ones(5, 5, cv.CV_8U);
+var color = new cv.Scalar();
+// You can try more different conversion
+cv.morphologyEx(src, dst, cv.MORPH_BLACKHAT, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+cv.imshow("blackHatCanvasOutput", dst);
+src.delete(); dst.delete(); M.delete(); color.delete();
+</textarea>
+<p class="err" id="blackHatErr"></p>
+</div>
+<div id="blackHatShowcase">
+    <div>
+        <canvas id="blackHatCanvasInput"></canvas>
+        <canvas id="blackHatCanvasOutput"></canvas>
+    </div>
+    <input type="file" id="blackHatInput" name="file" />
+</div>
+<script>
+function blackHatExecuteCode() {
+    var blackHatText = document.getElementById("blackHatTestCode").value;
+    try {
+        eval(blackHatText);
+        document.getElementById("blackHatErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("blackHatErr").innerHTML = err;
+    }
+}
+
+loadImageToCanvas("LinuxLogo.jpg", "blackHatCanvasInput");
+var blackHatInputElement = document.getElementById("blackHatInput");
+blackHatInputElement.addEventListener("change", blackHatHandleFiles, false);
+function blackHatHandleFiles(e) {
+    var blackHatUrl = URL.createObjectURL(e.target.files[0]);
+    loadImageToCanvas(blackHatUrl, "blackHatCanvasInput");
+}
+</script>
+</body>
+</p>
+<h2>Structuring Element </h2>
+<p>We manually created a structuring elements in the previous examples with help of <a class="el" href="d3/d63/classcv_1_1Mat.html#a69ae0402d116fc9c71908d8508dc2f09" title="Returns an array of all 1&#39;s of the specified size and type. ">cv.Mat.ones</a>. It is rectangular shape. But in some cases, you may need elliptical/circular shaped kernels. So for this purpose, OpenCV has a function, <b><a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement()</a></b>. You just pass the shape and size of the kernel, you get the desired kernel.</p>
+<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement</a> (shape, ksize, anchor = [-1, -1])</b> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shape</td><td>element shape that could be one of <a class="el" href="d4/d86/group__imgproc__filter.html#gac2db39b56866583a95a5680313c314ad" title="shape of the structuring element ">cv.MorphShapes</a> </td></tr>
+    <tr><td class="paramname">ksize</td><td>size of the structuring element. </td></tr>
+    <tr><td class="paramname">anchor</td><td>anchor position within the element. The default value [−1,−1] means that the anchor is at the center. Note that only the shape of a cross-shaped element depends on the anchor position. In other cases the anchor just regulates how much the result of the morphological operation is shifted.</td></tr>
+  </table>
+  </dd>
+</dl>
+<h2>Try it </h2>
+<p>Here is a demo. Canvas elements named getStructuringElementCanvasInput and getStructuringElementCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p> 
+<!DOCTYPE html>
+<head>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<div id="getStructuringElementCodeArea">
+<h2>Input your code</h2>
+<button id="getStructuringElementTryIt" disabled="true" onclick="getStructuringElementExecuteCode()">Try it</button><br>
+<textarea rows="9" cols="80" id="getStructuringElementTestCode" spellcheck="false">
+var src = cv.imread("getStructuringElementCanvasInput");
+cv.cvtColor(src, src, cv.COLOR_RGBA2RGB);
+var dst = new cv.Mat();
+var M = new cv.Mat();
+var color = new cv.Scalar();
+// You can try more different conversion
+M = cv.getStructuringElement(cv.MORPH_CROSS, [5, 5]);
+cv.morphologyEx(src, dst, cv.MORPH_GRADIENT, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+cv.imshow("getStructuringElementCanvasOutput", dst);
+src.delete(); dst.delete(); M.delete(); color.delete();
+</textarea>
+<p class="err" id="getStructuringElementErr"></p>
+</div>
+<div id="getStructuringElementShowcase">
+    <div>
+        <canvas id="getStructuringElementCanvasInput"></canvas>
+        <canvas id="getStructuringElementCanvasOutput"></canvas>
+    </div>
+    <input type="file" id="getStructuringElementInput" name="file" />
+</div>
+<script>
+function getStructuringElementExecuteCode() {
+    var getStructuringElementText = document.getElementById("getStructuringElementTestCode").value;
+    try {
+        eval(getStructuringElementText);
+        document.getElementById("getStructuringElementErr").innerHTML = " ";
+    } catch(err) {
+        document.getElementById("getStructuringElementErr").innerHTML = err;
+    }
+}
+
+loadImageToCanvas("LinuxLogo.jpg", "getStructuringElementCanvasInput");
+var getStructuringElementInputElement = document.getElementById("getStructuringElementInput");
+getStructuringElementInputElement.addEventListener("change", getStructuringElementHandleFiles, false);
+function getStructuringElementHandleFiles(e) {
+    var getStructuringElementUrl = URL.createObjectURL(e.target.files[0]);
+    loadImageToCanvas(getStructuringElementUrl, "getStructuringElementCanvasInput");
+}
 function onReady() {
-    document.getElementById("erodeTryIt").disabled = false;
     document.getElementById("dilateTryIt").disabled = false;
+    document.getElementById("erodeTryIt").disabled = false;
+    document.getElementById("openingTryIt").disabled = false;
+    document.getElementById("closingTryIt").disabled = false;
+    document.getElementById("gradientTryIt").disabled = false;
+    document.getElementById("topHatTryIt").disabled = false;
+    document.getElementById("blackHatTryIt").disabled = false;
+    document.getElementById("getStructuringElementTryIt").disabled = false;
 }
 if (typeof cv !== 'undefined') {
     onReady();
@@ -310,27 +685,12 @@ if (typeof cv !== 'undefined') {
 }
 </script>
 </body>
-</p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="d4/d86/group__imgproc__filter.html#ga67493776e3ad1a3df63883829375201f" title="Performs advanced morphological transformations. ">cv.morphologyEx()</a> which can do Opening, Closing, Morphological Gradient and Top Hat morphological operation is not in the white list.</dd></dl>
-<h3>3. Opening</h3>
-<p>Opening is just another name of <b>erosion followed by dilation</b>. It is useful in removing noise, as we explained above.</p>
-<h3>4. Closing</h3>
-<p>Closing is reverse of Opening, <b>Dilation followed by Erosion</b>. It is useful in closing small holes inside the foreground objects, or small black points on the object.</p>
-<h3>5. Morphological Gradient</h3>
-<p>It is the difference between dilation and erosion of an image.</p>
-<p>The result will look like the outline of the object.</p>
-<h3>6. Top Hat</h3>
-<p>It is the difference between input image and Opening of the image.</p>
-<h3>7. Black Hat</h3>
-<p>It is the difference between the closing of the input image and input image.</p>
-<h2>Structuring Element </h2>
-<p>We manually created a structuring elements in the previous examples with help of Numpy. It is rectangular shape. But in some cases, you may need elliptical/circular shaped kernels. So for this purpose, OpenCV has a function, <b><a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement()</a></b>. You just pass the shape and size of the kernel, you get the desired kernel.</p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement()</a> which can generate elliptical/circular shaped kernels in morphological operation is not in the white list. </dd></dl>
+ </p>
 </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 26 2017 14:45:23 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 28 2017 21:09:35 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

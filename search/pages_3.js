@@ -19,6 +19,7 @@ var searchData=
   ['contour_20properties',['Contour Properties',['../tutorial_js_contour_properties.html',1,'tutorial_js_table_of_contents_contours']]],
   ['contours_20_3a_20getting_20started',['Contours : Getting Started',['../tutorial_js_contours_begin.html',1,'tutorial_js_table_of_contents_contours']]],
   ['contours_20hierarchy',['Contours Hierarchy',['../tutorial_js_contours_hierarchy.html',1,'tutorial_js_table_of_contents_contours']]],
+  ['contours_20_3a_20more_20functions',['Contours : More Functions',['../tutorial_js_contours_more_functions.html',1,'tutorial_js_table_of_contents_contours']]],
   ['contours_20in_20opencv',['Contours in OpenCV',['../tutorial_js_table_of_contents_contours.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['camera_20calibration',['Camera Calibration',['../tutorial_py_calibration.html',1,'tutorial_py_table_of_contents_calib3d']]],
   ['canny_20edge_20detection',['Canny Edge Detection',['../tutorial_py_canny.html',1,'tutorial_py_table_of_contents_imgproc']]],
