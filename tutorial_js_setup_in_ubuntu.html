@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>OpenCV: Install OpenCV-JavaScript in Ubuntu</title>
+<title>OpenCV: Install OpenCV-JavaScript</title>
 <link href="opencv.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -137,24 +137,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV-JavaScript Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_setup.html">Introduction to OpenCV</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Install OpenCV-JavaScript in Ubuntu </div>  </div>
+<div class="title">Install OpenCV-JavaScript </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Installing Dependencies </h2>
 <p>First we will install some dependencies.</p>
 <h3>Emscripten</h3>
-<p>Install emscripten. You can obtain emscripten by using <a href="https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html">Emscripten SDK</a>. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;./emsdk update</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;./emsdk install sdk-master-64bit --shallow</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;./emsdk activate sdk-master-64bit</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;source ./emsdk_env.sh</div></div><!-- fragment --><p> Patch Emscripten &amp; Rebuild. //todo </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;patch -p1 &lt; PATH/TO/patch_emscripten_master.diff</div></div><!-- fragment --><p> Rebuild emscripten </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;./emsdk install sdk-master-64bit --shallow</div></div><!-- fragment --><h3>Node.js</h3>
-<p>//todo</p>
-<h3>Downloading OpenCV</h3>
-<p>You can download the latest release of OpenCV from <a href="http://sourceforge.net/projects/opencvlibrary/">sourceforge site</a>. Then extract the folder.</p>
-<p>Or you can download latest source from OpenCV's github repo. (If you want to contribute to OpenCV, choose this. It always keeps your OpenCV up-to-date). For that, you need to install <b>Git</b> first. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;apt-get install git</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;git clone https://github.com/opencv/opencv.git</div></div><!-- fragment --><p> It will create a folder OpenCV in home directory (or the directory you specify). The cloning may take some time depending upon your internet connection.</p>
+<p>Install emscripten. You can obtain emscripten by using <a href="https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html">Emscripten SDK</a>. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;./emsdk update</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;./emsdk install sdk-master-64bit --shallow</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;./emsdk activate sdk-master-64bit</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;source ./emsdk_env.sh</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;### Node.js</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;//todo</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;### Downloading OpenCV</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;You can download the latest release of OpenCV from [sourceforge</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;site](http://sourceforge.net/projects/opencvlibrary/). Then extract the folder.</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;Or you can download latest source from OpenCV&#39;s github repo. (If you want to contribute to OpenCV,</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;choose this. It always keeps your OpenCV up-to-date). For that, you need to install **Git** first.</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;@code{.sh}</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;apt-get install git</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;git clone https://github.com/opencv/opencv.git</div></div><!-- fragment --><p> It will create a folder OpenCV in home directory (or the directory you specify). The cloning may take some time depending upon your internet connection.</p>
 <p>Now open a terminal window and navigate to the downloaded OpenCV folder. Create a new build folder and navigate to it. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;mkdir build_js</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;cd build_js</div></div><!-- fragment --> <h3>Configuring and Building</h3>
 <p>Build </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd opencv</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;mkdir build_js</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;cd build_js</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;cmake -D CMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake -D CMAKE_BUILD_TYPE=Debug -D CMAKE_INSTALL_PREFIX=/usr/local ..</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;make -j7</div></div><!-- fragment --><p> Test in browser </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd bin</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;python server.py</div></div><!-- fragment --><p>Launch browser to <code><a href="http://localhost:8000">http://localhost:8000</a></code>.</p>
 <p>Tests include:</p><ul>
@@ -167,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 28 2017 21:09:35 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 31 2017 16:28:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

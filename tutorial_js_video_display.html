@@ -158,24 +158,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>a &lt;canvas&gt; to transfer video to canvas ImageData frame-by-frame</li>
 <li>another &lt;canvas&gt; to display the video OpenCV-JavaScript gets</li>
 </ul>
-<p>Fisrt, we use WebRTC navigator.mediaDevices.getUserMedia to get the media stream. </p><div class="fragment"><div class="line">var video = document.getElementById(<span class="stringliteral">&quot;video&quot;</span>); <span class="comment">// video is the id of &lt;video&gt;</span></div><div class="line">navigator.mediaDevices.getUserMedia({ video: <span class="keyword">true</span>, audio: <span class="keyword">false</span> })</div><div class="line">    .then(<span class="keyword">function</span>(stream) {</div><div class="line">        video.srcObject = stream;</div><div class="line">        video.play();</div><div class="line">    })</div><div class="line">    .<span class="keywordflow">catch</span>(<span class="keyword">function</span>(err) {</div><div class="line">        console.log(<span class="stringliteral">&quot;An error occured! &quot;</span> + err);</div><div class="line">});</div></div><!-- fragment --><h2>Playing video </h2>
+<p>Fisrt, we use WebRTC navigator.mediaDevices.getUserMedia to get the media stream. </p><div class="fragment"><div class="line">var video = document.getElementById(<span class="stringliteral">&quot;video&quot;</span>); <span class="comment">// video is the id of &lt;video&gt;</span></div><div class="line">navigator.mediaDevices.getUserMedia({ video: <span class="keyword">true</span>, audio: <span class="keyword">false</span> })</div><div class="line">    .then(<span class="keyword">function</span>(stream) {</div><div class="line">        video.srcObject = stream;</div><div class="line">        video.play();</div><div class="line">    })</div><div class="line">    .<span class="keywordflow">catch</span>(<span class="keyword">function</span>(err) {</div><div class="line">        console.log(<span class="stringliteral">&quot;An error occured! &quot;</span> + err);</div><div class="line">});</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>This function is needless when you just capture video from a video file. But notice that &lt;video&gt; tag only supports video formats of Ogg(Theora), WebM(VP8/VP9) or MP4(H.264).</dd></dl>
+<h2>Playing video </h2>
 <p>Now, the browser gets the camera stream. Then we use CanvasRenderingContext2D.drawImage() method of the Canvas 2D API to draw video onto the canvas. Finally, we can use the method in <a class="el" href="tutorial_js_image_display.html">Getting Started with Images</a> to read and display image in canvas. For playing video, <a class="el" href="d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563" title="Displays an image in the specified window. ">cv.imshow()</a> should be executed every delay milliseconds. We recommend setInterval() method. And if the video is 30fps, the delay milliseconds should be 33. </p><div class="fragment"><div class="line">var canvasFrame = document.getElementById(<span class="stringliteral">&quot;canvasFrame&quot;</span>); <span class="comment">// canvasFrame is the id of &lt;canvas&gt;</span></div><div class="line">var context = canvasFrame.getContext(<span class="stringliteral">&quot;2d&quot;</span>);</div><div class="line">var src = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>(height, width, <a class="code" href="d2/d75/namespacecv.html">cv</a>.CV_8UC4);</div><div class="line">var dst = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>(height, width, <a class="code" href="d2/d75/namespacecv.html">cv</a>.CV_8UC1);</div><div class="line">var loopIndex = setInterval(</div><div class="line">    <span class="keyword">function</span>() {</div><div class="line">        context.drawImage(video, 0, 0, width, height);</div><div class="line">        src.data().set(context.getImageData(0, 0, width, height).data);</div><div class="line">        <a class="code" href="d2/d75/namespacecv.html">cv</a>.cvtColor(src, dst, <a class="code" href="d2/d75/namespacecv.html">cv</a>.COLOR_RGBA2GRAY, 0);</div><div class="line">        <a class="code" href="d2/d75/namespacecv.html">cv</a>.imshow(<span class="stringliteral">&quot;canvasOutput&quot;</span>, dst); <span class="comment">// canvasOutput is the id of another &lt;canvas&gt;;</span></div><div class="line">    }, 33);</div></div><!-- fragment --><p> In addition, remember delete src and dst after clearInterval(loopIndex).</p>
 <h2>Try it </h2>
 <p>Here is the demo for above code. Click <code>start</code> to start your camera and paly it. The left video is from your camera directly, and the right one is from OpenCV-JavaScript. Click <code>processing</code> to gray the video. Here we set the video width as 320, and the height will be computed based on the input stream. Another tip is that the &lt;canvas&gt; used to draw video stream should be hidden. Some core code is in the textbox, and you can change it to investigate more.</p>
 <p> 
 <head>
 <style>
-.hiddenCanvas {
-    display:none;
-}
-.contentarea {
-    display:inline;
-}
 canvas {
     border: 1px solid black;
 }
 video {
     border: 1px solid black;
+}
+.err {
+    color: red;
 }
 </style>
 </head>
@@ -190,11 +188,10 @@ src.data().set(context.getImageData(0, 0, width, height).data);
 cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY, 0);
 cv.imshow("canvasOutput", dst);
 </textarea>
-</div><br>
-
-<div class="hiddenCanvas">
-<canvas id="canvasFrame"></canvas>
+<p class="err" id="vdErr"></p>
 </div>
+<canvas id="canvasFrame" hidden></canvas>
+
 <div id="contentarea">
     <button id="startup" disabled="true" onclick="startup()">start</button>
     <input type="checkbox" id="checkbox" disabled="true" onchange="checkboxChange()">processing</input>
@@ -282,7 +279,12 @@ function playProcessedVideo() {
     loopIndex = setInterval(
         function() {
             var text = document.getElementById("TestCode").value;
-            eval(text);
+            try {
+                eval(text);
+                document.getElementById("vdErr").innerHTML = " ";
+            } catch(err) {
+                document.getElementById("vdErr").innerHTML = err;
+            }
         }, 33);
 }
 
@@ -316,7 +318,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 28 2017 21:09:35 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 1 2017 18:03:06 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
