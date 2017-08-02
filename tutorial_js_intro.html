@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>OpenCV: Introduction to OpenCV-JavaScript and Tutorials</title>
+<title>OpenCV: Introduction to OpenCV.js and Tutorials</title>
 <link href="opencv.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -139,35 +139,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV-JavaScript Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_setup.html">Introduction to OpenCV-JavaScript</a></li>  </ul>
+<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_setup.html">Introduction to OpenCV.js</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Introduction to OpenCV-JavaScript and Tutorials </div>  </div>
+<div class="title">Introduction to OpenCV.js and Tutorials </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>OpenCV </h2>
 <p>OpenCV was started at Intel in 1999 by <b>Gary Bradsky</b>, and the first release came out in 2000. <b>Vadim Pisarevsky</b> joined Gary Bradsky to manage Intel's Russian software OpenCV team. In 2005, OpenCV was used on Stanley, the vehicle that won the 2005 DARPA Grand Challenge. Later, its active development continued under the support of Willow Garage with Gary Bradsky and Vadim Pisarevsky leading the project. OpenCV now supports a multitude of algorithms related to Computer Vision and Machine Learning and is expanding day by day.</p>
 <p>OpenCV supports a wide variety of programming languages such as C++, Python, Java, JavaScript etc., and is available on different platforms including Windows, Linux, OS X, Android, iOS and Web Browsers. Interfaces for high-speed GPU operations based on CUDA and OpenCL are also under active development.</p>
-<h2>OpenCV-JavaScript </h2>
+<h2>OpenCV.js </h2>
 <p>Web is the most ubiquitous open computing platform. With HTML5 standards get implemented in every browser, web applications are able to render online video with HTML5 video tag, capture the video from web camera via WebRTC API and access each pixel of video frame via canvas API. With these huge multimedia contents available on web, web developers are in need of wide array of image and vision processing algorithms in JavaScript to build innovative applications, such as facial detection in live WebRTC streaming. And this requirement is even more essential for emerging usages on web, such as Web Virtual Reality and Augmented Reality (WebVR). All these use cases demand efficient implementations of computer-intensive vision kernels on web.</p>
 <p><a href="http://kripken.github.io/emscripten-site">Emscripten</a> is an LLVM-to-JavaScript compiler. It takes LLVM bitcode - which can be generated from C/C++, using clang, and compiles that into a subset of JavaScript - asm.js. asm.js is an intermediate programming language designed to allow computer software written in languages such as C to be run as web applications while maintaining performance characteristics considerably better than standard JavaScript, the typical language used for such applications. The performance of asm.js is improved by limiting language features of JavaScript to those amenable to ahead-of-time optimization and other performance improvements.</p>
-<p>OpenCV-JavaScript is the JavaScript API binding for OpenCV. It allows emerging web applications with multimedia processing to benefit from the wide variety of vision functions available in OpenCV. OpenCV-JavaScript leverages Emscripten, compiles OpenCV functions' implementation into asm.js and exposes JavaScript APIs for web applications use. The future version will support WebAssembly and other acceleration APIs available on Web.</p>
-<p>OpenCV-JavaScript is based on <a href="https://github.com/ucisysarch/opencvjs">OpenCV.js</a>, the pioneer project initiated in Parallel Architectures and Systems Group at University of California Irvine.</p>
-<h2>OpenCV-JavaScript Tutorials </h2>
-<p>OpenCV introduces a new set of tutorials which will guide you through various functions available in OpenCV-JavaScript. <b>This guide is mainly focused on OpenCV 3.x version</b>.</p>
-<p>The purposes of OpenCV-JavaScript tutorials include</p><ol type="1">
+<p>OpenCV.js is the JavaScript binding for a subset of OpenCV. It allows emerging web applications with multimedia processing to benefit from the wide variety of vision functions available in OpenCV. OpenCV.js leverages Emscripten, compiles OpenCV functions' implementation into asm.js and exposes JavaScript APIs for web applications use. The future version will support WebAssembly and other acceleration APIs available on Web.</p>
+<p>OpenCV.js was initiated in Parallel Architectures and Systems Group at University of California Irvine (UCI), funded by Intel Corportation. OpenCV.js got improved and integrated into OpenCV project as part of Google Summer of Code 2017 projects.</p>
+<h2>OpenCV.js Tutorials </h2>
+<p>OpenCV introduces a new set of tutorials which will guide you through various functions available in OpenCV.js. <b>This guide is mainly focused on OpenCV 3.x version</b>.</p>
+<p>The purposes of OpenCV.js tutorials include</p><ol type="1">
 <li>Help with adaptability of OpenCV in web development</li>
 <li>Help the web community, developers and computer vision researcher to interactively access variety of web based OpenCV examples to help them understand specific vision algorithm.</li>
 </ol>
-<p>As OpenCV-JavaScript is able to run directly inside browser, the OpenCV-JavaScript tutorial web pages are intuitive and interactive. For example, by using WebRTC API and evaluation of JavaScript code, it would allow developers to change the parameters of CV functions and even do live CV coding on web pages to see the results in real time.</p>
+<p>As OpenCV.js is able to run directly inside browser, the OpenCV.js tutorial web pages are intuitive and interactive. For example, by using WebRTC API and evaluation of JavaScript code, it would allow developers to change the parameters of CV functions and even do live CV coding on web pages to see the results in real time.</p>
 <p>Prior knowledge of JavaScript and web application development is recommended as they won't be covered in this guide.</p>
 <h2>Contributors </h2>
-<p>Below is the list of contributors of OpenCV-JavaScript bindings and tutorials.</p>
+<p>Below is the list of contributors of OpenCV.js bindings and tutorials.</p>
 <ol type="1">
 <li>Sajjad Taheri (Google Summer of Code 2017 mentor, University of California, Irvine)</li>
 <li>Congxiang Pan (Google Summer of Code 2017 intern, Shanghai Jiao Tong University)</li>
+<li>Gang Song (Google Summer of Code 2017 intern, Shanghai Jiao Tong University)</li>
 <li>Wenyao Gan (Shanghai Jiao Tong University)</li>
 <li>Mohammad Reza Haghighat (Intel Corporation)</li>
 <li>Ningxin Hu (Intel Corporation) </li>
@@ -176,7 +177,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 1 2017 18:03:06 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 2 2017 14:38:30 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

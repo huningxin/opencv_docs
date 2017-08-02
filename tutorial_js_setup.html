@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>OpenCV: Install OpenCV-JavaScript</title>
+<title>OpenCV: Build OpenCV.js</title>
 <link href="opencv.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -139,16 +139,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV-JavaScript Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_setup.html">Introduction to OpenCV-JavaScript</a></li>  </ul>
+<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_setup.html">Introduction to OpenCV.js</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Install OpenCV-JavaScript </div>  </div>
+<div class="title">Build OpenCV.js </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Installing Emscripten </h2>
-<p><a href="https://github.com/kripken/emscripten">Emscripten</a> is an LLVM-to-JavaScript compiler. We will use Emscripten to build OpenCV-JavaScript.</p>
+<p><a href="https://github.com/kripken/emscripten">Emscripten</a> is an LLVM-to-JavaScript compiler. We will use Emscripten to build OpenCV.js.</p>
 <p>To Install emscripten, you can follow instructions of <a href="https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html">Emscripten SDK</a>.</p>
 <p>For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;./emsdk update</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;./emsdk install latest</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;./emsdk activate latest</div></div><!-- fragment --><p>After install, please make sure the <code>EMSCRIPTEN</code> environment is setup correctly.</p>
 <p>For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source ./emsdk_env.sh</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;echo ${EMSCRIPTEN}</div></div><!-- fragment --><h2>Getting OpenCV Source Code </h2>
@@ -161,11 +161,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3>Getting the Cutting-edge OpenCV from the Git Repository</h3>
 <p>Launch Git client and clone <a href="http://github.com/opencv/opencv">OpenCV repository</a>. If you need modules from <a href="http://github.com/opencv/opencv_contrib">OpenCV contrib repository</a> then clone it as well.</p>
 <p>For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ~/&lt;my_working_directory&gt;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;git clone https://github.com/opencv/opencv.git</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>You may need to install <code>git</code> for your development environment.</dd></dl>
-<h2>Building OpenCV-JavaScript from Source Using CMake </h2>
+<h2>Building OpenCV.js from Source Using CMake </h2>
 <ol type="1">
 <li><p class="startli">Create a temporary directory, which we denote as &lt;cmake_build_dir&gt;, where you want to put the generated Makefiles, project files as well the object files and output files and enter there.</p>
 <p class="startli">For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ~/opencv</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;mkdir build_js</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;cd build_js</div></div><!-- fragment --></li>
-<li><p class="startli">Configuring. Run cmake [&lt;some optional parameters&gt;] &lt;path to the OpenCV source directory&gt; To build OpenCV-JavaScript, you need to append <code>-D CMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake</code>.</p>
+<li><p class="startli">Configuring. Run cmake [&lt;some optional parameters&gt;] &lt;path to the OpenCV source directory&gt; To build OpenCV.js, you need to append <code>-D CMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake</code>.</p>
 <p class="startli">For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cmake -D CMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>You may need to install <code>cmake</code> for your development environment.</dd>
 <dd>
 Use <code>cmake -DCMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..</code> , without spaces after -D if the above example doesn't work.</dd></dl>
@@ -187,7 +187,7 @@ Use <code>cmake -DCMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emsc
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 1 2017 18:03:06 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 2 2017 14:38:30 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

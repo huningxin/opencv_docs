@@ -5,7 +5,7 @@ var searchData=
   ['using_20a_20cv_3a_3acuda_3a_3agpumat_20with_20thrust',['Using a cv::cuda::GpuMat with thrust',['../tutorial_gpu_thrust_interop.html',1,'tutorial_table_of_content_gpu']]],
   ['using_20creative_20senz3d_20and_20other_20intel_20perceptual_20computing_20sdk_20compatible_20depth_20sensors',['Using Creative Senz3D and other Intel Perceptual Computing SDK compatible depth sensors',['../tutorial_intelperc.html',1,'tutorial_table_of_content_videoio']]],
   ['using_20opencv_20java_20with_20eclipse',['Using OpenCV Java with Eclipse',['../tutorial_java_eclipse.html',1,'tutorial_table_of_content_introduction']]],
-  ['using_20opencv_2djavascript',['Using OpenCV-JavaScript',['../tutorial_js_usage.html',1,'tutorial_js_table_of_contents_setup']]],
+  ['using_20opencv_2ejs',['Using OpenCV.js',['../tutorial_js_usage.html',1,'tutorial_js_table_of_contents_setup']]],
   ['using_20kinect_20and_20other_20openni_20compatible_20depth_20sensors',['Using Kinect and other OpenNI compatible depth sensors',['../tutorial_kinect_openni.html',1,'tutorial_table_of_content_videoio']]],
   ['using_20opencv_20with_20eclipse_20_28plugin_20cdt_29',['Using OpenCV with Eclipse (plugin CDT)',['../tutorial_linux_eclipse.html',1,'tutorial_table_of_content_introduction']]],
   ['using_20opencv_20with_20gcc_20and_20cmake',['Using OpenCV with gcc and CMake',['../tutorial_linux_gcc_cmake.html',1,'tutorial_table_of_content_introduction']]],

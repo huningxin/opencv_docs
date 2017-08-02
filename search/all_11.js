@@ -277,7 +277,7 @@ var searchData=
   ['opencv_20ios_20hello',['OpenCV iOS Hello',['../tutorial_hello.html',1,'tutorial_table_of_content_ios']]],
   ['opencv_20ios_20_2d_20image_20processing',['OpenCV iOS - Image Processing',['../tutorial_image_manipulation.html',1,'tutorial_table_of_content_ios']]],
   ['optical_20flow',['Optical Flow',['../tutorial_js_lucas_kanade.html',1,'tutorial_js_table_of_contents_video']]],
-  ['opencv_2djavascript_20tutorials',['OpenCV-JavaScript Tutorials',['../tutorial_js_root.html',1,'']]],
+  ['opencv_2ejs_20tutorials',['OpenCV.js Tutorials',['../tutorial_js_root.html',1,'']]],
   ['object_20detection',['Object Detection',['../tutorial_js_table_of_contents_objdetect.html',1,'tutorial_js_root']]],
   ['operations_20with_20images',['Operations with images',['../tutorial_mat_operations.html',1,'tutorial_table_of_content_core']]],
   ['opencv4android_20sdk',['OpenCV4Android SDK',['../tutorial_O4A_SDK.html',1,'tutorial_table_of_content_introduction']]],

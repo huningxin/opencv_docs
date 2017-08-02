@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>OpenCV: Using OpenCV-JavaScript</title>
+<title>OpenCV: Using OpenCV.js</title>
 <link href="opencv.ico" rel="shortcut icon" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -139,49 +139,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV-JavaScript Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_setup.html">Introduction to OpenCV-JavaScript</a></li>  </ul>
+<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_setup.html">Introduction to OpenCV.js</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Using OpenCV-JavaScript </div>  </div>
+<div class="title">Using OpenCV.js </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><dl class="section note"><dt>Note</dt><dd>We assume that you have successfully installed or built <code>opencv.js</code> in your workstation.</dd></dl>
-<h2>Steps </h2>
+<div class="textblock"><h2>Steps </h2>
+<p>In this tutorial, you will see how to include and start to use <code>opencv.js</code> inside a web page.</p>
 <h3>Create a web page uploading and displaying image</h3>
-<p>First, let's create a simple web page which is able to upload and display an image. </p><div class="fragment"><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">&lt;h1&gt;My First OpenCV.js Web Page&lt;/h1&gt;</div><div class="line"></div><div class="line">&lt;div&gt;</div><div class="line">    &lt;img <span class="keywordtype">id</span>=<span class="stringliteral">&#39;srcImage&#39;</span>&gt;&lt;/img&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;input type=<span class="stringliteral">&#39;file&#39;</span> <span class="keywordtype">id</span>=<span class="stringliteral">&#39;fileInput&#39;</span> accept=<span class="stringliteral">&#39;image/gif, image/jpeg, image/png&#39;</span>/&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">let imgElement = document.getElementById(<span class="stringliteral">&#39;srcImage&#39;</span>)</div><div class="line">let inputElement = document.getElementById(<span class="stringliteral">&#39;fileInput&#39;</span>);</div><div class="line">inputElement.addEventListener(<span class="stringliteral">&quot;change&quot;</span>, (e) =&gt; {</div><div class="line">  imgElement.src = URL.createObjectURL(e.target.files[0]);</div><div class="line">}, <span class="keyword">false</span>);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></div><!-- fragment --><p>You can copy above content and save to a local index.html file. To run it, please open it by the web browser.</p>
+<p>First, let's create a simple web page which is able to upload and display an image.</p>
+<div class="fragment"><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">&lt;h1&gt;My First OpenCV.js Web Page&lt;/h1&gt;</div><div class="line"></div><div class="line">&lt;div&gt;</div><div class="line">    &lt;img <span class="keywordtype">id</span>=<span class="stringliteral">&#39;srcImage&#39;</span>&gt;&lt;/img&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;input type=<span class="stringliteral">&#39;file&#39;</span> <span class="keywordtype">id</span>=<span class="stringliteral">&#39;fileInput&#39;</span> accept=<span class="stringliteral">&#39;image/gif, image/jpeg, image/png&#39;</span>/&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">let imgElement = document.getElementById(<span class="stringliteral">&#39;srcImage&#39;</span>)</div><div class="line">let inputElement = document.getElementById(<span class="stringliteral">&#39;fileInput&#39;</span>);</div><div class="line">inputElement.addEventListener(<span class="stringliteral">&quot;change&quot;</span>, (e) =&gt; {</div><div class="line">  imgElement.src = URL.createObjectURL(e.target.files[0]);</div><div class="line">}, <span class="keyword">false</span>);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></div><!-- fragment --><p>You can copy above content and save to a local index.html file. To run it, just open it by the web browser.</p>
 <dl class="section note"><dt>Note</dt><dd>It is a better practice that is hosting the index.html by a local web server.</dd></dl>
-<p>An embedded version is shown below. You can upload an image from filesystem to display on the web page.</p>
-<hr/>
-<p> 
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>My First OpenCV.js Web Page</h1>
-
-<div>
-    <img id='srcImage'></img>
-</div>
-<input type='file' id='fileInput' accept='image/gif, image/jpeg, image/png'/>
-
-<script>
-let imgElement = document.getElementById('srcImage')
-let inputElement = document.getElementById('fileInput');
-inputElement.addEventListener("change", (e) => {
-  imgElement.src = URL.createObjectURL(e.target.files[0]);
-}, false);
-</script>
-</body>
-</html>
-</p>
-<hr/>
-<h3>Add <code>opencv.js</code> and use <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a></h3>
-<p>Now you need to load the <code>opencv.js</code> library by &lt;script&gt; tag.</p>
-<p>Example for synchronous loading. </p><div class="fragment"><div class="line">&lt;script src=<span class="stringliteral">&quot;opencv.js&quot;</span>&gt;&lt;/script&gt;</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd><code>opencv.js</code> should be in the same folder of <code>index.html</code>.</dd></dl>
-<p>You may want to load <code>opencv.js</code> asynchronously by <code>async</code> attribute in &lt;script&gt; tag. To be notified by <code>opencv.js</code> is ready, you can register a callback to `Module['onRuntimeInitialized']`. Please refer to <a href="https://kripken.github.io/emscripten-site/docs/getting_started/FAQ.html#how-can-i-tell-when-the-page-is-fully-loaded-and-it-is-safe-to-call-compiled-functions">Emscripten FAQ</a> for details.</p>
-<p>Example for asynchronous loading </p><div class="fragment"><div class="line">&lt;script&gt;</div><div class="line">var Module = {</div><div class="line">  <span class="stringliteral">&#39;onRuntimeInitialized&#39;</span>: () =&gt; {console.log(<span class="stringliteral">&#39;opencv.js is ready.&#39;</span>);}</div><div class="line">}</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script src=<span class="stringliteral">&quot;opencv.js&quot;</span> async&gt;&lt;/script&gt;</div></div><!-- fragment --><p>Once <code>opencv.js</code> is ready, you can access OpenCV objects and functions through <code>cv</code> object.</p>
+<h3>Include <code>opencv.js</code></h3>
+<p>To include <code>opencv.js</code>, you need to set the URL of <code>opencv.js</code> to <code>src</code> attribute of of &lt;script&gt; tag.</p>
+<dl class="section note"><dt>Note</dt><dd>For this tutorial, we host <code>opencv.js</code> at same folder of index.html.</dd></dl>
+<p>Example for synchronous loading. </p><div class="fragment"><div class="line">&lt;script src=<span class="stringliteral">&quot;opencv.js&quot;</span>&gt;&lt;/script&gt;</div></div><!-- fragment --><p>You may want to load <code>opencv.js</code> asynchronously by <code>async</code> attribute in &lt;script&gt; tag. To be notified by <code>opencv.js</code> is ready, you can register a callback to `Module['onRuntimeInitialized']`. Please refer to <a href="https://kripken.github.io/emscripten-site/docs/getting_started/FAQ.html#how-can-i-tell-when-the-page-is-fully-loaded-and-it-is-safe-to-call-compiled-functions">Emscripten FAQ</a> for details.</p>
+<p>Example for asynchronous loading </p><div class="fragment"><div class="line">&lt;script&gt;</div><div class="line">var Module = {</div><div class="line">  <span class="stringliteral">&#39;onRuntimeInitialized&#39;</span>: () =&gt; {console.log(<span class="stringliteral">&#39;opencv.js is ready.&#39;</span>);}</div><div class="line">}</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script src=<span class="stringliteral">&quot;opencv.js&quot;</span> async&gt;&lt;/script&gt;</div></div><!-- fragment --><h3>Use <code>opencv.js</code></h3>
+<p>Once <code>opencv.js</code> is ready, you can access OpenCV objects and functions through <code>cv</code> object.</p>
 <p>For example, you can create a <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a> from an image by <a class="el" href="d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56" title="Loads an image from a file. ">cv.imread</a>.</p>
 <dl class="section note"><dt>Note</dt><dd>As image loading is asynchronous, so you need to put <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a> creation inside the <code>onload</code> callback.</dd></dl>
 <div class="fragment"><div class="line">imgElement.onload = <span class="keyword">function</span>() {</div><div class="line">  let mat = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(imgElement);</div><div class="line">}</div></div><!-- fragment --><p>Many OpenCV functions can be used to process <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a>. You can refer to other tutorials for details.</p>
@@ -198,9 +175,9 @@ inputElement.addEventListener("change", (e) => {
 <p id='status'>OpenCV.js is loading.</p>
 
 <div>
-    <img id='srcImage1'></img>
+    <img id='srcImage'></img>
 </div>
-<input type='file' id='fileInput1' accept='image/gif, image/jpeg, image/png'/>
+<input type='file' id='fileInput' accept='image/gif, image/jpeg, image/png'/>
 <div>
     <canvas id='outputCanvas'></canvas>
 <div>
@@ -223,13 +200,13 @@ function imread(image) {
     return cv.matFromArray(imgData, cv.CV_8UC4);
 }
 
-let imgElement1 = document.getElementById('srcImage1')
-let inputElement1 = document.getElementById('fileInput1');
-inputElement1.addEventListener("change", (e) => {
-  imgElement1.src = URL.createObjectURL(e.target.files[0]);
+let imgElement = document.getElementById('srcImage')
+let inputElement = document.getElementById('fileInput');
+inputElement.addEventListener("change", (e) => {
+  imgElement.src = URL.createObjectURL(e.target.files[0]);
 }, false);
-imgElement1.onload = function() {
-  let mat = imread(imgElement1);
+imgElement.onload = function() {
+  let mat = imread(imgElement);
   cv.imshow('outputCanvas', mat);
 }
 </script>
@@ -240,7 +217,7 @@ imgElement1.onload = function() {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 1 2017 18:03:06 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 2 2017 14:38:30 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
