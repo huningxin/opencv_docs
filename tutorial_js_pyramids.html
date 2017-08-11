@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -148,9 +148,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
-<p>In this chapter,</p><ul>
+<ul>
 <li>We will learn about Image Pyramids</li>
-<li>We will see these functions: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gada75b59bdaaca411ed6fee10085eb784" title="Upsamples an image and then blurs it. ">cv.pyrUp()</a></b>, <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaf9bba239dfca11654cb7f50f889fc2ff" title="Blurs an image and downsamples it. ">cv.pyrDown()</a></b></li>
+<li>We will learn these functions: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gada75b59bdaaca411ed6fee10085eb784" title="Upsamples an image and then blurs it. ">cv.pyrUp()</a></b>, <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaf9bba239dfca11654cb7f50f889fc2ff" title="Blurs an image and downsamples it. ">cv.pyrDown()</a></b></li>
 </ul>
 <h2>Theory </h2>
 <p>Normally, we used to work with an image of constant size. But in some occassions, we need to work with images of different resolution of the same image. For example, while searching for something in an image, like face, we are not sure at what size the object will be present in the image. In that case, we will need to create a set of images with different resolution and search for object in all the images. These set of images with different resolution are called Image Pyramids (because when they are kept in a stack with biggest image at bottom and smallest image at top look like a pyramid).</p>
@@ -158,7 +158,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Higher level (Low resolution) in a Gaussian Pyramid is formed by removing consecutive rows and columns in Lower level (higher resolution) image. Then each pixel in higher level is formed by the contribution from 5 pixels in underlying level with gaussian weights. By doing so, a \(M \times N\) image becomes \(M/2 \times N/2\) image. So area reduces to one-fourth of original area. It is called an Octave. The same pattern continues as we go upper in pyramid (ie, resolution decreases). Similarly while expanding, area becomes 4 times in each level. We can find Gaussian pyramids using <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaf9bba239dfca11654cb7f50f889fc2ff" title="Blurs an image and downsamples it. ">cv.pyrDown()</a></b> and <b><a class="el" href="d4/d86/group__imgproc__filter.html#gada75b59bdaaca411ed6fee10085eb784" title="Upsamples an image and then blurs it. ">cv.pyrUp()</a></b> functions.</p>
 <p>Laplacian Pyramids are formed from the Gaussian Pyramids. There is no exclusive function for that. Laplacian pyramid images are like edge images only. Most of its elements are zeros. They are used in image compression. A level in Laplacian Pyramid is formed by the difference between that level in Gaussian Pyramid and expanded version of its upper level in Gaussian Pyramid.</p>
 <h2>Downsample </h2>
-<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaf9bba239dfca11654cb7f50f889fc2ff" title="Blurs an image and downsamples it. ">cv.pyrDown</a> (src, dst, dstsize = [0, 0], borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5afe14c13a4ea8b8e3b3ef399013dbae01" title="same as BORDER_REFLECT_101 ">cv.BORDER_DEFAULT</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaf9bba239dfca11654cb7f50f889fc2ff" title="Blurs an image and downsamples it. ">cv.pyrDown</a> (src, dst, dstsize = new cv.Size(0, 0), borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5afe14c13a4ea8b8e3b3ef399013dbae01" title="same as BORDER_REFLECT_101 ">cv.BORDER_DEFAULT</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input image. </td></tr>
     <tr><td class="paramname">dst</td><td>output image; it has the specified size and the same type as src. </td></tr>
@@ -168,7 +168,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named pyrDownCanvasInput and pyrDownCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named pyrDownCanvasInput and pyrDownCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -185,14 +185,13 @@ canvas {
 <div id="pyrDownCodeArea">
 <h2>Input your code</h2>
 <button id="pyrDownTryIt" disabled="true" onclick="pyrDownExecuteCode()">Try it</button><br>
-<textarea rows="8" cols="80" id="pyrDownTestCode" spellcheck="false">
-var src = cv.imread("pyrDownCanvasInput");
-var dst = new cv.Mat();
-// You can try more different conversion
-cv.pyrDown(src, dst, [0, 0], cv.BORDER_DEFAULT);
+<textarea rows="6" cols="80" id="pyrDownTestCode" spellcheck="false">
+let src = cv.imread("pyrDownCanvasInput");
+let dst = new cv.Mat();
+// You can try more different parameters
+cv.pyrDown(src, dst, new cv.Size(0, 0), cv.BORDER_DEFAULT);
 cv.imshow("pyrDownCanvasOutput", dst);
-src.delete(); 
-dst.delete();
+src.delete(); dst.delete();
 </textarea>
 <p class="err" id="pyrDownErr"></p>
 </div>
@@ -207,7 +206,7 @@ dst.delete();
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 function pyrDownExecuteCode() {
-    var pyrDownText = document.getElementById("pyrDownTestCode").value;
+    let pyrDownText = document.getElementById("pyrDownTestCode").value;
     try {
         eval(pyrDownText);
         document.getElementById("pyrDownErr").innerHTML = " ";
@@ -217,17 +216,17 @@ function pyrDownExecuteCode() {
 }
 
 loadImageToCanvas("lena.jpg", "pyrDownCanvasInput");
-var pyrDownInputElement = document.getElementById("pyrDownInput");
+let pyrDownInputElement = document.getElementById("pyrDownInput");
 pyrDownInputElement.addEventListener("change", pyrDownHandleFiles, false);
 function pyrDownHandleFiles(e) {
-    var pyrDownUrl = URL.createObjectURL(e.target.files[0]);
+    let pyrDownUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(pyrDownUrl, "pyrDownCanvasInput");
 }
 </script>
 </body>
 </p>
 <h2>Upsample </h2>
-<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gada75b59bdaaca411ed6fee10085eb784" title="Upsamples an image and then blurs it. ">cv.pyrUp</a> (src, dst, dstsize = [0, 0], borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5afe14c13a4ea8b8e3b3ef399013dbae01" title="same as BORDER_REFLECT_101 ">cv.BORDER_DEFAULT</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gada75b59bdaaca411ed6fee10085eb784" title="Upsamples an image and then blurs it. ">cv.pyrUp</a> (src, dst, dstsize = new cv.Size(0, 0), borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5afe14c13a4ea8b8e3b3ef399013dbae01" title="same as BORDER_REFLECT_101 ">cv.BORDER_DEFAULT</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input image. </td></tr>
     <tr><td class="paramname">dst</td><td>output image; it has the specified size and the same type as src. </td></tr>
@@ -237,28 +236,22 @@ function pyrDownHandleFiles(e) {
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named pyrUpCanvasInput and pyrUpCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named pyrUpCanvasInput and pyrUpCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
 </head>
 <body>
 <div id="pyrUpCodeArea">
 <h2>Input your code</h2>
 <button id="pyrUpTryIt" disabled="true" onclick="pyrUpExecuteCode()">Try it</button><br>
-<textarea rows="8" cols="80" id="pyrUpTestCode" spellcheck="false">
-var src = cv.imread("pyrUpCanvasInput");
-var dst = new cv.Mat();
-// You can try more different conversion
-cv.pyrUp(src, dst, [0, 0], cv.BORDER_DEFAULT);
+<textarea rows="6" cols="80" id="pyrUpTestCode" spellcheck="false">
+let src = cv.imread("pyrUpCanvasInput");
+let dst = new cv.Mat();
+// You can try more different parameters
+cv.pyrUp(src, dst, new cv.Size(0, 0), cv.BORDER_DEFAULT);
 cv.imshow("pyrUpCanvasOutput", dst);
-src.delete(); 
-dst.delete();
+src.delete(); dst.delete();
 </textarea>
 <p class="err" id="pyrUpErr"></p>
 </div>
@@ -271,7 +264,7 @@ dst.delete();
 </div>
 <script>
 function pyrUpExecuteCode() {
-    var pyrUpText = document.getElementById("pyrUpTestCode").value;
+    let pyrUpText = document.getElementById("pyrUpTestCode").value;
     try {
         eval(pyrUpText);
         document.getElementById("pyrUpErr").innerHTML = " ";
@@ -281,10 +274,10 @@ function pyrUpExecuteCode() {
 }
 
 loadImageToCanvas("lena.jpg", "pyrUpCanvasInput");
-var pyrUpInputElement = document.getElementById("pyrUpInput");
+let pyrUpInputElement = document.getElementById("pyrUpInput");
 pyrUpInputElement.addEventListener("change", pyrUpHandleFiles, false);
 function pyrUpHandleFiles(e) {
-    var pyrUpUrl = URL.createObjectURL(e.target.files[0]);
+    let pyrUpUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(pyrUpUrl, "pyrUpCanvasInput");
 }
 function onReady() {
@@ -303,7 +296,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -357,7 +350,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

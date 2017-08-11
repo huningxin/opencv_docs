@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -139,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_imgproc.html">Image Processing</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_transforms.html">Image Transforms in OpenCV</a></li>  </ul>
+<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_imgproc.html">Image Processing</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_transforms.html">Image Transforms in OpenCV.js</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -148,10 +148,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
-<p>In this section, we will learn</p><ul>
+<ul>
 <li>To find the Fourier Transform of images using OpenCV</li>
 <li>Some applications of Fourier Transform</li>
-<li>We will see following functions : <b><a class="el" href="d2/de8/group__core__array.html#gadd6cf9baf2b8b704a11b5f04aaf4f39d" title="Performs a forward or inverse Discrete Fourier transform of a 1D or 2D floating-point array...">cv.dft()</a></b> etc</li>
+<li>We will learn following functions : <b><a class="el" href="d2/de8/group__core__array.html#gadd6cf9baf2b8b704a11b5f04aaf4f39d" title="Performs a forward or inverse Discrete Fourier transform of a 1D or 2D floating-point array...">cv.dft()</a></b> etc</li>
 </ul>
 <h2>Theory </h2>
 <p>Fourier Transform is used to analyze the frequency characteristics of various filters. For images, <b>2D Discrete Fourier Transform (DFT)</b> is used to find the frequency domain. A fast algorithm called <b>Fast Fourier Transform (FFT)</b> is used for calculation of DFT. Details about these can be found in any image processing or signal processing textbooks.</p>
@@ -178,7 +178,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </table>
   </dd>
 </dl>
-<p><b><a class="el" href="d2/de8/group__core__array.html#ga2ac1049c2c3dd25c2b41bffe17658a36" title="Forms a border around an image. ">cv.copyMakeBorder</a> (src, dst, top, bottom, left, right, borderType, value = <a class="el" href="dc/d84/group__core__basic.html#ga599fe92e910c027be274233eccad7beb">cv.Scalar()</a>)</b></p>
+<p><b><a class="el" href="d2/de8/group__core__array.html#ga2ac1049c2c3dd25c2b41bffe17658a36" title="Forms a border around an image. ">cv.copyMakeBorder</a> (src, dst, top, bottom, left, right, borderType, value = new <a class="el" href="dc/d84/group__core__basic.html#ga599fe92e910c027be274233eccad7beb">cv.Scalar()</a>)</b></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input array that could be real or complex. </td></tr>
@@ -218,7 +218,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named dftCanvasInput and dftCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named dftCanvasInput and dftCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -236,22 +236,22 @@ canvas {
 <h2>Input your code</h2>
 <button id="dftTryIt" disabled="true" onclick="dftExecuteCode()">Try it</button><br>
 <textarea rows="17" cols="90" id="dftTestCode" spellcheck="false">
-var src = cv.imread("dftCanvasInput");
+let src = cv.imread("dftCanvasInput");
 cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
 
 // get optimal size of DFT
-var optimalRows = cv.getOptimalDFTSize(src.rows);
-var optimalCols = cv.getOptimalDFTSize(src.cols);
-var s0 = new cv.Scalar.all(0);
-var padded = new cv.Mat()
+let optimalRows = cv.getOptimalDFTSize(src.rows);
+let optimalCols = cv.getOptimalDFTSize(src.cols);
+let s0 = cv.Scalar.all(0);
+let padded = new cv.Mat()
 cv.copyMakeBorder(src, padded, 0, optimalRows - src.rows, 0, optimalCols - src.cols, cv.BORDER_CONSTANT, s0);
 
 // use cv.MatVector to distribute space for real part and imaginary part
-var plane0 = new cv.Mat()
+let plane0 = new cv.Mat()
 padded.convertTo(plane0, cv.CV_32F);
-var planes = new cv.MatVector();
-var complexI = new cv.Mat();
-var plane1 = new cv.Mat.zeros(padded.cols, padded.rows, cv.CV_32F);
+let planes = new cv.MatVector();
+let complexI = new cv.Mat();
+let plane1 = new cv.Mat.zeros(padded.cols, padded.rows, cv.CV_32F);
 planes.push_back(plane0); planes.push_back(plane1);
 cv.merge(planes, complexI);
 
@@ -261,31 +261,30 @@ cv.dft(complexI, complexI);
 // compute log(1 + sqrt(Re(DFT(img))**2 + Im(DFT(img))**2))
 cv.split(complexI, planes);
 cv.magnitude(planes.get(0), planes.get(1), planes.get(0));
-var mag = planes.get(0);
-var m1 = new cv.Mat.ones(mag.rows, mag.cols, mag.type());
+let mag = planes.get(0);
+let m1 = new cv.Mat.ones(mag.rows, mag.cols, mag.type());
 cv.add(mag, m1, mag);
 cv.log(mag, mag);
 
 // crop the spectrum, if it has an odd number of rows or columns
-var rect = new cv.Rect(0, 0, mag.cols & -2, mag.rows & -2);
-mag = mag.getROI_Rect(rect);
+let rect = new cv.Rect(0, 0, mag.cols & -2, mag.rows & -2);
+mag = mag.getRoiRect(rect);
 
 // rearrange the quadrants of Fourier image
 // so that the origin is at the image center
-var cx = mag.cols / 2;
-var cy = mag.rows / 2;
-var tmp = new cv.Mat();
-var q0 = new cv.Mat(), q1 = new cv.Mat(), q2 = new cv.Mat(), q3 = new cv.Mat();
+let cx = mag.cols / 2;
+let cy = mag.rows / 2;
+let tmp = new cv.Mat();
 
-var rect0 = new cv.Rect(0, 0, cx, cy);
-var rect1 = new cv.Rect(cx, 0, cx, cy);
-var rect2 = new cv.Rect(0, cy, cx, cy);
-var rect3 = new cv.Rect(cx, cy, cx, cy);
+let rect0 = new cv.Rect(0, 0, cx, cy);
+let rect1 = new cv.Rect(cx, 0, cx, cy);
+let rect2 = new cv.Rect(0, cy, cx, cy);
+let rect3 = new cv.Rect(cx, cy, cx, cy);
 
-var q0 = mag.getROI_Rect(rect0);
-var q1 = mag.getROI_Rect(rect1);
-var q2 = mag.getROI_Rect(rect2);
-var q3 = mag.getROI_Rect(rect3);
+let q0 = mag.getRoiRect(rect0);
+let q1 = mag.getRoiRect(rect1);
+let q2 = mag.getRoiRect(rect2);
+let q3 = mag.getRoiRect(rect3);
 
 // exchange 1 and 4 quadrants
 q0.copyTo(tmp);
@@ -301,7 +300,7 @@ tmp.copyTo(q2);
 cv.normalize(mag, mag, 0, 1, cv.NORM_MINMAX);
 
 cv.imshow("dftCanvasOutput", mag);
-src.delete(); s0.delete(); padded.delete(); planes.delete(); complexI.delete(); m1.delete(); rect.delete(); tmp.delete(); q0.delete(); q1.delete(); q2.delete(); q3.delete(); rect0.delete(); rect1.delete(); rect2.delete(); rect3.delete();
+src.delete(); padded.delete(); planes.delete(); complexI.delete(); m1.delete(); tmp.delete(); 
 </textarea>
 <p class="err" id="dftErr"></p>
 </div>
@@ -316,7 +315,7 @@ src.delete(); s0.delete(); padded.delete(); planes.delete(); complexI.delete(); 
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 function dftExecuteCode() {
-    var dftText = document.getElementById("dftTestCode").value;
+    let dftText = document.getElementById("dftTestCode").value;
     try {
         eval(dftText);
         document.getElementById("dftErr").innerHTML = " ";
@@ -326,10 +325,10 @@ function dftExecuteCode() {
 }
 
 loadImageToCanvas("lena.jpg", "dftCanvasInput");
-var dftInputElement = document.getElementById("dftInput");
+let dftInputElement = document.getElementById("dftInput");
 dftInputElement.addEventListener("change", dftHandleFiles, false);
 function dftHandleFiles(e) {
-    var dftUrl = URL.createObjectURL(e.target.files[0]);
+    let dftUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(dftUrl, "dftCanvasInput");
 }
 
@@ -348,7 +347,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -402,7 +401,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

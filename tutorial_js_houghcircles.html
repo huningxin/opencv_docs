@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -148,9 +148,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
-<p>In this chapter,</p><ul>
+<ul>
 <li>We will learn to use Hough Transform to find circles in an image.</li>
-<li>We will see these functions: <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga47849c3be0d0406ad3ca45db65a25d2d" title="Finds circles in a grayscale image using the Hough transform. ">cv.HoughCircles()</a></b></li>
+<li>We will learn these functions: <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga47849c3be0d0406ad3ca45db65a25d2d" title="Finds circles in a grayscale image using the Hough transform. ">cv.HoughCircles()</a></b></li>
 </ul>
 <h2>Theory </h2>
 <p>A circle is represented mathematically as \((x-x_{center})^2 + (y - y_{center})^2 = r^2\) where \((x_{center},y_{center})\) is the center of the circle, and \(r\) is the radius of the circle. From equation, we can see we have 3 parameters, so we need a 3D accumulator for hough transform, which would be highly ineffective. So OpenCV uses more trickier method, <b>Hough Gradient Method</b> which uses the gradient information of edges.</p>
@@ -170,7 +170,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named HoughCirclesPCanvasInput and HoughCirclesPCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named HoughCirclesPCanvasInput and HoughCirclesPCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -188,23 +188,23 @@ canvas {
 <h2>Input your code</h2>
 <button id="HoughCirclesPTryIt" disabled="true" onclick="HoughCirclesPExecuteCode()">Try it</button><br>
 <textarea rows="17" cols="80" id="HoughCirclesPTestCode" spellcheck="false">
-var src = cv.imread("HoughCirclesPCanvasInput");
-var dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8U);
-var circles = new cv.Mat();
-var color = new cv.Scalar(255, 0, 0);
+let src = cv.imread("HoughCirclesPCanvasInput");
+let dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8U);
+let circles = new cv.Mat();
+let color = new cv.Scalar(255, 0, 0);
 cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
-// You can try more different conversion
+// You can try more different parameters
 cv.HoughCircles(src, circles, cv.HOUGH_GRADIENT, 1, 45, 75, 40, 0, 0);
 // draw circles
-for(var i = 0; i < circles.cols; ++i)
-{
-    var x = circles.data32f()[i * 3];
-    var y = circles.data32f()[i * 3 + 1];
-    var radius = circles.data32f()[i * 3 + 2];
-    cv.circle(dst, [x, y], radius, color);
+for (let i = 0; i < circles.cols; ++i) {
+    let x = circles.data32F[i * 3];
+    let y = circles.data32F[i * 3 + 1];
+    let radius = circles.data32F[i * 3 + 2];
+    let center = new cv.Point(x, y);
+    cv.circle(dst, center, radius, color);
 }
 cv.imshow("HoughCirclesPCanvasOutput", dst);
-src.delete(); dst.delete(); circles.delete(); color.delete();
+src.delete(); dst.delete(); circles.delete();
 </textarea>
 <p class="err" id="HoughCirclesPErr"></p>
 </div>
@@ -219,7 +219,7 @@ src.delete(); dst.delete(); circles.delete(); color.delete();
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 function HoughCirclesPExecuteCode() {
-    var HoughCirclesPText = document.getElementById("HoughCirclesPTestCode").value;
+    let HoughCirclesPText = document.getElementById("HoughCirclesPTestCode").value;
     try {
         eval(HoughCirclesPText);
         document.getElementById("HoughCirclesPErr").innerHTML = " ";
@@ -229,10 +229,10 @@ function HoughCirclesPExecuteCode() {
 }
 
 loadImageToCanvas("coins.jpg", "HoughCirclesPCanvasInput");
-var HoughCirclesPInputElement = document.getElementById("HoughCirclesPInput");
+let HoughCirclesPInputElement = document.getElementById("HoughCirclesPInput");
 HoughCirclesPInputElement.addEventListener("change", HoughCirclesPHandleFiles, false);
 function HoughCirclesPHandleFiles(e) {
-    var HoughCirclesPUrl = URL.createObjectURL(e.target.files[0]);
+    let HoughCirclesPUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(HoughCirclesPUrl, "HoughCirclesPCanvasInput");
 }
 
@@ -251,7 +251,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -305,7 +305,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

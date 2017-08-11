@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -148,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
-<p>In this chapter,</p><ul>
+<ul>
 <li>We will understand the concepts of optical flow and its estimation using Lucas-Kanade method.</li>
 <li>We will use functions like <b><a class="el" href="dc/d6b/group__video__track.html#ga473e4b886d0bcc6b65831eb88ed93323" title="Calculates an optical flow for a sparse feature set using the iterative Lucas-Kanade method with pyra...">cv.calcOpticalFlowPyrLK()</a></b> to track feature points in a video.</li>
 </ul>
@@ -192,10 +192,29 @@ image</div></div>
 </p>
 <p>( Check similarity of inverse matrix with Harris corner detector. It denotes that corners are better points to be tracked.)</p>
 <p>So from user point of view, idea is simple, we give some points to track, we receive the optical flow vectors of those points. But again there are some problems. Until now, we were dealing with small motions. So it fails when there is large motion. So again we go for pyramids. When we go up in the pyramid, small motions are removed and large motions becomes small motions. So applying Lucas-Kanade there, we get optical flow along with the scale.</p>
-<h2>Lucas-Kanade Optical Flow in OpenCV </h2>
-<p>OpenCV provides all these in a single function, <b><a class="el" href="dc/d6b/group__video__track.html#ga473e4b886d0bcc6b65831eb88ed93323" title="Calculates an optical flow for a sparse feature set using the iterative Lucas-Kanade method with pyra...">cv.calcOpticalFlowPyrLK()</a></b>. Here, we create a simple application which tracks some points in a video. To decide the points, we use <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga1d6bb77486c8f92d79c8793ad995d541" title="Determines strong corners on an image. ">cv.goodFeaturesToTrack()</a></b>. We take the first frame, detect some Shi-Tomasi corner points in it, then we iteratively track those points using Lucas-Kanade optical flow. For the function <b><a class="el" href="dc/d6b/group__video__track.html#ga473e4b886d0bcc6b65831eb88ed93323" title="Calculates an optical flow for a sparse feature set using the iterative Lucas-Kanade method with pyra...">cv.calcOpticalFlowPyrLK()</a></b> we pass the previous frame, previous points and next frame. It returns next points along with some status numbers which has a value of 1 if next point is found, else zero. We iteratively pass these next points as previous points in next step. See the code demo below.</p>
+<h2>Lucas-Kanade Optical Flow in OpenCV.js </h2>
+<p>We use the function: <b><a class="el" href="dc/d6b/group__video__track.html#ga473e4b886d0bcc6b65831eb88ed93323" title="Calculates an optical flow for a sparse feature set using the iterative Lucas-Kanade method with pyra...">cv.calcOpticalFlowPyrLK</a> (prevImg, nextImg, prevPts, nextPts, status, err, winSize = new cv.Size(21, 21), maxLevel = 3, criteria = new <a class="el" href="d9/d5d/classcv_1_1TermCriteria.html" title="The class defining termination criteria for iterative algorithms. ">cv.TermCriteria</a>(cv.TermCriteria_COUNT+ cv.TermCriteria_EPS, 30, 0.01), flags = 0, minEigThreshold = 1e-4)</b>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prevImg</td><td>first 8-bit input image or pyramid constructed by buildOpticalFlowPyramid. </td></tr>
+    <tr><td class="paramname">nextImg</td><td>second input image or pyramid of the same size and the same type as prevImg. </td></tr>
+    <tr><td class="paramname">prevPts</td><td>vector of 2D points for which the flow needs to be found; point coordinates must be single-precision floating-point numbers. </td></tr>
+    <tr><td class="paramname">nextPts</td><td>output vector of 2D points (with single-precision floating-point coordinates) containing the calculated new positions of input features in the second image; when cv.OPTFLOW_USE_ INITIAL_FLOW flag is passed, the vector must have the same size as in the input. </td></tr>
+    <tr><td class="paramname">status</td><td>output status vector (of unsigned chars); each element of the vector is set to 1 if the flow for the corresponding features has been found, otherwise, it is set to 0. </td></tr>
+    <tr><td class="paramname">err</td><td>output vector of errors; each element of the vector is set to an error for the corresponding feature, type of the error measure can be set in flags parameter; if the flow wasn't found then the error is not defined (use the status parameter to find such cases). </td></tr>
+    <tr><td class="paramname">winSize</td><td>size of the search window at each pyramid level. </td></tr>
+    <tr><td class="paramname">maxLevel</td><td>0-based maximal pyramid level number; if set to 0, pyramids are not used (single level), if set to 1, two levels are used, and so on; if pyramids are passed to input then algorithm will use as many levels as pyramids have but no more than maxLevel. </td></tr>
+    <tr><td class="paramname">criteria</td><td>parameter, specifying the termination criteria of the iterative search algorithm (after the specified maximum number of iterations criteria.maxCount or when the search window moves by less than criteria.epsilon. </td></tr>
+    <tr><td class="paramname">flags</td><td>operation flags:<ul>
+<li><a class="el" href="dc/d6b/group__video__track.html#ggad3c7afd06d698dd0a307b61cff2211daa9d4430ac75199af0cf6fcdefba30eafe">cv.OPTFLOW_USE_INITIAL_FLOW</a> uses initial estimations, stored in nextPts; if the flag is not set, then prevPts is copied to nextPts and is considered the initial estimate.</li>
+<li><a class="el" href="dc/d6b/group__video__track.html#ggad3c7afd06d698dd0a307b61cff2211daadd75f0bd85d1bd739b39b8900bc12c58">cv.OPTFLOW_LK_GET_MIN_EIGENVALS</a> use minimum eigen values as an error measure (see minEigThreshold description); if the flag is not set, then L1 distance between patches around the original and a moved point, divided by number of pixels in a window, is used as a error measure. </li>
+</ul>
+</td></tr>
+    <tr><td class="paramname">minEigThreshold</td><td>the algorithm calculates the minimum eigen value of a 2x2 normal matrix of optical flow equations, divided by number of pixels in a window; if this value is less than minEigThreshold, then a corresponding feature is filtered out and its flow is not processed, so it allows to remove bad points and get a performance boost.</td></tr>
+  </table>
+  </dd>
+</dl>
 <h3>Try it</h3>
-<p>Here is the demo. Some core code is in the textbox, and you can click <code>try it</code> to investigate more.</p>
+<p>Here, we create a simple application which tracks some points in a video. To decide the points, we use <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga1d6bb77486c8f92d79c8793ad995d541" title="Determines strong corners on an image. ">cv.goodFeaturesToTrack()</a></b>. We take the first frame, detect some Shi-Tomasi corner points in it, then we iteratively track those points using <a class="el" href="dc/d6b/group__video__track.html#ga473e4b886d0bcc6b65831eb88ed93323" title="Calculates an optical flow for a sparse feature set using the iterative Lucas-Kanade method with pyra...">cv.calcOpticalFlowPyrLK</a>. Some core code is in the textbox, and you can click <code>try it</code> to investigate more.</p>
 <p> 
 <head>
 <style>
@@ -217,19 +236,19 @@ canvas {
 let [maxCorners, qualityLevel, minDistance, blockSize] = [30, 0.3, 7, 7];
 
 // Parameters for lucas kanade optical flow
-let winSize  = [15,15];
+let winSize  = new cv.Size(15,15);
 let maxLevel = 2;
 let criteria = new cv.TermCriteria(cv.TERM_CRITERIA_EPS | cv.TERM_CRITERIA_COUNT, 10, 0.03);
 
 // Create some random colors
-color = [];
+let color = [];
 for(let i = 0; i < maxCorners; i++)
     color.push(new cv.Scalar(parseInt(Math.random()*255), parseInt(Math.random()*255), parseInt(Math.random()*255), 255));
 
 // Take first frame and find corners in it
 let oldFrame = new cv.Mat(lkofHeight, lkofWidth, cv.CV_8UC4);
-context.drawImage(lkofVideo, 0, 0, lkofWidth, lkofHeight);
-oldFrame.data().set(context.getImageData(0, 0, lkofWidth, lkofHeight).data);
+let cap = new cv.VideoCapture("lkofVideo"); // "lkofVideo" is the id of the video tag
+cap.read(oldFrame);
 oldGray = new cv.Mat();
 cv.cvtColor(oldFrame, oldGray, cv.COLOR_RGB2GRAY);
 p0 = new cv.Mat();
@@ -247,9 +266,11 @@ st = new cv.Mat();
 err = new cv.Mat();
 lkofLoopIndex = setInterval(
     function() {
-        if(lkofVideo.ended) lkofStopVideo();
-        context.drawImage(lkofVideo, 0, 0, lkofWidth, lkofHeight);
-        frame.data().set(context.getImageData(0, 0, lkofWidth, lkofHeight).data);
+        if(lkofVideo.ended) {
+            lkofStopVideo();
+            return;
+        }
+        cap.read(frame);
         cv.cvtColor(frame, frameGray, cv.COLOR_RGBA2GRAY);
 
         // calculate optical flow
@@ -259,9 +280,9 @@ lkofLoopIndex = setInterval(
         let goodNew = [];
         let goodOld = [];
         for(let i = 0; i < st.rows; i++) {
-            if(st.data()[i] === 1) {
-                goodNew.push([p1.data32f()[i*2], p1.data32f()[i*2+1]]);
-                goodOld.push([p0.data32f()[i*2], p0.data32f()[i*2+1]]);
+            if(st.data[i] === 1) {
+                goodNew.push(new cv.Point(p1.data32F[i*2], p1.data32F[i*2+1]));
+                goodOld.push(new cv.Point(p0.data32F[i*2], p0.data32F[i*2+1]));
             }
         }
 
@@ -279,28 +300,24 @@ lkofLoopIndex = setInterval(
         p0.delete(); p0 = null;
         p0 = new cv.Mat(goodNew.length, 1, cv.CV_32FC2);
         for(let i = 0; i < goodNew.length; i++) {
-            p0.data32f()[i*2] = goodNew[i][0];
-            p0.data32f()[i*2+1] = goodNew[i][1];
+            p0.data32F[i*2] = goodNew[i].x;
+            p0.data32F[i*2+1] = goodNew[i].y;
         }
     }, 33); 
 </textarea>
 <p class="err" id="lkofErr"></p>
 </div> 
-<canvas id="lkofCanvasFrame" hidden></canvas>
 <div id="contentarea">
     <button id="lkofStartup" disabled="true" onclick="lkofStartup()">try it</button>
     <button id="lkofStop" disabled="true" onclick="lkofStopVideo()">stop</button><br>
     <video id="lkofVideo" src="box.mp4" width="640" muted hidden>Your browser does not support the video tag.</video>
     <canvas id="lkofCanvasOutput"></canvas>
 </div>
-<script src="adapter.js"></script>
-<script src="utils.js"></script>
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 // lkof means Lucas-Kanade Optical Flow
 // Some HTML elements we need to configure.
 let lkofVideo = document.getElementById("lkofVideo");
-let lkofCanvasFrame = document.getElementById("lkofCanvasFrame");
 let lkofStop = document.getElementById("lkofStop");
 
 // In this case, We set width 640, and the height will be computed based on the input video.
@@ -320,8 +337,6 @@ let color = null;
 lkofVideo.oncanplay = function() {
     lkofVideo.setAttribute("height", lkofVideo.videoHeight/lkofVideo.videoWidth*lkofVideo.width);
     lkofHeight = lkofVideo.height;
-    lkofCanvasFrame.setAttribute("width", lkofWidth);
-    lkofCanvasFrame.setAttribute("height", lkofHeight);
 };
 
 lkofVideo.onended = lkofStopVideo;
@@ -331,7 +346,6 @@ function lkofStartup() {
         lkofVideo.load();
     lkofVideo.play();
     lkofStop.disabled = false;
-    let context = lkofCanvasFrame.getContext("2d");
 
     let lkofTestCode = document.getElementById("lkofTestCode").value;
     try {
@@ -377,11 +391,6 @@ function lkofStopVideo() {
         mask.delete();
         mask = null;
     }
-    if (color != null && color.length > 0 && !color[0].isDeleted()) {
-        for(let i = 0; i < color.length; i++)
-            color[i].delete();
-        color = null;
-    }
     //document.getElementById("lkofCanvasOutput").getContext("2d").clearRect(0, 0, lkofWidth, lkofHeight);
     lkofVideo.pause();
     lkofVideo.currentTime = 0;
@@ -391,11 +400,29 @@ function lkofStopVideo() {
 </body>
 </p>
 <p>(This code doesn't check how correct are the next keypoints. So even if any feature point disappears in image, there is a chance that optical flow finds the next point which may look close to it. So actually for a robust tracking, corner points should be detected in particular intervals.)</p>
-<h2>Dense Optical Flow in OpenCV </h2>
-<p>Lucas-Kanade method computes optical flow for a sparse feature set (in our example, corners detected using Shi-Tomasi algorithm). OpenCV provides another algorithm to find the dense optical flow. It computes the optical flow for all the points in the frame. It is based on Gunner Farneback's algorithm which is explained in "Two-Frame Motion Estimation Based on Polynomial Expansion" by Gunner Farneback in 2003.</p>
-<p>Below sample shows how to find the dense optical flow using above algorithm, and the function is <b><a class="el" href="dc/d6b/group__video__track.html#ga5d10ebbd59fe09c5f650289ec0ece5af" title="Computes a dense optical flow using the Gunnar Farneback&#39;s algorithm. ">cv.calcOpticalFlowFarneback()</a></b>. We get a 2-channel array with optical flow vectors, \((u,v)\). We find their magnitude and direction. We color code the result for better visualization. Direction corresponds to Hue value of the image. Magnitude corresponds to Value plane. See the code demo below.</p>
+<h2>Dense Optical Flow in OpenCV.js </h2>
+<p>Lucas-Kanade method computes optical flow for a sparse feature set (in our example, corners detected using Shi-Tomasi algorithm). OpenCV.js provides another algorithm to find the dense optical flow. It computes the optical flow for all the points in the frame. It is based on Gunner Farneback's algorithm which is explained in "Two-Frame Motion Estimation Based on Polynomial Expansion" by Gunner Farneback in 2003.</p>
+<p>We use the function: <b><a class="el" href="dc/d6b/group__video__track.html#ga5d10ebbd59fe09c5f650289ec0ece5af" title="Computes a dense optical flow using the Gunnar Farneback&#39;s algorithm. ">cv.calcOpticalFlowFarneback</a> (prev, next, flow, pyrScale, levels, winsize, iterations, polyN, polySigma, flags)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prev</td><td>first 8-bit single-channel input image. </td></tr>
+    <tr><td class="paramname">next</td><td>second input image of the same size and the same type as prev. </td></tr>
+    <tr><td class="paramname">flow</td><td>computed flow image that has the same size as prev and type CV_32FC2. </td></tr>
+    <tr><td class="paramname">pyrScale</td><td>parameter, specifying the image scale (&lt;1) to build pyramids for each image; pyrScale=0.5 means a classical pyramid, where each next layer is twice smaller than the previous one. </td></tr>
+    <tr><td class="paramname">levels</td><td>number of pyramid layers including the initial image; levels=1 means that no extra layers are created and only the original images are used. </td></tr>
+    <tr><td class="paramname">winsize</td><td>averaging window size; larger values increase the algorithm robustness to image noise and give more chances for fast motion detection, but yield more blurred motion field. </td></tr>
+    <tr><td class="paramname">iterations</td><td>number of iterations the algorithm does at each pyramid level. </td></tr>
+    <tr><td class="paramname">polyN</td><td>size of the pixel neighborhood used to find polynomial expansion in each pixel; larger values mean that the image will be approximated with smoother surfaces, yielding more robust algorithm and more blurred motion field, typically polyN =5 or 7. </td></tr>
+    <tr><td class="paramname">polySigma</td><td>standard deviation of the Gaussian that is used to smooth derivatives used as a basis for the polynomial expansion; for polyN=5, you can set polySigma=1.1, for polyN=7, a good value would be polySigma=1.5. </td></tr>
+    <tr><td class="paramname">flags</td><td>operation flags that can be a combination of the following:<ul>
+<li><a class="el" href="dc/d6b/group__video__track.html#ggad3c7afd06d698dd0a307b61cff2211daa9d4430ac75199af0cf6fcdefba30eafe">cv.OPTFLOW_USE_INITIAL_FLOW</a> uses the input flow as an initial flow approximation.</li>
+<li><a class="el" href="dc/d6b/group__video__track.html#ggad3c7afd06d698dd0a307b61cff2211daa4ffe37adbc548e44a61025a26a1914aa">cv.OPTFLOW_FARNEBACK_GAUSSIAN</a> uses the Gaussian 𝚠𝚒𝚗𝚜𝚒𝚣𝚎×𝚠𝚒𝚗𝚜𝚒𝚣𝚎 filter instead of a box filter of the same size for optical flow estimation; usually, this option gives z more accurate flow than with a box filter, at the cost of lower speed; normally, winsize for a Gaussian window should be set to a larger value to achieve the same level of robustness.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
 <h3>Try it</h3>
-<p>Here is the demo. Some core code is in the textbox, and you can click <code>try it</code> to investigate more.</p>
+<p>Below sample shows how to find the dense optical flow using <a class="el" href="dc/d6b/group__video__track.html#ga5d10ebbd59fe09c5f650289ec0ece5af" title="Computes a dense optical flow using the Gunnar Farneback&#39;s algorithm. ">cv.calcOpticalFlowFarneback()</a>. We get a 2-channel array with optical flow vectors, \((u,v)\). We find their magnitude and direction. We color code the result for better visualization. Direction corresponds to Hue value of the image. Magnitude corresponds to Value plane. Some core code is in the textbox, and you can click <code>try it</code> to investigate more.</p>
 <p> 
 <head>
 <style>
@@ -418,17 +445,15 @@ canvas {
 // Mats used in the loop are all declared and deleted elsewhere
 // take first frame of the video
 let frame1 = new cv.Mat(dofHeight, dofWidth, cv.CV_8UC4);
-context.drawImage(dofVideo, 0, 0, dofWidth, dofHeight);
-frame1.data().set(context.getImageData(0, 0, dofWidth, dofHeight).data);
+let cap = new cv.VideoCapture("dofVideo"); // "dofVideo" is the id of the video tag
+cap.read(frame1);
 
 prvs = new cv.Mat();
 cv.cvtColor(frame1, prvs, cv.COLOR_RGBA2GRAY);
 frame1.delete();
 hsv = new cv.Mat();
 hsv0 = new cv.Mat(dofHeight, dofWidth, cv.CV_8UC1);
-let sValue = new cv.Scalar(255)
-hsv1 = new cv.Mat(dofHeight, dofWidth, cv.CV_8UC1, sValue);
-sValue.delete();
+hsv1 = new cv.Mat(dofHeight, dofWidth, cv.CV_8UC1, new cv.Scalar(255));
 hsv2 = new cv.Mat(dofHeight, dofWidth, cv.CV_8UC1);
 hsvVec = new cv.MatVector();
 hsvVec.push_back(hsv0); hsvVec.push_back(hsv1); hsvVec.push_back(hsv2);
@@ -442,16 +467,20 @@ ang = new cv.Mat(dofHeight, dofWidth, cv.CV_32FC1);
 rgb = new cv.Mat(dofHeight, dofWidth, cv.CV_8UC3);
 dofLoopIndex = setInterval(
     function() {
-        if(dofVideo.ended) dofStopVideo();
-        context.drawImage(dofVideo, 0, 0, dofWidth, dofHeight);
-        frame2.data().set(context.getImageData(0, 0, dofWidth, dofHeight).data);
+        if(dofVideo.ended) {
+            dofStopVideo();
+            return;
+        }
+        cap.read(frame2);
         cv.cvtColor(frame2, next, cv.COLOR_RGBA2GRAY);
         cv.calcOpticalFlowFarneback(prvs, next, flow, 0.5, 3, 15, 3, 5, 1.2, 0)
         cv.split(flow, flowVec);
-        cv.cartToPolar(flowVec.get(0), flowVec.get(1), mag, ang);
+        let u = flowVec.get(0);
+        let v = flowVec.get(1);
+        cv.cartToPolar(u, v, mag, ang);
+        u.delete(); v.delete();
         ang.convertTo(hsv0, cv.CV_8UC1, 180/Math.PI/2);
         cv.normalize(mag, hsv2, 0, 255, cv.NORM_MINMAX, cv.CV_8UC1);
-        hsvVec.set(0, hsv0); hsvVec.set(1, hsv1); hsvVec.set(2, hsv2);
         cv.merge(hsvVec, hsv);
         cv.cvtColor(hsv, rgb, cv.COLOR_HSV2RGB);
         cv.imshow("dofCanvasOutput", rgb);
@@ -460,7 +489,6 @@ dofLoopIndex = setInterval(
 </textarea>
 <p class="err" id="dofErr"></p>
 </div>
-<canvas id="dofCanvasFrame" hidden></canvas>
 <div id="contentarea">
     <button id="dofStartup" disabled="true" onclick="dofStartup()">try it</button>
     <button id="dofStop" disabled="true" onclick="dofStopVideo()">stop</button><br>
@@ -471,7 +499,6 @@ dofLoopIndex = setInterval(
 // dof means Dense Optical Flow
 // Some HTML elements we need to configure.
 let dofVideo = document.getElementById("dofVideo");
-let dofCanvasFrame = document.getElementById("dofCanvasFrame");
 let dofStop = document.getElementById("dofStop");
 
 // In this case, We set width 320, and the height will be computed based on the input video.
@@ -495,8 +522,6 @@ let rgb = null;
 dofVideo.oncanplay = function() {
     dofVideo.setAttribute("height", dofVideo.videoHeight/dofVideo.videoWidth*dofVideo.width);
     dofHeight = dofVideo.height;
-    dofCanvasFrame.setAttribute("width", dofWidth);
-    dofCanvasFrame.setAttribute("height", dofHeight);
 };
 
 dofVideo.onended = dofStopVideo;
@@ -506,7 +531,6 @@ function dofStartup() {
         dofVideo.load();
     dofVideo.play();
     dofStop.disabled = false;
-    let context = dofCanvasFrame.getContext("2d");
     let dofTestCode = document.getElementById("dofTestCode").value;
 
     try {
@@ -595,7 +619,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -649,7 +673,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

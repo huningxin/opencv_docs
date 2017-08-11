@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -148,25 +148,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
-<p>In this chapter,</p><ul>
+<ul>
 <li>We will learn different morphological operations like Erosion, Dilation, Opening, Closing etc.</li>
-<li>We will see different functions like : <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaeb1e0c1033e3f6b891a25d0511362aeb" title="Erodes an image by using a specific structuring element. ">cv.erode()</a></b>, <b><a class="el" href="d4/d86/group__imgproc__filter.html#ga4ff0f3318642c4f469d0e11f242f3b6c" title="Dilates an image by using a specific structuring element. ">cv.dilate()</a></b>, <b><a class="el" href="d4/d86/group__imgproc__filter.html#ga67493776e3ad1a3df63883829375201f" title="Performs advanced morphological transformations. ">cv.morphologyEx()</a></b> etc.</li>
+<li>We will learn different functions like : <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaeb1e0c1033e3f6b891a25d0511362aeb" title="Erodes an image by using a specific structuring element. ">cv.erode()</a></b>, <b><a class="el" href="d4/d86/group__imgproc__filter.html#ga4ff0f3318642c4f469d0e11f242f3b6c" title="Dilates an image by using a specific structuring element. ">cv.dilate()</a></b>, <b><a class="el" href="d4/d86/group__imgproc__filter.html#ga67493776e3ad1a3df63883829375201f" title="Performs advanced morphological transformations. ">cv.morphologyEx()</a></b> etc.</li>
 </ul>
 <h2>Theory </h2>
 <p>Morphological transformations are some simple operations based on the image shape. It is normally performed on binary images. It needs two inputs, one is our original image, second one is called <b>structuring element</b> or <b>kernel</b> which decides the nature of operation. Two basic morphological operators are Erosion and Dilation. Then its variant forms like Opening, Closing, Gradient etc also comes into play. We will see them one-by-one with help of following image:</p>
 <div class="image">
-<img src="LinuxLogo.jpg" alt="LinuxLogo.jpg"/>
+<img src="shape.jpg" alt="shape.jpg"/>
 <div class="caption">
 image</div></div>
  <h3>1. Erosion</h3>
 <p>The basic idea of erosion is just like soil erosion only, it erodes away the boundaries of foreground object (Always try to keep foreground in white). So what it does? The kernel slides through the image (as in 2D convolution). A pixel in the original image (either 1 or 0) will be considered 1 only if all the pixels under the kernel is 1, otherwise it is eroded (made to zero).</p>
 <p>So what happends is that, all the pixels near boundary will be discarded depending upon the size of kernel. So the thickness or size of the foreground object decreases or simply white region decreases in the image. It is useful for removing small white noises (as we have seen in colorspace chapter), detach two connected objects etc.</p>
-<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaeb1e0c1033e3f6b891a25d0511362aeb" title="Erodes an image by using a specific structuring element. ">cv.erode</a> (src, dst, kernel, anchor = [-1, -1], iterations = 1, borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5aed2e4346047e265c8c5a6d0276dcd838" title="iiiiii|abcdefgh|iiiiiii with some specified i ">cv.BORDER_CONSTANT</a>, borderValue = <a class="el" href="d4/d86/group__imgproc__filter.html#ga94756fad83d9d24d29c9bf478558c40a" title="returns &quot;magic&quot; border value for erosion and dilation. It is automatically transformed to Scalar::all...">cv.morphologyDefaultBorderValue()</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaeb1e0c1033e3f6b891a25d0511362aeb" title="Erodes an image by using a specific structuring element. ">cv.erode</a> (src, dst, kernel, anchor = new <a class="el" href="dc/d84/group__core__basic.html#ga1e83eafb2d26b3c93f09e8338bcab192">cv.Point</a>(-1, -1), iterations = 1, borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5aed2e4346047e265c8c5a6d0276dcd838" title="iiiiii|abcdefgh|iiiiiii with some specified i ">cv.BORDER_CONSTANT</a>, borderValue = <a class="el" href="d4/d86/group__imgproc__filter.html#ga94756fad83d9d24d29c9bf478558c40a" title="returns &quot;magic&quot; border value for erosion and dilation. It is automatically transformed to Scalar::all...">cv.morphologyDefaultBorderValue()</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input image; the number of channels can be arbitrary, but the depth should be one of cv.CV_8U, cv.CV_16U, cv.CV_16S, cv.CV_32F or cv.CV_64F. </td></tr>
     <tr><td class="paramname">dst</td><td>output image of the same size and type as src. </td></tr>
     <tr><td class="paramname">kernel</td><td>structuring element used for erosion. </td></tr>
-    <tr><td class="paramname">anchor</td><td>position of the anchor within the element; default value [-1, -1] means that the anchor is at the element center. </td></tr>
+    <tr><td class="paramname">anchor</td><td>position of the anchor within the element; default value new <a class="el" href="dc/d84/group__core__basic.html#ga1e83eafb2d26b3c93f09e8338bcab192">cv.Point</a>(-1, -1) means that the anchor is at the element center. </td></tr>
     <tr><td class="paramname">iterations</td><td>number of times erosion is applied. </td></tr>
     <tr><td class="paramname">borderType</td><td>pixel extrapolation method(see <a class="el" href="d2/de8/group__core__array.html#ga209f2f4869e304c82d07739337eae7c5">cv.BorderTypes</a>). </td></tr>
     <tr><td class="paramname">borderValue</td><td>border value in case of a constant border</td></tr>
@@ -174,7 +174,7 @@ image</div></div>
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named erodeCanvasInput and erodeCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named erodeCanvasInput and erodeCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -191,15 +191,15 @@ canvas {
 <div id="erodeCodeArea">
 <h2>Input your code</h2>
 <button id="erodeTryIt" disabled="true" onclick="erodeExecuteCode()">Try it</button><br>
-<textarea rows="9" cols="80" id="erodeTestCode" spellcheck="false">
-var src = cv.imread("erodeCanvasInput");
-var dst = new cv.Mat();
-var M = cv.Mat.ones(5, 5, cv.CV_8U);
-var color = new cv.Scalar();
-// You can try more different conversion
-cv.erode(src, dst, M, [-1, -1], 1, cv.BORDER_CONSTANT, color)
+<textarea rows="9" cols="90" id="erodeTestCode" spellcheck="false">
+let src = cv.imread("erodeCanvasInput");
+let dst = new cv.Mat();
+let M = cv.Mat.ones(5, 5, cv.CV_8U);
+let anchor = new cv.Point(-1, -1);
+// You can try more different parameters
+cv.erode(src, dst, M, anchor, 1, cv.BORDER_CONSTANT, cv.morphologyDefaultBorderValue());
 cv.imshow("erodeCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); color.delete();
+src.delete(); dst.delete(); M.delete(); 
 </textarea>
 <p class="err" id="erodeErr"></p>
 </div>
@@ -214,7 +214,7 @@ src.delete(); dst.delete(); M.delete(); color.delete();
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 function erodeExecuteCode() {
-    var erodeText = document.getElementById("erodeTestCode").value;
+    let erodeText = document.getElementById("erodeTestCode").value;
     try {
         eval(erodeText);
         document.getElementById("erodeErr").innerHTML = " ";
@@ -223,11 +223,11 @@ function erodeExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "erodeCanvasInput");
-var erodeInputElement = document.getElementById("erodeInput");
+loadImageToCanvas("shape.jpg", "erodeCanvasInput");
+let erodeInputElement = document.getElementById("erodeInput");
 erodeInputElement.addEventListener("change", erodeHandleFiles, false);
 function erodeHandleFiles(e) {
-    var erodeUrl = URL.createObjectURL(e.target.files[0]);
+    let erodeUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(erodeUrl, "erodeCanvasInput");
 }
 </script>
@@ -235,12 +235,12 @@ function erodeHandleFiles(e) {
 </p>
 <h3>2. Dilation</h3>
 <p>It is just opposite of erosion. Here, a pixel element is '1' if atleast one pixel under the kernel is '1'. So it increases the white region in the image or size of foreground object increases. Normally, in cases like noise removal, erosion is followed by dilation. Because, erosion removes white noises, but it also shrinks our object. So we dilate it. Since noise is gone, they won't come back, but our object area increases. It is also useful in joining broken parts of an object.</p>
-<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#ga4ff0f3318642c4f469d0e11f242f3b6c" title="Dilates an image by using a specific structuring element. ">cv.dilate</a> (src, dst, kernel, anchor = [-1, -1], iterations = 1, borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5aed2e4346047e265c8c5a6d0276dcd838" title="iiiiii|abcdefgh|iiiiiii with some specified i ">cv.BORDER_CONSTANT</a>, borderValue = <a class="el" href="d4/d86/group__imgproc__filter.html#ga94756fad83d9d24d29c9bf478558c40a" title="returns &quot;magic&quot; border value for erosion and dilation. It is automatically transformed to Scalar::all...">cv.morphologyDefaultBorderValue()</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#ga4ff0f3318642c4f469d0e11f242f3b6c" title="Dilates an image by using a specific structuring element. ">cv.dilate</a> (src, dst, kernel, anchor = new <a class="el" href="dc/d84/group__core__basic.html#ga1e83eafb2d26b3c93f09e8338bcab192">cv.Point</a>(-1, -1), iterations = 1, borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5aed2e4346047e265c8c5a6d0276dcd838" title="iiiiii|abcdefgh|iiiiiii with some specified i ">cv.BORDER_CONSTANT</a>, borderValue = <a class="el" href="d4/d86/group__imgproc__filter.html#ga94756fad83d9d24d29c9bf478558c40a" title="returns &quot;magic&quot; border value for erosion and dilation. It is automatically transformed to Scalar::all...">cv.morphologyDefaultBorderValue()</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input image; the number of channels can be arbitrary, but the depth should be one of cv.CV_8U, cv.CV_16U, cv.CV_16S, cv.CV_32F or cv.CV_64F. </td></tr>
     <tr><td class="paramname">dst</td><td>output image of the same size and type as src. </td></tr>
     <tr><td class="paramname">kernel</td><td>structuring element used for dilation. </td></tr>
-    <tr><td class="paramname">anchor</td><td>position of the anchor within the element; default value [-1, -1] means that the anchor is at the element center. </td></tr>
+    <tr><td class="paramname">anchor</td><td>position of the anchor within the element; default value new <a class="el" href="dc/d84/group__core__basic.html#ga1e83eafb2d26b3c93f09e8338bcab192">cv.Point</a>(-1, -1) means that the anchor is at the element center. </td></tr>
     <tr><td class="paramname">iterations</td><td>number of times dilation is applied. </td></tr>
     <tr><td class="paramname">borderType</td><td>pixel extrapolation method(see <a class="el" href="d2/de8/group__core__array.html#ga209f2f4869e304c82d07739337eae7c5">cv.BorderTypes</a>). </td></tr>
     <tr><td class="paramname">borderValue</td><td>border value in case of a constant border</td></tr>
@@ -248,29 +248,24 @@ function erodeHandleFiles(e) {
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named dilateCanvasInput and dilateCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named dilateCanvasInput and dilateCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
 </head>
 <body>
 <div id="dilateCodeArea">
 <h2>Input your code</h2>
 <button id="dilateTryIt" disabled="true" onclick="dilateExecuteCode()">Try it</button><br>
-<textarea rows="9" cols="80" id="dilateTestCode" spellcheck="false">
-var src = cv.imread("dilateCanvasInput");
-var dst = new cv.Mat();
-var M = cv.Mat.ones(5, 5, cv.CV_8U);
-var color = new cv.Scalar();
-// You can try more different conversion
-cv.dilate(src, dst, M, [-1, -1], 1, cv.BORDER_CONSTANT, color)
+<textarea rows="8" cols="90" id="dilateTestCode" spellcheck="false">
+let src = cv.imread("dilateCanvasInput");
+let dst = new cv.Mat();
+let M = cv.Mat.ones(5, 5, cv.CV_8U);
+let anchor = new cv.Point(-1, -1);
+// You can try more different parameters
+cv.dilate(src, dst, M, anchor, 1, cv.BORDER_CONSTANT, cv.morphologyDefaultBorderValue());
 cv.imshow("dilateCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); color.delete();
+src.delete(); dst.delete(); M.delete(); 
 </textarea>
 <p class="err" id="dilateErr"></p>
 </div>
@@ -283,7 +278,7 @@ src.delete(); dst.delete(); M.delete(); color.delete();
 </div>
 <script>
 function dilateExecuteCode() {
-    var dilateText = document.getElementById("dilateTestCode").value;
+    let dilateText = document.getElementById("dilateTestCode").value;
     try {
         eval(dilateText);
         document.getElementById("dilateErr").innerHTML = " ";
@@ -292,11 +287,11 @@ function dilateExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "dilateCanvasInput");
-var dilateInputElement = document.getElementById("dilateInput");
+loadImageToCanvas("shape.jpg", "dilateCanvasInput");
+let dilateInputElement = document.getElementById("dilateInput");
 dilateInputElement.addEventListener("change", dilateHandleFiles, false);
 function dilateHandleFiles(e) {
-    var dilateUrl = URL.createObjectURL(e.target.files[0]);
+    let dilateUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(dilateUrl, "dilateCanvasInput");
 }
 </script>
@@ -304,7 +299,7 @@ function dilateHandleFiles(e) {
 </p>
 <h3>3. Opening</h3>
 <p>Opening is just another name of <b>erosion followed by dilation</b>. It is useful in removing noise.</p>
-<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#ga67493776e3ad1a3df63883829375201f" title="Performs advanced morphological transformations. ">cv.morphologyEx</a> (src, dst, op, kernel, anchor = [-1, -1], iterations = 1, borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5aed2e4346047e265c8c5a6d0276dcd838" title="iiiiii|abcdefgh|iiiiiii with some specified i ">cv.BORDER_CONSTANT</a>, borderValue = <a class="el" href="d4/d86/group__imgproc__filter.html#ga94756fad83d9d24d29c9bf478558c40a" title="returns &quot;magic&quot; border value for erosion and dilation. It is automatically transformed to Scalar::all...">cv.morphologyDefaultBorderValue()</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#ga67493776e3ad1a3df63883829375201f" title="Performs advanced morphological transformations. ">cv.morphologyEx</a> (src, dst, op, kernel, anchor = new <a class="el" href="dc/d84/group__core__basic.html#ga1e83eafb2d26b3c93f09e8338bcab192">cv.Point</a>(-1, -1), iterations = 1, borderType = <a class="el" href="d2/de8/group__core__array.html#gga209f2f4869e304c82d07739337eae7c5aed2e4346047e265c8c5a6d0276dcd838" title="iiiiii|abcdefgh|iiiiiii with some specified i ">cv.BORDER_CONSTANT</a>, borderValue = <a class="el" href="d4/d86/group__imgproc__filter.html#ga94756fad83d9d24d29c9bf478558c40a" title="returns &quot;magic&quot; border value for erosion and dilation. It is automatically transformed to Scalar::all...">cv.morphologyDefaultBorderValue()</a>)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>source image. The number of channels can be arbitrary. The depth should be one of cv.CV_8U, cv.CV_16U, cv.CV_16S, cv.CV_32F or cv.CV_64F </td></tr>
     <tr><td class="paramname">dst</td><td>destination image of the same size and type as source image. </td></tr>
@@ -318,29 +313,24 @@ function dilateHandleFiles(e) {
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named openingCanvasInput and openingCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named openingCanvasInput and openingCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
 </head>
 <body>
 <div id="openingCodeArea">
 <h2>Input your code</h2>
 <button id="openingTryIt" disabled="true" onclick="openingExecuteCode()">Try it</button><br>
-<textarea rows="9" cols="80" id="openingTestCode" spellcheck="false">
-var src = cv.imread("openingCanvasInput");
-var dst = new cv.Mat();
-var M = cv.Mat.ones(5, 5, cv.CV_8U);
-var color = new cv.Scalar();
-// You can try more different conversion
-cv.morphologyEx(src, dst, cv.MORPH_OPEN, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+<textarea rows="8" cols="90" id="openingTestCode" spellcheck="false">
+let src = cv.imread("openingCanvasInput");
+let dst = new cv.Mat();
+let M = cv.Mat.ones(5, 5, cv.CV_8U);
+let anchor = new cv.Point(-1, -1);
+// You can try more different parameters
+cv.morphologyEx(src, dst, cv.MORPH_OPEN, M, anchor, 1, cv.BORDER_CONSTANT, cv.morphologyDefaultBorderValue());
 cv.imshow("openingCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); color.delete();
+src.delete(); dst.delete(); M.delete(); 
 </textarea>
 <p class="err" id="openingErr"></p>
 </div>
@@ -353,7 +343,7 @@ src.delete(); dst.delete(); M.delete(); color.delete();
 </div>
 <script>
 function openingExecuteCode() {
-    var openingText = document.getElementById("openingTestCode").value;
+    let openingText = document.getElementById("openingTestCode").value;
     try {
         eval(openingText);
         document.getElementById("openingErr").innerHTML = " ";
@@ -362,11 +352,11 @@ function openingExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "openingCanvasInput");
-var openingInputElement = document.getElementById("openingInput");
+loadImageToCanvas("shape.jpg", "openingCanvasInput");
+let openingInputElement = document.getElementById("openingInput");
 openingInputElement.addEventListener("change", openingHandleFiles, false);
 function openingHandleFiles(e) {
-    var openingUrl = URL.createObjectURL(e.target.files[0]);
+    let openingUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(openingUrl, "openingCanvasInput");
 }
 </script>
@@ -375,29 +365,23 @@ function openingHandleFiles(e) {
 <h3>4. Closing</h3>
 <p>Closing is reverse of Opening, <b>Dilation followed by Erosion</b>. It is useful in closing small holes inside the foreground objects, or small black points on the object.</p>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named closingCanvasInput and closingCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named closingCanvasInput and closingCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
 </head>
 <body>
 <div id="closingCodeArea">
 <h2>Input your code</h2>
 <button id="closingTryIt" disabled="true" onclick="closingExecuteCode()">Try it</button><br>
-<textarea rows="9" cols="80" id="closingTestCode" spellcheck="false">
-var src = cv.imread("closingCanvasInput");
-var dst = new cv.Mat();
-var M = cv.Mat.ones(5, 5, cv.CV_8U);
-var color = new cv.Scalar();
-// You can try more different conversion
-cv.morphologyEx(src, dst, cv.MORPH_CLOSE, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+<textarea rows="8" cols="90" id="closingTestCode" spellcheck="false">
+let src = cv.imread("closingCanvasInput");
+let dst = new cv.Mat();
+let M = cv.Mat.ones(5, 5, cv.CV_8U);
+// You can try more different parameters
+cv.morphologyEx(src, dst, cv.MORPH_CLOSE, M);
 cv.imshow("closingCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); color.delete();
+src.delete(); dst.delete(); M.delete(); 
 </textarea>
 <p class="err" id="closingErr"></p>
 </div>
@@ -410,7 +394,7 @@ src.delete(); dst.delete(); M.delete(); color.delete();
 </div>
 <script>
 function closingExecuteCode() {
-    var closingText = document.getElementById("closingTestCode").value;
+    let closingText = document.getElementById("closingTestCode").value;
     try {
         eval(closingText);
         document.getElementById("closingErr").innerHTML = " ";
@@ -419,11 +403,11 @@ function closingExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "closingCanvasInput");
-var closingInputElement = document.getElementById("closingInput");
+loadImageToCanvas("shape.jpg", "closingCanvasInput");
+let closingInputElement = document.getElementById("closingInput");
 closingInputElement.addEventListener("change", closingHandleFiles, false);
 function closingHandleFiles(e) {
-    var closingUrl = URL.createObjectURL(e.target.files[0]);
+    let closingUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(closingUrl, "closingCanvasInput");
 }
 </script>
@@ -433,30 +417,24 @@ function closingHandleFiles(e) {
 <p>It is the difference between dilation and erosion of an image.</p>
 <p>The result will look like the outline of the object.</p>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named gradientCanvasInput and gradientCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named gradientCanvasInput and gradientCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
 </head>
 <body>
 <div id="gradientCodeArea">
 <h2>Input your code</h2>
 <button id="gradientTryIt" disabled="true" onclick="gradientExecuteCode()">Try it</button><br>
-<textarea rows="9" cols="80" id="gradientTestCode" spellcheck="false">
-var src = cv.imread("gradientCanvasInput");
+<textarea rows="8" cols="90" id="gradientTestCode" spellcheck="false">
+let src = cv.imread("gradientCanvasInput");
 cv.cvtColor(src, src, cv.COLOR_RGBA2RGB);
-var dst = new cv.Mat();
-var M = cv.Mat.ones(5, 5, cv.CV_8U);
-var color = new cv.Scalar();
-// You can try more different conversion
-cv.morphologyEx(src, dst, cv.MORPH_GRADIENT, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+let dst = new cv.Mat();
+let M = cv.Mat.ones(5, 5, cv.CV_8U);
+// You can try more different parameters
+cv.morphologyEx(src, dst, cv.MORPH_GRADIENT, M);
 cv.imshow("gradientCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); color.delete();
+src.delete(); dst.delete(); M.delete();
 </textarea>
 <p class="err" id="gradientErr"></p>
 </div>
@@ -469,7 +447,7 @@ src.delete(); dst.delete(); M.delete(); color.delete();
 </div>
 <script>
 function gradientExecuteCode() {
-    var gradientText = document.getElementById("gradientTestCode").value;
+    let gradientText = document.getElementById("gradientTestCode").value;
     try {
         eval(gradientText);
         document.getElementById("gradientErr").innerHTML = " ";
@@ -478,11 +456,11 @@ function gradientExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "gradientCanvasInput");
-var gradientInputElement = document.getElementById("gradientInput");
+loadImageToCanvas("shape.jpg", "gradientCanvasInput");
+let gradientInputElement = document.getElementById("gradientInput");
 gradientInputElement.addEventListener("change", gradientHandleFiles, false);
 function gradientHandleFiles(e) {
-    var gradientUrl = URL.createObjectURL(e.target.files[0]);
+    let gradientUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(gradientUrl, "gradientCanvasInput");
 }
 </script>
@@ -491,30 +469,24 @@ function gradientHandleFiles(e) {
 <h3>6. Top Hat</h3>
 <p>It is the difference between input image and Opening of the image.</p>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named topHatCanvasInput and topHatCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named topHatCanvasInput and topHatCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
 </head>
 <body>
 <div id="topHatCodeArea">
 <h2>Input your code</h2>
 <button id="topHatTryIt" disabled="true" onclick="topHatExecuteCode()">Try it</button><br>
-<textarea rows="9" cols="80" id="topHatTestCode" spellcheck="false">
-var src = cv.imread("topHatCanvasInput");
+<textarea rows="8" cols="90" id="topHatTestCode" spellcheck="false">
+let src = cv.imread("topHatCanvasInput");
 cv.cvtColor(src, src, cv.COLOR_RGBA2RGB);
-var dst = new cv.Mat();
-var M = cv.Mat.ones(5, 5, cv.CV_8U);
-var color = new cv.Scalar();
-// You can try more different conversion
-cv.morphologyEx(src, dst, cv.MORPH_TOPHAT, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+let dst = new cv.Mat();
+let M = cv.Mat.ones(9, 9, cv.CV_8U);
+// You can try more different parameters
+cv.morphologyEx(src, dst, cv.MORPH_TOPHAT, M);
 cv.imshow("topHatCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); color.delete();
+src.delete(); dst.delete(); M.delete();
 </textarea>
 <p class="err" id="topHatErr"></p>
 </div>
@@ -527,7 +499,7 @@ src.delete(); dst.delete(); M.delete(); color.delete();
 </div>
 <script>
 function topHatExecuteCode() {
-    var topHatText = document.getElementById("topHatTestCode").value;
+    let topHatText = document.getElementById("topHatTestCode").value;
     try {
         eval(topHatText);
         document.getElementById("topHatErr").innerHTML = " ";
@@ -536,11 +508,11 @@ function topHatExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "topHatCanvasInput");
-var topHatInputElement = document.getElementById("topHatInput");
+loadImageToCanvas("shape.jpg", "topHatCanvasInput");
+let topHatInputElement = document.getElementById("topHatInput");
 topHatInputElement.addEventListener("change", topHatHandleFiles, false);
 function topHatHandleFiles(e) {
-    var topHatUrl = URL.createObjectURL(e.target.files[0]);
+    let topHatUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(topHatUrl, "topHatCanvasInput");
 }
 </script>
@@ -549,30 +521,24 @@ function topHatHandleFiles(e) {
 <h3>7. Black Hat</h3>
 <p>It is the difference between the closing of the input image and input image.</p>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named blackHatCanvasInput and blackHatCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named blackHatCanvasInput and blackHatCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
 </head>
 <body>
 <div id="blackHatCodeArea">
 <h2>Input your code</h2>
 <button id="blackHatTryIt" disabled="true" onclick="blackHatExecuteCode()">Try it</button><br>
-<textarea rows="9" cols="80" id="blackHatTestCode" spellcheck="false">
-var src = cv.imread("blackHatCanvasInput");
+<textarea rows="8" cols="90" id="blackHatTestCode" spellcheck="false">
+let src = cv.imread("blackHatCanvasInput");
 cv.cvtColor(src, src, cv.COLOR_RGBA2RGB);
-var dst = new cv.Mat();
-var M = cv.Mat.ones(5, 5, cv.CV_8U);
-var color = new cv.Scalar();
-// You can try more different conversion
-cv.morphologyEx(src, dst, cv.MORPH_BLACKHAT, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+let dst = new cv.Mat();
+let M = cv.Mat.ones(53, 53, cv.CV_8U);
+// You can try more different parameters
+cv.morphologyEx(src, dst, cv.MORPH_BLACKHAT, M);
 cv.imshow("blackHatCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); color.delete();
+src.delete(); dst.delete(); M.delete(); 
 </textarea>
 <p class="err" id="blackHatErr"></p>
 </div>
@@ -585,7 +551,7 @@ src.delete(); dst.delete(); M.delete(); color.delete();
 </div>
 <script>
 function blackHatExecuteCode() {
-    var blackHatText = document.getElementById("blackHatTestCode").value;
+    let blackHatText = document.getElementById("blackHatTestCode").value;
     try {
         eval(blackHatText);
         document.getElementById("blackHatErr").innerHTML = " ";
@@ -594,11 +560,11 @@ function blackHatExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "blackHatCanvasInput");
-var blackHatInputElement = document.getElementById("blackHatInput");
+loadImageToCanvas("shape.jpg", "blackHatCanvasInput");
+let blackHatInputElement = document.getElementById("blackHatInput");
 blackHatInputElement.addEventListener("change", blackHatHandleFiles, false);
 function blackHatHandleFiles(e) {
-    var blackHatUrl = URL.createObjectURL(e.target.files[0]);
+    let blackHatUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(blackHatUrl, "blackHatCanvasInput");
 }
 </script>
@@ -606,7 +572,7 @@ function blackHatHandleFiles(e) {
 </p>
 <h2>Structuring Element </h2>
 <p>We manually created a structuring elements in the previous examples with help of <a class="el" href="d3/d63/classcv_1_1Mat.html#a69ae0402d116fc9c71908d8508dc2f09" title="Returns an array of all 1&#39;s of the specified size and type. ">cv.Mat.ones</a>. It is rectangular shape. But in some cases, you may need elliptical/circular shaped kernels. So for this purpose, OpenCV has a function, <b><a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement()</a></b>. You just pass the shape and size of the kernel, you get the desired kernel.</p>
-<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement</a> (shape, ksize, anchor = [-1, -1])</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b><a class="el" href="d4/d86/group__imgproc__filter.html#gac342a1bb6eabf6f55c803b09268e36dc" title="Returns a structuring element of the specified size and shape for morphological operations. ">cv.getStructuringElement</a> (shape, ksize, anchor = new <a class="el" href="dc/d84/group__core__basic.html#ga1e83eafb2d26b3c93f09e8338bcab192">cv.Point</a>(-1, -1))</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">shape</td><td>element shape that could be one of <a class="el" href="d4/d86/group__imgproc__filter.html#gac2db39b56866583a95a5680313c314ad" title="shape of the structuring element ">cv.MorphShapes</a> </td></tr>
     <tr><td class="paramname">ksize</td><td>size of the structuring element. </td></tr>
@@ -615,31 +581,26 @@ function blackHatHandleFiles(e) {
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named getStructuringElementCanvasInput and getStructuringElementCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named getStructuringElementCanvasInput and getStructuringElementCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
 </head>
 <body>
 <div id="getStructuringElementCodeArea">
 <h2>Input your code</h2>
 <button id="getStructuringElementTryIt" disabled="true" onclick="getStructuringElementExecuteCode()">Try it</button><br>
-<textarea rows="9" cols="80" id="getStructuringElementTestCode" spellcheck="false">
-var src = cv.imread("getStructuringElementCanvasInput");
+<textarea rows="10" cols="90" id="getStructuringElementTestCode" spellcheck="false">
+let src = cv.imread("getStructuringElementCanvasInput");
 cv.cvtColor(src, src, cv.COLOR_RGBA2RGB);
-var dst = new cv.Mat();
-var M = new cv.Mat();
-var color = new cv.Scalar();
-// You can try more different conversion
-M = cv.getStructuringElement(cv.MORPH_CROSS, [5, 5]);
-cv.morphologyEx(src, dst, cv.MORPH_GRADIENT, M, [-1, -1], 1, cv.BORDER_CONSTANT, color);
+let dst = new cv.Mat();
+let M = new cv.Mat();
+let ksize = new cv.Size(5, 5);
+// You can try more different parameters
+M = cv.getStructuringElement(cv.MORPH_CROSS, ksize);
+cv.morphologyEx(src, dst, cv.MORPH_GRADIENT, M);
 cv.imshow("getStructuringElementCanvasOutput", dst);
-src.delete(); dst.delete(); M.delete(); color.delete();
+src.delete(); dst.delete(); M.delete(); 
 </textarea>
 <p class="err" id="getStructuringElementErr"></p>
 </div>
@@ -652,7 +613,7 @@ src.delete(); dst.delete(); M.delete(); color.delete();
 </div>
 <script>
 function getStructuringElementExecuteCode() {
-    var getStructuringElementText = document.getElementById("getStructuringElementTestCode").value;
+    let getStructuringElementText = document.getElementById("getStructuringElementTestCode").value;
     try {
         eval(getStructuringElementText);
         document.getElementById("getStructuringElementErr").innerHTML = " ";
@@ -661,11 +622,11 @@ function getStructuringElementExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "getStructuringElementCanvasInput");
-var getStructuringElementInputElement = document.getElementById("getStructuringElementInput");
+loadImageToCanvas("shape.jpg", "getStructuringElementCanvasInput");
+let getStructuringElementInputElement = document.getElementById("getStructuringElementInput");
 getStructuringElementInputElement.addEventListener("change", getStructuringElementHandleFiles, false);
 function getStructuringElementHandleFiles(e) {
-    var getStructuringElementUrl = URL.createObjectURL(e.target.files[0]);
+    let getStructuringElementUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(getStructuringElementUrl, "getStructuringElementCanvasInput");
 }
 function onReady() {
@@ -690,7 +651,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -744,7 +705,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

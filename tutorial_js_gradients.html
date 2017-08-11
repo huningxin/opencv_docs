@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -148,10 +148,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
-<p>In this chapter, we will learn to:</p>
 <ul>
 <li>Find Image gradients, edges etc</li>
-<li>We will see following functions : <b><a class="el" href="d4/d86/group__imgproc__filter.html#gacea54f142e81b6758cb6f375ce782c8d" title="Calculates the first, second, third, or mixed image derivatives using an extended Sobel operator...">cv.Sobel()</a></b>, <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaa13106761eedf14798f37aa2d60404c9" title="Calculates the first x- or y- image derivative using Scharr operator. ">cv.Scharr()</a></b>, <b><a class="el" href="d4/d86/group__imgproc__filter.html#gad78703e4c8fe703d479c1860d76429e6" title="Calculates the Laplacian of an image. ">cv.Laplacian()</a></b> etc</li>
+<li>We will learn following functions : <b><a class="el" href="d4/d86/group__imgproc__filter.html#gacea54f142e81b6758cb6f375ce782c8d" title="Calculates the first, second, third, or mixed image derivatives using an extended Sobel operator...">cv.Sobel()</a></b>, <b><a class="el" href="d4/d86/group__imgproc__filter.html#gaa13106761eedf14798f37aa2d60404c9" title="Calculates the first x- or y- image derivative using Scharr operator. ">cv.Scharr()</a></b>, <b><a class="el" href="d4/d86/group__imgproc__filter.html#gad78703e4c8fe703d479c1860d76429e6" title="Calculates the Laplacian of an image. ">cv.Laplacian()</a></b> etc</li>
 </ul>
 <h2>Theory </h2>
 <p>OpenCV provides three types of gradient filters or High-pass filters, Sobel, Scharr and Laplacian. We will see each one of them.</p>
@@ -185,7 +184,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named SobelCanvasInput, SobelCanvasOutputX and SobelCanvasOutputY have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named SobelCanvasInput, SobelCanvasOutputX and SobelCanvasOutputY have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -203,15 +202,15 @@ canvas {
 <h2>Input your code</h2>
 <button id="SobelTryIt" disabled="true" onclick="SobelExecuteCode()">Try it</button><br>
 <textarea rows="13" cols="80" id="SobelTestCode" spellcheck="false">
-var src = cv.imread("SobelCanvasInput");
-var dstx = new cv.Mat();
-var dsty = new cv.Mat();
+let src = cv.imread("SobelCanvasInput");
+let dstx = new cv.Mat();
+let dsty = new cv.Mat();
 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
-// You can try more different conversion
+// You can try more different parameters
 cv.Sobel(src, dstx, cv.CV_8U, 1, 0, 3, 1, 0, cv.BORDER_DEFAULT);
 cv.Sobel(src, dsty, cv.CV_8U, 0, 1, 3, 1, 0, cv.BORDER_DEFAULT);
-//cv.Scharr(src, dstx, cv.CV_8U, 1, 0, 1, 0, cv.BORDER_DEFAULT);
-//cv.Scharr(src, dsty, cv.CV_8U, 0, 1, 1, 0, cv.BORDER_DEFAULT);
+// cv.Scharr(src, dstx, cv.CV_8U, 1, 0, 1, 0, cv.BORDER_DEFAULT);
+// cv.Scharr(src, dsty, cv.CV_8U, 0, 1, 1, 0, cv.BORDER_DEFAULT);
 cv.imshow("SobelCanvasOutputX", dstx);
 cv.imshow("SobelCanvasOutputY", dsty); 
 src.delete(); dstx.delete(); dsty.delete();
@@ -237,7 +236,7 @@ src.delete(); dstx.delete(); dsty.delete();
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 function SobelExecuteCode() {
-    var SobelText = document.getElementById("SobelTestCode").value;
+    let SobelText = document.getElementById("SobelTestCode").value;
     try {
         eval(SobelText);
         document.getElementById("SobelErr").innerHTML = " ";
@@ -247,10 +246,10 @@ function SobelExecuteCode() {
 }
 
 loadImageToCanvas("lena.jpg", "SobelCanvasInput");
-var SobelInputElement = document.getElementById("SobelInput");
+let SobelInputElement = document.getElementById("SobelInput");
 SobelInputElement.addEventListener("change", SobelHandleFiles, false);
 function SobelHandleFiles(e) {
-    var SobelUrl = URL.createObjectURL(e.target.files[0]);
+    let SobelUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(SobelUrl, "SobelCanvasInput");
 }
 </script>
@@ -274,25 +273,20 @@ function SobelHandleFiles(e) {
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named LaplacianCanvasInput and LaplacianCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named LaplacianCanvasInput and LaplacianCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
 </head>
 <body>
 <div id="LaplacianCodeArea">
 <h2>Input your code</h2>
 <button id="LaplacianTryIt" disabled="true" onclick="LaplacianExecuteCode()">Try it</button><br>
 <textarea rows="8" cols="80" id="LaplacianTestCode" spellcheck="false">
-var src = cv.imread("LaplacianCanvasInput");
-var dst = new cv.Mat();
+let src = cv.imread("LaplacianCanvasInput");
+let dst = new cv.Mat();
 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
-// You can try more different conversion
+// You can try more different parameters
 cv.Laplacian(src, dst, cv.CV_8U, 1, 1, 0, cv.BORDER_DEFAULT);
 cv.imshow("LaplacianCanvasOutput", dst);
 src.delete(); dst.delete();
@@ -308,7 +302,7 @@ src.delete(); dst.delete();
 </div>
 <script>
 function LaplacianExecuteCode() {
-    var LaplacianText = document.getElementById("LaplacianTestCode").value;
+    let LaplacianText = document.getElementById("LaplacianTestCode").value;
     try {
         eval(LaplacianText);
         document.getElementById("LaplacianErr").innerHTML = " ";
@@ -318,10 +312,10 @@ function LaplacianExecuteCode() {
 }
 
 loadImageToCanvas("lena.jpg", "LaplacianCanvasInput");
-var LaplacianInputElement = document.getElementById("LaplacianInput");
+let LaplacianInputElement = document.getElementById("LaplacianInput");
 LaplacianInputElement.addEventListener("change", LaplacianHandleFiles, false);
 function LaplacianHandleFiles(e) {
-    var LaplacianUrl = URL.createObjectURL(e.target.files[0]);
+    let LaplacianUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(LaplacianUrl, "LaplacianCanvasInput");
 }
 </script>
@@ -331,7 +325,7 @@ function LaplacianHandleFiles(e) {
 <p>In our last example, output datatype is cv.CV_8U. But there is a slight problem with that. Black-to-White transition is taken as Positive slope (it has a positive value) while White-to-Black transition is taken as a Negative slope (It has negative value). So when you convert data to cv.CV_8U, all negative slopes are made zero. In simple words, you miss that edge.</p>
 <p>If you want to detect both edges, better option is to keep the output datatype to some higher forms, like cv.CV_16S, cv.CV_64F etc, take its absolute value and then convert back to cv.CV_8U. Below code demonstrates this procedure for a horizontal Sobel filter and difference in results.</p>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named absSobelCanvasInput, absSobelCanvasOutput8U and absSobelCanvasOutput64F have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named absSobelCanvasInput, absSobelCanvasOutput8U and absSobelCanvasOutput64F have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p>We use the function: <b><a class="el" href="d2/de8/group__core__array.html#ga3460e9c9f37b563ab9dd550c4d8c4e7d" title="Scales, calculates absolute values, and converts the result to 8-bit. ">cv.convertScaleAbs</a> (src, dst, alpha = 1, beta = 0)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input array. </td></tr>
@@ -344,22 +338,17 @@ function LaplacianHandleFiles(e) {
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-</style>
 </head>
 <body>
 <div id="absSobelCodeArea">
 <h2>Input your code</h2>
 <button id="absSobelTryIt" disabled="true" onclick="absSobelExecuteCode()">Try it</button><br>
 <textarea rows="11" cols="80" id="absSobelTestCode" spellcheck="false">
-var src = cv.imread("absSobelCanvasInput");
-var dstx = new cv.Mat();
-var absDstx = new cv.Mat();
+let src = cv.imread("absSobelCanvasInput");
+let dstx = new cv.Mat();
+let absDstx = new cv.Mat();
 cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
-// You can try more different conversion
+// You can try more different parameters
 cv.Sobel(src, dstx, cv.CV_8U, 1, 0, 3, 1, 0, cv.BORDER_DEFAULT);
 cv.Sobel(src, absDstx, cv.CV_64F, 1, 0, 3, 1, 0, cv.BORDER_DEFAULT);
 cv.convertScaleAbs(absDstx, absDstx, 1, 0);
@@ -386,7 +375,7 @@ src.delete(); dstx.delete(); absDstx.delete();
 </div>
 <script>
 function absSobelExecuteCode() {
-    var absSobelText = document.getElementById("absSobelTestCode").value;
+    let absSobelText = document.getElementById("absSobelTestCode").value;
     try {
         eval(absSobelText);
         document.getElementById("absSobelErr").innerHTML = " ";
@@ -396,10 +385,10 @@ function absSobelExecuteCode() {
 }
 
 loadImageToCanvas("LinuxLogo.jpg", "absSobelCanvasInput");
-var absSobelInputElement = document.getElementById("absSobelInput");
+let absSobelInputElement = document.getElementById("absSobelInput");
 absSobelInputElement.addEventListener("change", absSobelHandleFiles, false);
 function absSobelHandleFiles(e) {
-    var absSobelUrl = URL.createObjectURL(e.target.files[0]);
+    let absSobelUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(absSobelUrl, "absSobelCanvasInput");
 }
 
@@ -420,7 +409,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -474,7 +463,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

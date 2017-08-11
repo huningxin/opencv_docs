@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -148,10 +148,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
-<p>In this chapter,</p><ul>
+<ul>
 <li>We will understand the concept of the Hough Transform.</li>
-<li>We will see how to use it to detect lines in an image.</li>
-<li>We will see the following functions: <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga46b4e588934f6c8dfd509cc6e0e4545a" title="Finds lines in a binary image using the standard Hough transform. ">cv.HoughLines()</a></b>, <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga8618180a5948286384e3b7ca02f6feeb" title="Finds line segments in a binary image using the probabilistic Hough transform. ">cv.HoughLinesP()</a></b></li>
+<li>We will learn how to use it to detect lines in an image.</li>
+<li>We will learn the following functions: <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga46b4e588934f6c8dfd509cc6e0e4545a" title="Finds lines in a binary image using the standard Hough transform. ">cv.HoughLines()</a></b>, <b><a class="el" href="dd/d1a/group__imgproc__feature.html#ga8618180a5948286384e3b7ca02f6feeb" title="Finds line segments in a binary image using the probabilistic Hough transform. ">cv.HoughLinesP()</a></b></li>
 </ul>
 <h2>Theory </h2>
 <p>The Hough Transform is a popular technique to detect any shape, if you can represent that shape in a mathematical form. It can detect the shape even if it is broken or distorted a little bit. We will see how it works for a line.</p>
@@ -188,7 +188,7 @@ image</div></div>
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named HoughLinesCanvasInput and HoughLinesCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named HoughLinesCanvasInput and HoughLinesCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -206,26 +206,24 @@ canvas {
 <h2>Input your code</h2>
 <button id="HoughLinesTryIt" disabled="true" onclick="HoughLinesExecuteCode()">Try it</button><br>
 <textarea rows="17" cols="80" id="HoughLinesTestCode" spellcheck="false">
-var src = cv.imread("HoughLinesCanvasInput");
-var dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8U);
-var lines = new cv.Mat();
-var color = new cv.Scalar(255, 0, 0);
+let src = cv.imread("HoughLinesCanvasInput");
+let dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8U);
+let lines = new cv.Mat();
 cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
 cv.Canny(src, src, 50, 200, 3);
-// You can try more different conversion
-cv.HoughLines(src, lines, 1, Math.PI / 180, 50, 0, 0, 0, Math.PI);
+// You can try more different parameters
+cv.HoughLines(src, lines, 1, Math.PI / 180, 30, 0, 0, 0, Math.PI);
 // draw lines
-for(var i = 0; i < lines.rows; ++i)
-{
-    var rho = lines.data32f()[i * 2], theta = lines.data32f()[i * 2 + 1];
-    var a = Math.cos(theta), b = Math.sin(theta);
-    var x0 = a * rho, y0 = b * rho;
-    var startPoint = [x0 - 1000 * b, y0 + 1000 * a];
-    var endPoint = [x0 + 1000 * b, y0 - 1000 * a];
-    cv.line(dst, startPoint, endPoint, color);
+for (let i = 0; i < lines.rows; ++i) {
+    let rho = lines.data32F[i * 2], theta = lines.data32F[i * 2 + 1];
+    let a = Math.cos(theta), b = Math.sin(theta);
+    let x0 = a * rho, y0 = b * rho;
+    let startPoint = {x : x0 - 1000 * b, y : y0 + 1000 * a};
+    let endPoint = {x : x0 + 1000 * b, y : y0 - 1000 * a};
+    cv.line(dst, startPoint, endPoint, [255, 0, 0, 255]);
 }
 cv.imshow("HoughLinesCanvasOutput", dst);
-src.delete(); dst.delete(); lines.delete(); color.delete();
+src.delete(); dst.delete(); lines.delete(); 
 </textarea>
 <p class="err" id="HoughLinesErr"></p>
 </div>
@@ -240,7 +238,7 @@ src.delete(); dst.delete(); lines.delete(); color.delete();
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 function HoughLinesExecuteCode() {
-    var HoughLinesText = document.getElementById("HoughLinesTestCode").value;
+    let HoughLinesText = document.getElementById("HoughLinesTestCode").value;
     try {
         eval(HoughLinesText);
         document.getElementById("HoughLinesErr").innerHTML = " ";
@@ -249,11 +247,11 @@ function HoughLinesExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "HoughLinesCanvasInput");
-var HoughLinesInputElement = document.getElementById("HoughLinesInput");
+loadImageToCanvas("shape.jpg", "HoughLinesCanvasInput");
+let HoughLinesInputElement = document.getElementById("HoughLinesInput");
 HoughLinesInputElement.addEventListener("change", HoughLinesHandleFiles, false);
 function HoughLinesHandleFiles(e) {
-    var HoughLinesUrl = URL.createObjectURL(e.target.files[0]);
+    let HoughLinesUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(HoughLinesUrl, "HoughLinesCanvasInput");
 }
 </script>
@@ -280,7 +278,7 @@ image</div></div>
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named HoughLinesPCanvasInput and HoughLinesPCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named HoughLinesPCanvasInput and HoughLinesPCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -290,23 +288,22 @@ image</div></div>
 <h2>Input your code</h2>
 <button id="HoughLinesPTryIt" disabled="true" onclick="HoughLinesPExecuteCode()">Try it</button><br>
 <textarea rows="17" cols="80" id="HoughLinesPTestCode" spellcheck="false">
-var src = cv.imread("HoughLinesPCanvasInput");
-var dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8U);
-var lines = new cv.Mat();
-var color = new cv.Scalar(255, 0, 0);
+let src = cv.imread("HoughLinesPCanvasInput");
+let dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8U);
+let lines = new cv.Mat();
+let color = new cv.Scalar(255, 0, 0);
 cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
 cv.Canny(src, src, 50, 200, 3);
-// You can try more different conversion
-cv.HoughLinesP(src, lines, 1, Math.PI / 180, 40, 0, 0);
+// You can try more different parameters
+cv.HoughLinesP(src, lines, 1, Math.PI / 180, 2, 0, 0);
 // draw lines
-for(var i = 0; i < lines.rows; ++i)
-{
-    var startPoint = [lines.data32s()[i * 4], lines.data32s()[i * 4 + 1]];
-    var endPoint = [lines.data32s()[i * 4 + 2], lines.data32s()[i * 4 + 3]];
+for (let i = 0; i < lines.rows; ++i) {
+    let startPoint = new cv.Point(lines.data32S[i * 4], lines.data32S[i * 4 + 1]);
+    let endPoint = new cv.Point(lines.data32S[i * 4 + 2], lines.data32S[i * 4 + 3]);
     cv.line(dst, startPoint, endPoint, color);
 }
 cv.imshow("HoughLinesPCanvasOutput", dst);
-src.delete(); dst.delete(); lines.delete(); color.delete();
+src.delete(); dst.delete(); lines.delete();
 </textarea>
 <p class="err" id="HoughLinesPErr"></p>
 </div>
@@ -319,7 +316,7 @@ src.delete(); dst.delete(); lines.delete(); color.delete();
 </div>
 <script>
 function HoughLinesPExecuteCode() {
-    var HoughLinesPText = document.getElementById("HoughLinesPTestCode").value;
+    let HoughLinesPText = document.getElementById("HoughLinesPTestCode").value;
     try {
         eval(HoughLinesPText);
         document.getElementById("HoughLinesPErr").innerHTML = " ";
@@ -328,11 +325,11 @@ function HoughLinesPExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "HoughLinesPCanvasInput");
-var HoughLinesPInputElement = document.getElementById("HoughLinesPInput");
+loadImageToCanvas("shape.jpg", "HoughLinesPCanvasInput");
+let HoughLinesPInputElement = document.getElementById("HoughLinesPInput");
 HoughLinesPInputElement.addEventListener("change", HoughLinesPHandleFiles, false);
 function HoughLinesPHandleFiles(e) {
-    var HoughLinesPUrl = URL.createObjectURL(e.target.files[0]);
+    let HoughLinesPUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(HoughLinesPUrl, "HoughLinesPCanvasInput");
 }
 
@@ -352,7 +349,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -406,7 +403,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

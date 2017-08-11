@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -139,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_gui.html">Gui Features</a></li>  </ul>
+<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_gui.html">GUI Features</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -149,17 +149,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
 <ul>
-<li>Add a Trackbar to your application by using HTML DOM Input Range Object</li>
+<li>Use HTML DOM Input Range Object to add a trackbar to your application.</li>
 </ul>
 <h2>Code Demo </h2>
-<p>Here we will create a simple application which blends two images. We will let the user enter the weight by using the trackbar.</p>
-<p>First, we need to creat three canvas elements, two for input and one for output. Please refer to the tutorial <a class="el" href="tutorial_js_image_display.html">Getting Started with Images</a>. </p><div class="fragment"><div class="line">var src1 = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(<span class="stringliteral">&quot;canvasInput1&quot;</span>);</div><div class="line">var src2 = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(<span class="stringliteral">&quot;canvasInput2&quot;</span>);</div></div><!-- fragment --><p>Then we use HTML DOM Input Range Object to implement the trackbar, which is shown as below. </p><div class="image">
+<p>Here, we will create a simple application that blends two images. We will let the user enter the weight by using the trackbar.</p>
+<p>First, we need to create three canvas elements: two for input and one for output. Please refer to the tutorial <a class="el" href="tutorial_js_image_display.html">Getting Started with Images</a>. </p><div class="fragment"><div class="line">let src1 = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(<span class="stringliteral">&quot;canvasInput1&quot;</span>);</div><div class="line">let src2 = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(<span class="stringliteral">&quot;canvasInput2&quot;</span>);</div></div><!-- fragment --><p>Then, we use HTML DOM Input Range Object to implement the trackbar, which is shown as below. </p><div class="image">
 <img src="Trackbar_Tutorial_Range.png" alt="Trackbar_Tutorial_Range.png"/>
 </div>
 <dl class="section note"><dt>Note</dt><dd>&lt;input&gt; elements with type="range" are not supported in Internet Explorer 9 and earlier versions.</dd></dl>
-<p>You can create an &lt;input&gt; element with type="range" by using the document.createElement() method: </p><div class="fragment"><div class="line">var x = document.createElement(<span class="stringliteral">&quot;INPUT&quot;</span>);</div><div class="line">x.setAttribute(<span class="stringliteral">&quot;type&quot;</span>, <span class="stringliteral">&quot;range&quot;</span>);</div></div><!-- fragment --><p>You can access an &lt;input&gt; element with type="range" by using getElementById(): </p><div class="fragment"><div class="line">var x = document.getElementById(<span class="stringliteral">&quot;myRange&quot;</span>);</div></div><!-- fragment --><p>As a trackbar, the range element need a trackbar name, the default value, minimum value, maximum value, step and the callback function which is executed everytime trackbar value changes. The callback function always has a default argument which is the trackbar position. Additionally, a text element to display the trackbar value is fine. In our case, we can create the trackbar as below: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;Weight: &lt;input type=&quot;range&quot; id=&quot;trackbar&quot; value=&quot;50&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; oninput=&quot;addWeighted(this.value)&quot;&gt;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;&lt;input type=&quot;text&quot; id=&quot;weightValue&quot; size=&quot;3&quot; value=&quot;50&quot;/&gt;</div></div><!-- fragment --><p>Finally, we can use the trackbar value in the callback function, blend the two images and display the result. </p><div class="fragment"><div class="line"><span class="keyword">function</span> <a class="code" href="d2/de8/group__core__array.html#gafafb2513349db3bcff51f54ee5592a19">addWeighted</a>(value) {</div><div class="line">    document.getElementById(<span class="stringliteral">&quot;weightValue&quot;</span>).value = value;</div><div class="line">    var alpha = value/document.getElementById(<span class="stringliteral">&quot;trackbar&quot;</span>).max;</div><div class="line">    var beta = ( 1.0 - alpha );</div><div class="line">    var dst = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>();</div><div class="line">    <a class="code" href="d2/d75/namespacecv.html">cv</a>.addWeighted( src1, alpha, src2, beta, 0.0, dst, -1);</div><div class="line">    <a class="code" href="d2/d75/namespacecv.html">cv</a>.imshow(<span class="stringliteral">&quot;canvasOutput&quot;</span>, dst);</div><div class="line">    dst.delete();</div><div class="line">}</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="d2/de8/group__core__array.html#gafafb2513349db3bcff51f54ee5592a19" title="Calculates the weighted sum of two arrays. ">cv.addWeighted</a></dd></dl>
+<p>You can create an &lt;input&gt; element with type="range" with the document.createElement() method: </p><div class="fragment"><div class="line">let x = document.createElement(<span class="stringliteral">&quot;INPUT&quot;</span>);</div><div class="line">x.setAttribute(<span class="stringliteral">&quot;type&quot;</span>, <span class="stringliteral">&quot;range&quot;</span>);</div></div><!-- fragment --><p>You can access an &lt;input&gt; element with type="range" with getElementById(): </p><div class="fragment"><div class="line">let x = document.getElementById(<span class="stringliteral">&quot;myRange&quot;</span>);</div></div><!-- fragment --><p>As a trackbar, the range element need a trackbar name, the default value, minimum value, maximum value, step and the callback function which is executed everytime trackbar value changes. The callback function always has a default argument, which is the trackbar position. Additionally, a text element to display the trackbar value is fine. In our case, we can create the trackbar as below: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;Weight: &lt;input type=&quot;range&quot; id=&quot;trackbar&quot; value=&quot;50&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; oninput=&quot;addWeighted(this.value)&quot;&gt;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;&lt;input type=&quot;text&quot; id=&quot;weightValue&quot; size=&quot;3&quot; value=&quot;50&quot;/&gt;</div></div><!-- fragment --><p>Finally, we can use the trackbar value in the callback function, blend the two images, and display the result. </p><div class="fragment"><div class="line"><span class="keyword">function</span> <a class="code" href="d2/de8/group__core__array.html#gafafb2513349db3bcff51f54ee5592a19">addWeighted</a>(value) {</div><div class="line">    document.getElementById(<span class="stringliteral">&quot;weightValue&quot;</span>).value = value;</div><div class="line">    let alpha = value/document.getElementById(<span class="stringliteral">&quot;trackbar&quot;</span>).max;</div><div class="line">    let beta = ( 1.0 - alpha );</div><div class="line">    let dst = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>();</div><div class="line">    <a class="code" href="d2/d75/namespacecv.html">cv</a>.addWeighted( src1, alpha, src2, beta, 0.0, dst, -1);</div><div class="line">    <a class="code" href="d2/d75/namespacecv.html">cv</a>.imshow(<span class="stringliteral">&quot;canvasOutput&quot;</span>, dst);</div><div class="line">    dst.delete();</div><div class="line">}</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="d2/de8/group__core__array.html#gafafb2513349db3bcff51f54ee5592a19" title="Calculates the weighted sum of two arrays. ">cv.addWeighted</a></dd></dl>
 <h2>Try it </h2>
-<p>Here is the demo for above code. Trackbar and input images are ready. Slide the trackbar to see the result. And you can change the callback function and investigate more.</p>
+<p>Try this demo using the code above. Trackbar and input images are ready. Slide the trackbar to see the result. You can change the callback function and investigate more.</p>
 <p> 
 <head>
 <style>
@@ -175,9 +175,9 @@ canvas {
 <div id="CodeArea">
 <h2>Input your code</h2>
 <textarea rows="8" cols="70" id="TestCode" spellcheck="false">
-var alpha = value/trackbar.max;
-var beta = ( 1.0 - alpha );
-var dst = new cv.Mat();
+let alpha = value/trackbar.max;
+let beta = ( 1.0 - alpha );
+let dst = new cv.Mat();
 cv.addWeighted( src1, alpha, src2, beta, 0.0, dst, -1);
 cv.imshow("canvasOutput", dst);
 dst.delete();
@@ -196,12 +196,12 @@ dst.delete();
 <script src="utils.js"></script>
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
-var weightValue = document.getElementById('weightValue');
-var trackbar = document.getElementById('trackbar');
+let weightValue = document.getElementById('weightValue');
+let trackbar = document.getElementById('trackbar');
 
 function addWeighted(value) {
     weightValue.value = value;    
-    var text = document.getElementById("TestCode").value;
+    let text = document.getElementById("TestCode").value;
     try {
         eval(text);
         document.getElementById("tbErr").innerHTML = " ";
@@ -210,10 +210,10 @@ function addWeighted(value) {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "canvasInput1");
-loadImageToCanvas("WindowsLogo.jpg", "canvasInput2");
+loadImageToCanvas("apple.jpg", "canvasInput1");
+loadImageToCanvas("orange.jpg", "canvasInput2");
 
-var src1, src2;
+let src1, src2;
 function onReady() {
     src1 = cv.imread("canvasInput1");
     src2 = cv.imread("canvasInput2");
@@ -232,7 +232,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -286,7 +286,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -139,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_gui.html">Gui Features</a></li>  </ul>
+<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_gui.html">GUI Features</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -152,12 +152,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Learn how to read an image and how to display it in a web.</li>
 </ul>
 <h2>Read an image </h2>
-<p>OpenCV-JavaScript saves image as <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a> type. We use HTML canvas element to transfer <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a> to the web or in reverse. The ImageData interface can represent or set the underlying pixel data of an area of a canvas element.</p>
+<p>OpenCV.js saves images as <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a> type. We use HTML canvas element to transfer <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a> to the web or in reverse. The ImageData interface can represent or set the underlying pixel data of an area of a canvas element.</p>
 <dl class="section see"><dt>See also</dt><dd>Please refer to canvas docs for more details.</dd></dl>
-<p>First, creat an ImageData obj from canvas. </p><div class="fragment"><div class="line">var canvas = document.getElementById(canvas_id);</div><div class="line">var ctx = canvas.getContext(<span class="stringliteral">&quot;2d&quot;</span>);</div><div class="line">var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);</div></div><!-- fragment --><p>Then use cv.matFromArray to construct a <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a>. </p><div class="fragment"><div class="line">var src = <a class="code" href="d2/d75/namespacecv.html">cv</a>.matFromArray(imgData, <a class="code" href="d2/d75/namespacecv.html">cv</a>.CV_8UC4);</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Cause canvas only support 8-bit RGBA image, the <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a> type is cv.CV_8UC4. It is different from native OpenCV, cause images returned and shown by the native <b>imread</b> and <b>imshow</b> have the channels stored in BGR order.</dd></dl>
+<p>First, create an ImageData obj from canvas: </p><div class="fragment"><div class="line">let canvas = document.getElementById(canvasInputId);</div><div class="line">let ctx = canvas.getContext(<span class="stringliteral">&quot;2d&quot;</span>);</div><div class="line">let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);</div></div><!-- fragment --><p>Then, use cv.matFromImageData to construct a <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a>: </p><div class="fragment"><div class="line">let src = <a class="code" href="d2/d75/namespacecv.html">cv</a>.matFromImageData(imgData);</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Because canvas only support 8-bit RGBA image with continuous storage, the <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat</a> type is cv.CV_8UC4. It is different from native OpenCV because images returned and shown by the native <b>imread</b> and <b>imshow</b> have the channels stored in BGR order.</dd></dl>
 <h2>Display an image </h2>
-<p>First, convert the type of src to cv.CV_8UC4. </p><div class="fragment"><div class="line">var dst = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>();</div><div class="line"><span class="comment">// scale and shift are used to map the data to [0, 255].</span></div><div class="line">src.<a class="code" href="d3/d63/classcv_1_1Mat.html#a3f356665bb0ca452e7d7723ccac9a810">convertTo</a>(dst, <a class="code" href="d2/d75/namespacecv.html">cv</a>.CV_8U, scale, shift); </div><div class="line"><span class="comment">// *** is GRAY, RGB, or RGBA, according to src.channels() is 1, 3 or 4.</span></div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.cvtColor(dst, dst, <a class="code" href="d2/d75/namespacecv.html">cv</a>.COLOR_***2RGBA); </div></div><!-- fragment --><p>Then new an ImageData obj from dst. </p><div class="fragment"><div class="line">var imgData = <span class="keyword">new</span> ImageData(<span class="keyword">new</span> Uint8ClampedArray(dst.data()), dst.cols, dst.rows);</div></div><!-- fragment --><p>Finally, display it. </p><div class="fragment"><div class="line">var canvas = document.getElementById(canvas_id);</div><div class="line">var ctx = canvas.getContext(<span class="stringliteral">&quot;2d&quot;</span>);</div><div class="line">ctx.clearRect(0, 0, canvas.width, canvas.height);</div><div class="line">canvas.width = imgData.width;</div><div class="line">canvas.height = imgData.height;</div><div class="line">ctx.putImageData(imgData, 0, 0);</div></div><!-- fragment --><p>In addition, OpenCV-JavaScript implements image read and show using the above method. You can use <a class="el" href="d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56" title="Loads an image from a file. ">cv.imread</a> and <a class="el" href="d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563" title="Displays an image in the specified window. ">cv.imshow</a> to read image from html canvas and display it. </p><div class="fragment"><div class="line">var img = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(<span class="stringliteral">&quot;canvasInput&quot;</span>);</div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.imshow(<span class="stringliteral">&quot;canvasOutput&quot;</span>, img);</div><div class="line">img.delete();</div></div><!-- fragment --><h2>Try it </h2>
-<p>Here is the demo for above code. Canvas elements named canvasInput and canvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>First, convert the type of src to cv.CV_8UC4: </p><div class="fragment"><div class="line">let dst = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>();</div><div class="line"><span class="comment">// scale and shift are used to map the data to [0, 255].</span></div><div class="line">src.<a class="code" href="d3/d63/classcv_1_1Mat.html#a3f356665bb0ca452e7d7723ccac9a810">convertTo</a>(dst, <a class="code" href="d2/d75/namespacecv.html">cv</a>.CV_8U, scale, shift); </div><div class="line"><span class="comment">// *** is GRAY, RGB, or RGBA, according to src.channels() is 1, 3 or 4.</span></div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.cvtColor(dst, dst, <a class="code" href="d2/d75/namespacecv.html">cv</a>.COLOR_***2RGBA); </div></div><!-- fragment --><p>Then, new an ImageData obj from dst: </p><div class="fragment"><div class="line">let imgData = <span class="keyword">new</span> ImageData(<span class="keyword">new</span> Uint8ClampedArray(dst.data, dst.cols, dst.rows);</div></div><!-- fragment --><p>Finally, display it: </p><div class="fragment"><div class="line">let canvas = document.getElementById(canvasOutputId);</div><div class="line">let ctx = canvas.getContext(<span class="stringliteral">&quot;2d&quot;</span>);</div><div class="line">ctx.clearRect(0, 0, canvas.width, canvas.height);</div><div class="line">canvas.width = imgData.width;</div><div class="line">canvas.height = imgData.height;</div><div class="line">ctx.putImageData(imgData, 0, 0);</div></div><!-- fragment --><h2>In OpenCV.js </h2>
+<p>OpenCV.js implements image reading and showing using the above method.</p>
+<p>We use <b><a class="el" href="d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56" title="Loads an image from a file. ">cv.imread</a> (imageSource)</b> to read an image from html canvas or img element. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">imageSource</td><td>canvas element or id, or img element or id. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>mat with channels stored in RGBA order.</dd></dl>
+<p>We use <b><a class="el" href="d7/dfc/group__highgui.html#ga453d42fe4cb60e5723281a89973ee563" title="Displays an image in the specified window. ">cv.imshow</a> (canvasSource, mat)</b> to display it. The function may scale the mat, depending on its depth:</p><ul>
+<li>If the mat is 8-bit unsigned, it is displayed as is.</li>
+<li>If the mat is 16-bit unsigned or 32-bit integer, the pixels are divided by 256. That is, the value range [0,255*256] is mapped to [0,255].</li>
+<li>If the mat is 32-bit floating-point, the pixel values are multiplied by 255. That is, the value range [0,1] is mapped to [0,255].</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">canvasSource</td><td>canvas element or id. </td></tr>
+    <tr><td class="paramname">mat</td><td>mat to be shown.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The above code of image reading and showing could be simplified as below. </p><div class="fragment"><div class="line">let img = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(imageSource);</div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.imshow(canvasOutput, img);</div><div class="line">img.delete();</div></div><!-- fragment --><h2>Try it </h2>
+<p>Try this demo using the code above. Canvas "canvasInput" and canvas "canvasOutput" have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -175,8 +196,8 @@ canvas {
 <h2>Input your code</h2>
 <button id="tryIt" disabled="true" onclick="executeCode()">Try it</button><br>
 <textarea rows="11" cols="80" id="TestCode" spellcheck="false">
-var src = cv.imread("canvasInput");
-var dst = new cv.Mat();
+let src = cv.imread("canvasInput");
+let dst = new cv.Mat();
 // To distinguish the input and output, we graying the image.
 // You can try more different conversion
 cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY);
@@ -197,7 +218,7 @@ dst.delete();
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 function executeCode() {
-    var text = document.getElementById("TestCode").value;
+    let text = document.getElementById("TestCode").value;
     try {
         eval(text);
         document.getElementById("imErr").innerHTML = " ";
@@ -208,10 +229,10 @@ function executeCode() {
 
 loadImageToCanvas("lena.jpg", "canvasInput");
 
-var inputElement = document.getElementById("input");
+let inputElement = document.getElementById("input");
 inputElement.addEventListener("change", handleFiles, false);
 function handleFiles(e) {
-    var url = URL.createObjectURL(e.target.files[0]);
+    let url = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(url, "canvasInput");
 }
 
@@ -230,7 +251,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -284,7 +305,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

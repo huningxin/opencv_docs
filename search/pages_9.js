@@ -16,7 +16,7 @@ var searchData=
   ['image_20pyramids',['Image Pyramids',['../tutorial_js_pyramids.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['image_20processing',['Image Processing',['../tutorial_js_table_of_contents_imgproc.html',1,'tutorial_js_root']]],
   ['introduction_20to_20opencv_2ejs',['Introduction to OpenCV.js',['../tutorial_js_table_of_contents_setup.html',1,'tutorial_js_root']]],
-  ['image_20transforms_20in_20opencv',['Image Transforms in OpenCV',['../tutorial_js_table_of_contents_transforms.html',1,'tutorial_js_table_of_contents_imgproc']]],
+  ['image_20transforms_20in_20opencv_2ejs',['Image Transforms in OpenCV.js',['../tutorial_js_table_of_contents_transforms.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['image_20thresholding',['Image Thresholding',['../tutorial_js_thresholding.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['image_20segmentation_20with_20watershed_20algorithm',['Image Segmentation with Watershed Algorithm',['../tutorial_js_watershed.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['installation_20in_20linux',['Installation in Linux',['../tutorial_linux_install.html',1,'tutorial_table_of_content_introduction']]],

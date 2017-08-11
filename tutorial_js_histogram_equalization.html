@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -139,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_imgproc.html">Image Processing</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_histograms.html">Histograms in OpenCV</a></li>  </ul>
+<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_imgproc.html">Image Processing</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_histograms.html">Histograms in OpenCV.js</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -148,7 +148,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Goal </h2>
-<p>In this section,</p>
 <ul>
 <li>We will learn the concepts of histogram equalization and use it to improve the contrast of our images.</li>
 </ul>
@@ -169,7 +168,7 @@ image</div></div>
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named equalizeHistCanvasInput, imageGrayCanvasOutput and equalizeHistCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named equalizeHistCanvasInput, imageGrayCanvasOutput and equalizeHistCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -187,8 +186,8 @@ canvas {
 <h2>Input your code</h2>
 <button id="equalizeHistTryIt" disabled="true" onclick="equalizeHistExecuteCode()">Try it</button><br>
 <textarea rows="7" cols="80" id="equalizeHistTestCode" spellcheck="false">
-var src = cv.imread("equalizeHistCanvasInput");
-var dst = new cv.Mat();
+let src = cv.imread("equalizeHistCanvasInput");
+let dst = new cv.Mat();
 cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
 cv.equalizeHist(src, dst);
 cv.imshow("imageGrayCanvasOutput", src);
@@ -216,7 +215,7 @@ src.delete(); dst.delete();
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 function equalizeHistExecuteCode() {
-    var equalizeHistText = document.getElementById("equalizeHistTestCode").value;
+    let equalizeHistText = document.getElementById("equalizeHistTestCode").value;
     try {
         eval(equalizeHistText);
         document.getElementById("equalizeHistErr").innerHTML = " ";
@@ -226,10 +225,10 @@ function equalizeHistExecuteCode() {
 }
 
 loadImageToCanvas("lena.jpg", "equalizeHistCanvasInput");
-var equalizeHistInputElement = document.getElementById("equalizeHistInput");
+let equalizeHistInputElement = document.getElementById("equalizeHistInput");
 equalizeHistInputElement.addEventListener("change", equalizeHistHandleFiles, false);
 function equalizeHistHandleFiles(e) {
-    var equalizeHistUrl = URL.createObjectURL(e.target.files[0]);
+    let equalizeHistUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(equalizeHistUrl, "equalizeHistCanvasInput");
 }
 </script>
@@ -237,7 +236,7 @@ function equalizeHistHandleFiles(e) {
 </p>
 <h2>CLAHE (Contrast Limited Adaptive Histogram Equalization) </h2>
 <p>In <b>adaptive histogram equalization</b>, image is divided into small blocks called "tiles" (tileSize is 8x8 by default in OpenCV). Then each of these blocks are histogram equalized as usual. So in a small area, histogram would confine to a small region (unless there is noise). If noise is there, it will be amplified. To avoid this, <b>contrast limiting</b> is applied. If any histogram bin is above the specified contrast limit (by default 40 in OpenCV), those pixels are clipped and distributed uniformly to other bins before applying histogram equalization. After equalization, to remove artifacts in tile borders, bilinear interpolation is applied.</p>
-<p>We use the function: <b><a class="el" href="d6/db6/classcv_1_1CLAHE.html">cv.CLAHE</a> (clipLimit = 40, tileGridSize = [8, 8])</b></p>
+<p>We use the class: <b><a class="el" href="d6/db6/classcv_1_1CLAHE.html">cv.CLAHE</a> (clipLimit = 40, tileGridSize = new cv.Size(8, 8))</b></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">clipLimit</td><td>threshold for contrast limiting. </td></tr>
@@ -245,34 +244,29 @@ function equalizeHistHandleFiles(e) {
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Don't forget to delete CLAHE!</dd></dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named createCLAHECanvasInput, equalCanvasOutput and createCLAHECanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named createCLAHECanvasInput, equalCanvasOutput and createCLAHECanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
-<style>
-canvas {
-    border: 1px solid black;
-}
-.err {
-    color: red;
-}
-</style>
 </head>
 <body>
 <div id="createCLAHECodeArea">
 <h2>Input your code</h2>
 <button id="createCLAHETryIt" disabled="true" onclick="createCLAHEExecuteCode()">Try it</button><br>
 <textarea rows="9" cols="80" id="createCLAHETestCode" spellcheck="false">
-var src = cv.imread("createCLAHECanvasInput");
-var equalDst = new cv.Mat(), claheDst = new cv.Mat();
+let src = cv.imread("createCLAHECanvasInput");
+let equalDst = new cv.Mat(), claheDst = new cv.Mat();
 cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
 cv.equalizeHist(src, equalDst);
-var clahe = new cv.CLAHE(40, [8, 8]);
+let tileGridSize = new cv.Size(8, 8);
+// You can try more different parameters
+let clahe = new cv.CLAHE(40, tileGridSize);
 clahe.apply(src, claheDst);
 cv.imshow("equalCanvasOutput", equalDst);
 cv.imshow("createCLAHECanvasOutput", claheDst);
-src.delete(); equalDst.delete(); claheDst.delete();
+src.delete(); equalDst.delete(); claheDst.delete(); clahe.delete();
 </textarea>
 <p class="err" id="createCLAHEErr"></p>
 </div>
@@ -293,7 +287,7 @@ src.delete(); equalDst.delete(); claheDst.delete();
 </div>
 <script>
 function createCLAHEExecuteCode() {
-    var createCLAHEText = document.getElementById("createCLAHETestCode").value;
+    let createCLAHEText = document.getElementById("createCLAHETestCode").value;
     try {
         eval(createCLAHEText);
         document.getElementById("createCLAHEErr").innerHTML = " ";
@@ -303,10 +297,10 @@ function createCLAHEExecuteCode() {
 }
 
 loadImageToCanvas("lena.jpg", "createCLAHECanvasInput");
-var createCLAHEInputElement = document.getElementById("createCLAHEInput");
+let createCLAHEInputElement = document.getElementById("createCLAHEInput");
 createCLAHEInputElement.addEventListener("change", createCLAHEHandleFiles, false);
 function createCLAHEHandleFiles(e) {
-    var createCLAHEUrl = URL.createObjectURL(e.target.files[0]);
+    let createCLAHEUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(createCLAHEUrl, "createCLAHECanvasInput");
 }
 
@@ -326,7 +320,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -380,7 +374,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

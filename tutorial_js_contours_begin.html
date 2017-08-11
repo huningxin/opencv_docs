@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -139,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_imgproc.html">Image Processing</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_contours.html">Contours in OpenCV</a></li>  </ul>
+<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_imgproc.html">Image Processing</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_contours.html">Contours in OpenCV.js</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -151,7 +151,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <ul>
 <li>Understand what contours are.</li>
 <li>Learn to find contours, draw contours etc</li>
-<li>You will see these functions : <b><a class="el" href="d3/dc0/group__imgproc__shape.html#ga17ed9f5d79ae97bd4c7cf18403e1689a" title="Finds contours in a binary image. ">cv.findContours()</a></b>, <b><a class="el" href="d6/d6e/group__imgproc__draw.html#ga746c0625f1781f1ffc9056259103edbc" title="Draws contours outlines or filled contours. ">cv.drawContours()</a></b></li>
+<li>You will learn these functions : <b><a class="el" href="d3/dc0/group__imgproc__shape.html#ga17ed9f5d79ae97bd4c7cf18403e1689a" title="Finds contours in a binary image. ">cv.findContours()</a></b>, <b><a class="el" href="d6/d6e/group__imgproc__draw.html#ga746c0625f1781f1ffc9056259103edbc" title="Draws contours outlines or filled contours. ">cv.drawContours()</a></b></li>
 </ul>
 <h2>What are contours? </h2>
 <p>Contours can be explained simply as a curve joining all the continuous points (along the boundary), having same color or intensity. The contours are a useful tool for shape analysis and object detection and recognition.</p>
@@ -162,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 <h2>How to draw the contours? </h2>
 <p>To draw the contours, <a class="el" href="d6/d6e/group__imgproc__draw.html#ga746c0625f1781f1ffc9056259103edbc" title="Draws contours outlines or filled contours. ">cv.drawContours</a> function is used. It can also be used to draw any shape provided you have its boundary points.</p>
-<p>We use the functions: <b><a class="el" href="d3/dc0/group__imgproc__shape.html#ga17ed9f5d79ae97bd4c7cf18403e1689a" title="Finds contours in a binary image. ">cv.findContours</a> (image, contours, hierarchy, mode, method, offset = [0, 0])</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the functions: <b><a class="el" href="d3/dc0/group__imgproc__shape.html#ga17ed9f5d79ae97bd4c7cf18403e1689a" title="Finds contours in a binary image. ">cv.findContours</a> (image, contours, hierarchy, mode, method, offset = new cv.Point(0, 0))</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">image</td><td>source, an 8-bit single-channel image. Non-zero pixels are treated as 1's. Zero pixels remain 0's, so the image is treated as binary. </td></tr>
     <tr><td class="paramname">contours</td><td>detected contours. </td></tr>
@@ -173,7 +173,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </table>
   </dd>
 </dl>
-<p><b><a class="el" href="d6/d6e/group__imgproc__draw.html#ga746c0625f1781f1ffc9056259103edbc" title="Draws contours outlines or filled contours. ">cv.drawContours</a> (image, contours, contourIdx, color, thickness = 1, lineType = <a class="el" href="d0/de1/group__core.html#ggaf076ef45de481ac96e0ab3dc2c29a777a5d32eda7017db273a37f158e5b51442a" title="8-connected line ">cv.LINE_8</a>, hierarchy = <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat()</a>, maxLevel = INT_MAX, offset = [0, 0])</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p><b><a class="el" href="d6/d6e/group__imgproc__draw.html#ga746c0625f1781f1ffc9056259103edbc" title="Draws contours outlines or filled contours. ">cv.drawContours</a> (image, contours, contourIdx, color, thickness = 1, lineType = <a class="el" href="d0/de1/group__core.html#ggaf076ef45de481ac96e0ab3dc2c29a777a5d32eda7017db273a37f158e5b51442a" title="8-connected line ">cv.LINE_8</a>, hierarchy = new <a class="el" href="d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">cv.Mat()</a>, maxLevel = INT_MAX, offset = new cv.Point(0, 0))</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">image</td><td>destination image. </td></tr>
     <tr><td class="paramname">contours</td><td>all the input contours. </td></tr>
@@ -188,7 +188,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </dd>
 </dl>
 <h2>Try it </h2>
-<p>Here is a demo. Canvas elements named contoursCanvasInput and contoursCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. And you can change the code in the textbox to investigate more.</p>
+<p>Try this demo using the code above. Canvas elements named contoursCanvasInput and contoursCanvasOutput have been prepared. Choose an image and click <code>Try it</code> to see the result. You can change the code in the textbox to investigate more.</p>
 <p> 
 <!DOCTYPE html>
 <head>
@@ -206,20 +206,18 @@ canvas {
 <h2>Input your code</h2>
 <button id="contoursTryIt" disabled="true" onclick="contoursExecuteCode()">Try it</button><br>
 <textarea rows="17" cols="90" id="contoursTestCode" spellcheck="false">
-var src = cv.imread("contoursCanvasInput");
-var dst = cv.Mat.zeros(src.cols, src.rows, cv.CV_8UC3);
+let src = cv.imread("contoursCanvasInput");
+let dst = cv.Mat.zeros(src.cols, src.rows, cv.CV_8UC3);
 cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
 cv.threshold(src, src, 120, 200, cv.THRESH_BINARY);
-var contours  = new cv.MatVector();
-var hierarchy = new cv.Mat();
-// You can try more different conversion
-cv.findContours(src, contours, hierarchy, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE, [0, 0]);
+let contours  = new cv.MatVector();
+let hierarchy = new cv.Mat();
+// You can try more different parameters
+cv.findContours(src, contours, hierarchy, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE);
 // draw contours with random Scalar
-for (var i = 0; i < contours.size(); ++i)
-{
-    var color = new cv.Scalar(Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255));
-    cv.drawContours(dst, contours, i, color, 1, cv.LINE_8, hierarchy, 100, [0, 0]);
-    color.delete();
+for (let i = 0; i < contours.size(); ++i) {
+    let color = new cv.Scalar(Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255));
+    cv.drawContours(dst, contours, i, color, 1, cv.LINE_8, hierarchy, 100);
 }
 cv.imshow("contoursCanvasOutput", dst);
 src.delete(); dst.delete(); contours.delete(); hierarchy.delete(); 
@@ -237,7 +235,7 @@ src.delete(); dst.delete(); contours.delete(); hierarchy.delete();
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 function contoursExecuteCode() {
-    var contoursText = document.getElementById("contoursTestCode").value;
+    let contoursText = document.getElementById("contoursTestCode").value;
     try {
         eval(contoursText);
         document.getElementById("contoursErr").innerHTML = " ";
@@ -247,10 +245,10 @@ function contoursExecuteCode() {
 }
 
 loadImageToCanvas("lena.jpg", "contoursCanvasInput");
-var contoursInputElement = document.getElementById("contoursInput");
+let contoursInputElement = document.getElementById("contoursInput");
 contoursInputElement.addEventListener("change", contoursHandleFiles, false);
 function contoursHandleFiles(e) {
-    var contoursUrl = URL.createObjectURL(e.target.files[0]);
+    let contoursUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(contoursUrl, "contoursCanvasInput");
 }
 
@@ -273,7 +271,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -327,7 +325,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -139,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_imgproc.html">Image Processing</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_contours.html">Contours in OpenCV</a></li>  </ul>
+<li class="navelem"><a class="el" href="tutorial_js_root.html">OpenCV.js Tutorials</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_imgproc.html">Image Processing</a></li><li class="navelem"><a class="el" href="tutorial_js_table_of_contents_contours.html">Contours in OpenCV.js</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -147,30 +147,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Contour Properties </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Here we will learn to extract some frequently used properties of objects like Solidity, Equivalent Diameter, Mask image, Mean Intensity etc. More features can be found at <a href="http://www.mathworks.in/help/images/ref/regionprops.html">Matlab regionprops documentation</a>.</p>
-<p>*(NB : Centroid, Area, Perimeter etc also belong to this category, but we have seen it in last chapter)*</p>
+<div class="textblock"><h2>Goal </h2>
+<ul>
+<li>Here we will learn to extract some frequently used properties of objects like Solidity, Equivalent Diameter, Mask image, Mean Intensity etc.</li>
+</ul>
 <h2>1. Aspect Ratio </h2>
 <p>It is the ratio of width to height of bounding rect of the object.</p>
 <p class="formulaDsp">
 \[Aspect \; Ratio = \frac{Width}{Height}\]
 </p>
- <div class="fragment"><div class="line">var rect = <a class="code" href="d2/d75/namespacecv.html">cv</a>.boundingRect(contours.get(0));</div><div class="line">var aspectRatio = rect.width / rect.height;</div></div><!-- fragment --><h2>2. Extent </h2>
+ <div class="fragment"><div class="line">let rect = <a class="code" href="d2/d75/namespacecv.html">cv</a>.boundingRect(cnt);</div><div class="line">let aspectRatio = rect.width / rect.height;</div></div><!-- fragment --><h2>2. Extent </h2>
 <p>Extent is the ratio of contour area to bounding rectangle area.</p>
 <p class="formulaDsp">
 \[Extent = \frac{Object \; Area}{Bounding \; Rectangle \; Area}\]
 </p>
- <div class="fragment"><div class="line">var area = <a class="code" href="d2/d75/namespacecv.html">cv</a>.contourArea(contours.get(0), <span class="keyword">false</span>);</div><div class="line">var rect = <a class="code" href="d2/d75/namespacecv.html">cv</a>.boundingRect(contours.get(0));</div><div class="line">var rectArea = rect.width * rect.height;</div><div class="line">var extent = area / rectArea;</div></div><!-- fragment --><h2>3. Solidity </h2>
+ <div class="fragment"><div class="line">let area = <a class="code" href="d2/d75/namespacecv.html">cv</a>.contourArea(cnt, <span class="keyword">false</span>);</div><div class="line">let rect = <a class="code" href="d2/d75/namespacecv.html">cv</a>.boundingRect(cnt));</div><div class="line">let rectArea = rect.width * rect.height;</div><div class="line">let extent = area / rectArea;</div></div><!-- fragment --><h2>3. Solidity </h2>
 <p>Solidity is the ratio of contour area to its convex hull area.</p>
 <p class="formulaDsp">
 \[Solidity = \frac{Contour \; Area}{Convex \; Hull \; Area}\]
 </p>
- <div class="fragment"><div class="line">var area = <a class="code" href="d2/d75/namespacecv.html">cv</a>.contourArea(contours.get(0), <span class="keyword">false</span>);</div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.convexHull(contours.get(0), hull, <span class="keyword">false</span>, <span class="keyword">true</span>);</div><div class="line">var hullArea = <a class="code" href="d2/d75/namespacecv.html">cv</a>.contourArea(hull, <span class="keyword">false</span>);</div><div class="line">var solidity = area / hullArea;</div></div><!-- fragment --><h2>4. Equivalent Diameter </h2>
+ <div class="fragment"><div class="line">let area = <a class="code" href="d2/d75/namespacecv.html">cv</a>.contourArea(cnt, <span class="keyword">false</span>);</div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.convexHull(cnt, hull, <span class="keyword">false</span>, <span class="keyword">true</span>);</div><div class="line">let hullArea = <a class="code" href="d2/d75/namespacecv.html">cv</a>.contourArea(hull, <span class="keyword">false</span>);</div><div class="line">let solidity = area / hullArea;</div></div><!-- fragment --><h2>4. Equivalent Diameter </h2>
 <p>Equivalent Diameter is the diameter of the circle whose area is same as the contour area.</p>
 <p class="formulaDsp">
 \[Equivalent \; Diameter = \sqrt{\frac{4 \times Contour \; Area}{\pi}}\]
 </p>
- <div class="fragment"><div class="line">var area = <a class="code" href="d2/d75/namespacecv.html">cv</a>.contourArea(contours.get(0), <span class="keyword">false</span>);</div><div class="line">var equiDiameter = Math.<a class="code" href="dd/dd3/classstd_1_1sqrt.html">sqrt</a>(4 * area / Math.PI);</div></div><!-- fragment --><h2>5. Orientation </h2>
-<p>Orientation is the angle at which object is directed. Following method also gives the Major Axis and Minor Axis lengths. </p><div class="fragment"><div class="line">var rotatedRect = <a class="code" href="d2/d75/namespacecv.html">cv</a>.fitEllipse(contours.get(0));</div><div class="line">var angle = rotatedRect.angle;</div></div><!-- fragment --><h2>6. Mask and Pixel Points </h2>
+ <div class="fragment"><div class="line">let area = <a class="code" href="d2/d75/namespacecv.html">cv</a>.contourArea(cnt, <span class="keyword">false</span>);</div><div class="line">let equiDiameter = Math.<a class="code" href="dd/dd3/classstd_1_1sqrt.html">sqrt</a>(4 * area / Math.PI);</div></div><!-- fragment --><h2>5. Orientation </h2>
+<p>Orientation is the angle at which object is directed. Following method also gives the Major Axis and Minor Axis lengths. </p><div class="fragment"><div class="line">let rotatedRect = <a class="code" href="d2/d75/namespacecv.html">cv</a>.fitEllipse(cnt);</div><div class="line">let angle = rotatedRect.angle;</div></div><!-- fragment --><h2>6. Mask and Pixel Points </h2>
 <p>In some cases, we may need all the points which comprises that object.</p>
 <p>We use the function: <b><a class="el" href="d2/de8/group__core__array.html#ga46630ed6c0ea6254a35f447289bd7404" title="Transposes a matrix. ">cv.transpose</a> (src, dst)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -196,8 +198,8 @@ canvas {
 <h2>Input your code</h2>
 <button id="transposeTryIt" disabled="true" onclick="transposeExecuteCode()">Try it</button><br>
 <textarea rows="8" cols="80" id="transposeTestCode" spellcheck="false">
-var src = cv.imread("transposeCanvasInput");
-var dst = new cv.Mat();
+let src = cv.imread("transposeCanvasInput");
+let dst = new cv.Mat();
 cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
 cv.threshold(src, src, 120, 200, cv.THRESH_BINARY);
 cv.transpose(src, dst);
@@ -217,7 +219,7 @@ src.delete(); dst.delete();
 <script async src="opencv.js" id="opencvjs"></script>
 <script>
 function transposeExecuteCode() {
-    var transposeText = document.getElementById("transposeTestCode").value;
+    let transposeText = document.getElementById("transposeTestCode").value;
     try {
         eval(transposeText);
         document.getElementById("transposeErr").innerHTML = " ";
@@ -227,10 +229,10 @@ function transposeExecuteCode() {
 }
 
 loadImageToCanvas("lena.jpg", "transposeCanvasInput");
-var transposeInputElement = document.getElementById("transposeInput");
+let transposeInputElement = document.getElementById("transposeInput");
 transposeInputElement.addEventListener("change", transposeHandleFiles, false);
 function transposeHandleFiles(e) {
-    var transposeUrl = URL.createObjectURL(e.target.files[0]);
+    let transposeUrl = URL.createObjectURL(e.target.files[0]);
     loadImageToCanvas(transposeUrl, "transposeCanvasInput");
 }
 
@@ -246,28 +248,27 @@ if (typeof cv !== 'undefined') {
 </body>
 </p>
 <h2>7. Maximum Value, Minimum Value and their locations </h2>
-<p>We use the function: <b>cv.minMaxLoc(src, result, mask)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b>cv.minMaxLoc(src, mask)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input single-channel array. </td></tr>
-    <tr><td class="paramname">result</td><td>result include minVal, maxVal, minLoc and maxLoc </td></tr>
     <tr><td class="paramname">mask</td><td>optional mask used to select a sub-array.</td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line">var result = <span class="keyword">new</span> <a class="code" href="d2/d75/namespacecv.html">cv</a>.MinMaxLocResult();</div><div class="line"><a class="code" href="d2/d75/namespacecv.html">cv</a>.minMaxLoc(src, result, mask);</div><div class="line">var minVal = result.minVal;</div><div class="line">var maxVal = result.maxVal;</div><div class="line">var minLoc = result.minLoc;</div><div class="line">var maxLoc = result.maxLoc;</div><div class="line">result.delete();</div></div><!-- fragment --><h2>8. Mean Color or Mean Intensity </h2>
+<div class="fragment"><div class="line">let result = <a class="code" href="d2/d75/namespacecv.html">cv</a>.minMaxLoc(src, mask);</div><div class="line">let minVal = result.minVal;</div><div class="line">let maxVal = result.maxVal;</div><div class="line">let minLoc = result.minLoc;</div><div class="line">let maxLoc = result.maxLoc;</div></div><!-- fragment --><h2>8. Mean Color or Mean Intensity </h2>
 <p>Here, we can find the average color of an object. Or it can be average intensity of the object in grayscale mode. We again use the same mask to do it.</p>
-<p>We use the function: <b>cv.mean(src, mask)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b><a class="el" href="d2/de8/group__core__array.html#ga191389f8a0e58180bb13a727782cd461" title="Calculates an average (mean) of array elements. ">cv.mean</a> (src, mask)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input array that should have from 1 to 4 channels so that the result can be stored in Scalar. </td></tr>
     <tr><td class="paramname">mask</td><td>optional operation mask.</td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line">var a = <a class="code" href="d2/d75/namespacecv.html">cv</a>.mean(src, <a class="code" href="d2/d75/namespacecv.html">cv</a>.<a class="code" href="d3/d63/classcv_1_1Mat.html">Mat</a>());</div></div><!-- fragment --> </div></div><!-- contents -->
+<div class="fragment"><div class="line">let average = <a class="code" href="d2/d75/namespacecv.html">cv</a>.mean(src, mask);</div></div><!-- fragment --> </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -321,7 +322,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {

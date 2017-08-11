@@ -39,7 +39,7 @@ MathJax.Hub.Config(
 }
 );
 //]]>
-</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.2.0-dev</span>
+   &#160;<span id="projectnumber">3.3.0</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -149,45 +149,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><h2>Installing Emscripten </h2>
 <p><a href="https://github.com/kripken/emscripten">Emscripten</a> is an LLVM-to-JavaScript compiler. We will use Emscripten to build OpenCV.js.</p>
-<p>To Install emscripten, you can follow instructions of <a href="https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html">Emscripten SDK</a>.</p>
-<p>For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;./emsdk update</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;./emsdk install latest</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;./emsdk activate latest</div></div><!-- fragment --><p>After install, please make sure the <code>EMSCRIPTEN</code> environment is setup correctly.</p>
-<p>For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source ./emsdk_env.sh</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;echo ${EMSCRIPTEN}</div></div><!-- fragment --><h2>Getting OpenCV Source Code </h2>
+<p>To Install Emscripten, follow instructions on <a href="https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html">Emscripten SDK</a>.</p>
+<p>For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;./emsdk update</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;./emsdk install latest</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;./emsdk activate latest</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>To compile to <a href="http://webassembly.org">WebAssembly</a>, you also need to install and activate <a href="https://github.com/WebAssembly/binaryen">Binaryen</a> with the <code>emsdk</code> command. Please refer to <a href="http://webassembly.org/getting-started/developers-guide/">Developer's Guide</a> for more details.</dd></dl>
+<p>After install, ensure the <code>EMSCRIPTEN</code> environment is setup correctly.</p>
+<p>For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;source ./emsdk_env.sh</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;echo ${EMSCRIPTEN}</div></div><!-- fragment --><h2>Obtaining OpenCV Source Code </h2>
 <p>You can use the latest stable OpenCV version or you can grab the latest snapshot from our <a href="https://github.com/opencv/opencv.git">Git repository</a>.</p>
-<h3>Getting the Latest Stable OpenCV Version</h3>
+<h3>Obtaining the Latest Stable OpenCV Version</h3>
 <ul>
 <li>Go to our <a href="http://opencv.org/downloads.html">downloads page</a>.</li>
 <li>Download the source archive and unpack it.</li>
 </ul>
-<h3>Getting the Cutting-edge OpenCV from the Git Repository</h3>
-<p>Launch Git client and clone <a href="http://github.com/opencv/opencv">OpenCV repository</a>. If you need modules from <a href="http://github.com/opencv/opencv_contrib">OpenCV contrib repository</a> then clone it as well.</p>
-<p>For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ~/&lt;my_working_directory&gt;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;git clone https://github.com/opencv/opencv.git</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>You may need to install <code>git</code> for your development environment.</dd></dl>
+<h3>Obtaining the Cutting-edge OpenCV from the Git Repository</h3>
+<p>Launch Git client and clone <a href="http://github.com/opencv/opencv">OpenCV repository</a>.</p>
+<p>For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ~/&lt;my_working_directory&gt;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;git clone https://github.com/opencv/opencv.git</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>You may need to install <code>git</code> for your development environment.</dd></dl>
 <h2>Building OpenCV.js from Source Using CMake </h2>
 <ol type="1">
-<li><p class="startli">Create a temporary directory, which we denote as &lt;cmake_build_dir&gt;, where you want to put the generated Makefiles, project files as well the object files and output files and enter there.</p>
-<p class="startli">For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ~/opencv</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;mkdir build_js</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;cd build_js</div></div><!-- fragment --></li>
-<li><p class="startli">Configuring. Run cmake [&lt;some optional parameters&gt;] &lt;path to the OpenCV source directory&gt; To build OpenCV.js, you need to append <code>-D CMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake</code>.</p>
-<p class="startli">For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cmake -D CMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>You may need to install <code>cmake</code> for your development environment.</dd>
+<li><p class="startli">Create and open a temporary directory &lt;cmake_build_dir&gt; (<code>build_js</code> in this example), put the generated Makefiles, project files, and output files.</p>
+<p class="startli">For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ~/opencv</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;mkdir build_js</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;cd build_js</div></div><!-- fragment --></li>
+<li><p class="startli">To configure, run cmake [&lt;some optional parameters&gt;] &lt;path to the OpenCV source directory&gt; To build OpenCV.js, you need to append <code>-D CMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake</code>.</p>
+<p class="startli">For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cmake -D CMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>You may need to install <code>cmake</code> for your development environment.</dd>
 <dd>
-Use <code>cmake -DCMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..</code> , without spaces after -D if the above example doesn't work.</dd></dl>
+Use <code>cmake -DCMAKE_TOOLCHAIN_FILE=${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..</code> , without spaces after -D if the above example doesn't work.</dd>
+<dd>
+Pass <code>-DCMAKE_C_FLAGS="-s WASM=1"</code> and <code>-DCMAKE_CXX_FLAGS="-s WASM=1"</code> to <code>cmake</code> if you are targeting WebAssembly.</dd></dl>
 </li>
-<li><p class="startli">Build. From build directory execute <em>make</em>, it is recommended to do this in several threads</p>
-<p class="startli">For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;make -j7 # runs 7 jobs in parallel</div></div><!-- fragment --><p class="startli">The <code>opencv.js</code> under &lt;cmake_build_dir&gt;/bin folder is the final produce which you can include into your web pages.</p>
+<li><p class="startli">To build, execute <em>make</em>, from the build directory. it is recommended to do this in several threads.</p>
+<p class="startli">For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;make -j7 # runs 7 jobs in parallel</div></div><!-- fragment --><p class="startli">The <code>opencv.js</code> found &lt;cmake_build_dir&gt;/bin folder is the final product to include into your web pages.</p>
 </li>
-<li><p class="startli">[optional] Building documents. Run make with target "doxygen"</p>
-<p class="startli">For example </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;make -j7 doxygen</div></div><!-- fragment --><p class="startli">The built documents are located at &lt;cmake_build_dir&gt;/doc/doxygen/html folder.</p>
+<li><p class="startli">[optional] To build documents, run make with target "doxygen"</p>
+<p class="startli">For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;make -j7 doxygen</div></div><!-- fragment --><p class="startli">The built documents are located in the &lt;cmake_build_dir&gt;/doc/doxygen/html folder.</p>
 <dl class="section note"><dt>Note</dt><dd>You may need to install <code>doxygen</code> tool for your development environment.</dd></dl>
 </li>
-<li><p class="startli">[optional] Running tests</p>
-<p class="startli">Run a local web server in &lt;cmake_build_dir&gt;/bin folder. For example, node http-server which serves on <code>localhost:8080</code>.</p>
-<p class="startli">Launch the web browser to URL <code><a href="http://localhost:8000/tests.html">http://localhost:8000/tests.html</a></code> which runs the unit tests automatically.</p>
-<p class="startli">You can also run tests by Node.js </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd bin</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;npm install</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;node tests.js</div></div><!-- fragment --><p class="startli">You may need to install <code>node</code> for your development environment. </p>
+<li><p class="startli">[optional] o run a test, run a local web server in &lt;cmake_build_dir&gt;/bin folder. For example, node http-server which serves on <code>localhost:8080</code>.</p>
+<p class="startli">Navigate the web browser to <code><a href="http://localhost:8000/tests.html">http://localhost:8000/tests.html</a></code>, which runs the unit tests automatically.</p>
+<p class="startli">You can also run tests using Node.js.</p>
+<p class="startli">For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd bin</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;npm install</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;node tests.js</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>You may need to install <code>node</code> for your development environment. </dd></dl>
 </li>
 </ol>
 </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 3 2017 12:27:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 11 2017 16:26:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
@@ -241,7 +244,7 @@ $("h2").each(function() {
     $smallerHeadings = $(this).nextUntil("h2").filter("h3").add($(this).nextUntil("h2").find("h3"));
     if ($smallerHeadings.length) {
         $smallerHeadings.each(function() {
-            var $elements = $(this).nextUntil("h3").filter("div.newInnerHTML");
+            var $elements = $(this).nextUntil("h2,h3").filter("div.newInnerHTML");
             buttonsToAdd($elements, $(this), "h3");
         });
     } else {
