@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="../../opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.3.0</span>
+   &#160;<span id="projectnumber">3.3.0-dev</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -237,16 +237,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a76ca1dd291405b9f9b4ba879c1f6eb5b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#a76ca1dd291405b9f9b4ba879c1f6eb5b">getLayersCount</a> (const <a class="el" href="../../d1/d8f/classcv_1_1String.html">String</a> &amp;layerType) const </td></tr>
 <tr class="memdesc:a76ca1dd291405b9f9b4ba879c1f6eb5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns count of layers of specified type.  <a href="#a76ca1dd291405b9f9b4ba879c1f6eb5b">More...</a><br /></td></tr>
 <tr class="separator:a76ca1dd291405b9f9b4ba879c1f6eb5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaff4aa350fbb09e5a431ba259ff4351a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#aaff4aa350fbb09e5a431ba259ff4351a">getLayerShapes</a> (const <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &amp;netInputShape, const int layerId, std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; *inLayerShapes, std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; *outLayerShapes) const </td></tr>
-<tr class="memdesc:aaff4aa350fbb09e5a431ba259ff4351a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns input and output shapes for layer with specified id in loaded model; preliminary inferencing isn't necessary.  <a href="#aaff4aa350fbb09e5a431ba259ff4351a">More...</a><br /></td></tr>
-<tr class="separator:aaff4aa350fbb09e5a431ba259ff4351a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae484ebe378939b436bc2d187ba070940"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#ae484ebe378939b436bc2d187ba070940">getLayerShapes</a> (const std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;netInputShapes, const int layerId, std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; *inLayerShapes, std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; *outLayerShapes) const </td></tr>
-<tr class="separator:ae484ebe378939b436bc2d187ba070940"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab71b3073ad348b8d3ab9053e50c0d4e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#ab71b3073ad348b8d3ab9053e50c0d4e8">getLayersShapes</a> (const std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;netInputShapes, std::vector&lt; int &gt; *layersIds, std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; *inLayersShapes, std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; *outLayersShapes) const </td></tr>
-<tr class="memdesc:ab71b3073ad348b8d3ab9053e50c0d4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns input and output shapes for all layers in loaded model; preliminary inferencing isn't necessary.  <a href="#ab71b3073ad348b8d3ab9053e50c0d4e8">More...</a><br /></td></tr>
-<tr class="separator:ab71b3073ad348b8d3ab9053e50c0d4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fdae24ce7746e06c241fb29ec390dc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#a6fdae24ce7746e06c241fb29ec390dc8">getLayersShapes</a> (const <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &amp;netInputShape, std::vector&lt; int &gt; *layersIds, std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; *inLayersShapes, std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; *outLayersShapes) const </td></tr>
-<tr class="separator:a6fdae24ce7746e06c241fb29ec390dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad34ab5518b7e8567d028270db939d510"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#ad34ab5518b7e8567d028270db939d510">getLayerShapes</a> (const <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &amp;netInputShape, const int layerId, std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;inLayerShapes, std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;outLayerShapes) const </td></tr>
+<tr class="memdesc:ad34ab5518b7e8567d028270db939d510"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns input and output shapes for layer with specified id in loaded model; preliminary inferencing isn't necessary.  <a href="#ad34ab5518b7e8567d028270db939d510">More...</a><br /></td></tr>
+<tr class="separator:ad34ab5518b7e8567d028270db939d510"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff5e5628213679f00d4f24a210338c88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#aff5e5628213679f00d4f24a210338c88">getLayerShapes</a> (const std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;netInputShapes, const int layerId, std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;inLayerShapes, std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;outLayerShapes) const </td></tr>
+<tr class="separator:aff5e5628213679f00d4f24a210338c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a989af67e143971f71c842c2212e2d34f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#a989af67e143971f71c842c2212e2d34f">getLayersShapes</a> (const std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;netInputShapes, std::vector&lt; int &gt; &amp;layersIds, std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; &amp;inLayersShapes, std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; &amp;outLayersShapes) const </td></tr>
+<tr class="memdesc:a989af67e143971f71c842c2212e2d34f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns input and output shapes for all layers in loaded model; preliminary inferencing isn't necessary.  <a href="#a989af67e143971f71c842c2212e2d34f">More...</a><br /></td></tr>
+<tr class="separator:a989af67e143971f71c842c2212e2d34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e8d345eb2c29dc15c1b2d215acc54aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#a3e8d345eb2c29dc15c1b2d215acc54aa">getLayersShapes</a> (const <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &amp;netInputShape, std::vector&lt; int &gt; &amp;layersIds, std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; &amp;inLayersShapes, std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; &amp;outLayersShapes) const </td></tr>
+<tr class="separator:a3e8d345eb2c29dc15c1b2d215acc54aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f39737cd1327b78ce54fbaec9418cde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#a8f39737cd1327b78ce54fbaec9418cde">getLayerTypes</a> (std::vector&lt; <a class="el" href="../../d1/d8f/classcv_1_1String.html">String</a> &gt; &amp;layersTypes) const </td></tr>
 <tr class="memdesc:a8f39737cd1327b78ce54fbaec9418cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns list of types for layer used in model.  <a href="#a8f39737cd1327b78ce54fbaec9418cde">More...</a><br /></td></tr>
 <tr class="separator:a8f39737cd1327b78ce54fbaec9418cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,6 +267,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a767f2a693ba409bedc442adca3b71511"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d63/classcv_1_1Mat.html">Mat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#a767f2a693ba409bedc442adca3b71511">getParam</a> (<a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#a6962dbfe16ce1ae18c67de9f5f2912ef">LayerId</a> layer, int numParam=0)</td></tr>
 <tr class="memdesc:a767f2a693ba409bedc442adca3b71511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns parameter blob of the layer.  <a href="#a767f2a693ba409bedc442adca3b71511">More...</a><br /></td></tr>
 <tr class="separator:a767f2a693ba409bedc442adca3b71511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ce946f675f75d1c020c5ddbc78aedc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d1b/group__core__hal__interface.html#ga7cde0074dfd288f2d70c0e035dacb28a">int64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#a06ce946f675f75d1c020c5ddbc78aedc">getPerfProfile</a> (std::vector&lt; double &gt; &amp;timings)</td></tr>
+<tr class="memdesc:a06ce946f675f75d1c020c5ddbc78aedc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns overall time for inference and timings (in ticks) for layers. Indexes in returned vector correspond to layers ids. Some layers can be fused with others, in this case zero ticks count will be return for that skipped layers.  <a href="#a06ce946f675f75d1c020c5ddbc78aedc">More...</a><br /></td></tr>
+<tr class="separator:a06ce946f675f75d1c020c5ddbc78aedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6ed8f6d5cf4683ef9647316cd49fe3f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d30/classcv_1_1dnn_1_1Net.html#aa6ed8f6d5cf4683ef9647316cd49fe3f">getUnconnectedOutLayers</a> () const </td></tr>
 <tr class="memdesc:aa6ed8f6d5cf4683ef9647316cd49fe3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns indexes of layers with unconnected outputs.  <a href="#aa6ed8f6d5cf4683ef9647316cd49fe3f">More...</a><br /></td></tr>
 <tr class="separator:aa6ed8f6d5cf4683ef9647316cd49fe3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -931,7 +934,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aaff4aa350fbb09e5a431ba259ff4351a"></a>
+<a class="anchor" id="ad34ab5518b7e8567d028270db939d510"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -950,13 +953,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>inLayerShapes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>outLayerShapes</em>&#160;</td>
         </tr>
         <tr>
@@ -980,7 +983,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae484ebe378939b436bc2d187ba070940"></a>
+<a class="anchor" id="aff5e5628213679f00d4f24a210338c88"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -999,13 +1002,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>inLayerShapes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>outLayerShapes</em>&#160;</td>
         </tr>
         <tr>
@@ -1019,7 +1022,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab71b3073ad348b8d3ab9053e50c0d4e8"></a>
+<a class="anchor" id="a989af67e143971f71c842c2212e2d34f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1032,19 +1035,19 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
           <td class="paramname"><em>layersIds</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>inLayersShapes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>outLayersShapes</em>&#160;</td>
         </tr>
         <tr>
@@ -1068,7 +1071,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6fdae24ce7746e06c241fb29ec390dc8"></a>
+<a class="anchor" id="a3e8d345eb2c29dc15c1b2d215acc54aa"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1081,19 +1084,19 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
           <td class="paramname"><em>layersIds</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>inLayersShapes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; *&#160;</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>outLayersShapes</em>&#160;</td>
         </tr>
         <tr>
@@ -1408,6 +1411,31 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a06ce946f675f75d1c020c5ddbc78aedc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d1b/group__core__hal__interface.html#ga7cde0074dfd288f2d70c0e035dacb28a">int64</a> cv::dnn::Net::getPerfProfile </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>timings</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns overall time for inference and timings (in ticks) for layers. Indexes in returned vector correspond to layers ids. Some layers can be fused with others, in this case zero ticks count will be return for that skipped layers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timings</td><td>vector for tick timings for all layers. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>overall ticks for model inference. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aa6ed8f6d5cf4683ef9647316cd49fe3f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1608,7 +1636,7 @@ Public Member Functions</h2></td></tr>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 13 2017 09:15:10 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 25 2017 14:52:00 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

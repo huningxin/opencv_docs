@@ -14,7 +14,7 @@ var searchData=
   ['named',['NAMED',['../de/dd9/classcv_1_1FileNode.html#a8fe1d2aa050e6909b978f4df3529066ea7358a85d396b66118fd51389f89e71ed',1,'cv::FileNode']]],
   ['namedwindow',['namedWindow',['../d7/dfc/group__highgui.html#ga5afdf8410934fd099df85c75b2e0888b',1,'cv']]],
   ['namefont',['nameFont',['../db/d2b/structCvFont.html#afcf7e25a5fb94a5a35a75f073bd3a3d0',1,'CvFont::nameFont()'],['../d2/dbf/structcv_1_1QtFont.html#a553d31cd5ec7cd147b72ed4c432c5946',1,'cv::QtFont::nameFont()']]],
-  ['nan',['nan',['../d7/d2f/structcv_1_1softfloat.html#a96ac1a9a3b8ed51b3ec606b2374b0cba',1,'cv::softfloat::nan()'],['../de/df1/structcv_1_1softdouble.html#af4177737a51195afed3c96b008c479b5',1,'cv::softdouble::nan()']]],
+  ['nan',['nan',['../d7/dcc/group__core__utils__softfloat.html#ga96ac1a9a3b8ed51b3ec606b2374b0cba',1,'cv::softfloat::nan()'],['../d7/dcc/group__core__utils__softfloat.html#gaf4177737a51195afed3c96b008c479b5',1,'cv::softdouble::nan()']]],
   ['narrays',['narrays',['../d5/dd2/classcv_1_1NAryMatIterator.html#aefb7ee05b467bfd4623b5a85bfb81066',1,'cv::NAryMatIterator']]],
   ['narymatiterator',['NAryMatIterator',['../d5/dd2/classcv_1_1NAryMatIterator.html',1,'cv']]],
   ['narymatiterator',['NAryMatIterator',['../d5/dd2/classcv_1_1NAryMatIterator.html#ade2ae0a6205c67696666441ea85d1eea',1,'cv::NAryMatIterator::NAryMatIterator()'],['../d5/dd2/classcv_1_1NAryMatIterator.html#aa0a0a7e2c68c1de614e73c7fcaa63f2f',1,'cv::NAryMatIterator::NAryMatIterator(const Mat **arrays, uchar **ptrs, int narrays=-1)'],['../d5/dd2/classcv_1_1NAryMatIterator.html#acbc0100414fe60ab212553a67dd788b6',1,'cv::NAryMatIterator::NAryMatIterator(const Mat **arrays, Mat *planes, int narrays=-1)']]],

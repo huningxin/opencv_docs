@@ -6,7 +6,7 @@ var searchData=
   ['video_20analysis_20_28video_20module_29',['Video analysis (video module)',['../tutorial_table_of_content_video.html',1,'tutorial_root']]],
   ['video_20input_20and_20output_20_28videoio_20module_29',['Video Input and Output (videoio module)',['../tutorial_table_of_content_videoio.html',1,'tutorial_root']]],
   ['video_20input_20with_20opencv_20and_20similarity_20measurement',['Video Input with OpenCV and similarity measurement',['../tutorial_video_input_psnr_ssim.html',1,'tutorial_table_of_content_videoio']]],
-  ['v',['v',['../d7/d2f/structcv_1_1softfloat.html#a953f220c5fb48964d1d3717195aac90f',1,'cv::softfloat::v()'],['../de/df1/structcv_1_1softdouble.html#a106ab2d5803c055080a5854c9efbc3c8',1,'cv::softdouble::v()']]],
+  ['v',['v',['../d7/dcc/group__core__utils__softfloat.html#ga953f220c5fb48964d1d3717195aac90f',1,'cv::softfloat::v()'],['../d7/dcc/group__core__utils__softfloat.html#ga106ab2d5803c055080a5854c9efbc3c8',1,'cv::softdouble::v()']]],
   ['v_5fabs',['v_abs',['../df/d91/group__core__hal__intrin.html#gad6e7f35742fc27354596e5629a628e3f',1,'cv']]],
   ['v_5fabsdiff',['v_absdiff',['../df/d91/group__core__hal__intrin.html#gad56841cd7dd8e5c63c57ccdffa6fc3ed',1,'cv::v_absdiff(const v_reg&lt; _Tp, n &gt; &amp;a, const v_reg&lt; _Tp, n &gt; &amp;b)'],['../df/d91/group__core__hal__intrin.html#ga1767714db3dcadb809e7186824764796',1,'cv::v_absdiff(const v_float32x4 &amp;a, const v_float32x4 &amp;b)'],['../df/d91/group__core__hal__intrin.html#gaedcb5a63b95a345d4da1d278b4617547',1,'cv::v_absdiff(const v_float64x2 &amp;a, const v_float64x2 &amp;b)']]],
   ['v_5fadd_5fwrap',['v_add_wrap',['../df/d91/group__core__hal__intrin.html#ga6093cc09443c787193a24ffe4b0b4dcd',1,'cv']]],

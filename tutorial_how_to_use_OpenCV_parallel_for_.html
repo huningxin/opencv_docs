@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.3.0</span>
+   &#160;<span id="projectnumber">3.3.0-dev</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -194,7 +194,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>a pixel is black if it reaches the maximum number of iterations (pixel is assumed to be in the Mandelbrot set),</li>
 <li>otherwise we assign a grayscale value depending on the escaped iteration and scaled to fit the grayscale range.</li>
 </ul>
-<div class="fragment"><div class="line"><span class="keywordtype">int</span> mandelbrotFormula(<span class="keyword">const</span> complex&lt;float&gt; &amp;z0, <span class="keyword">const</span> <span class="keywordtype">int</span> maxIter=500) {</div><div class="line">    <span class="keywordtype">int</span> value = mandelbrot(z0, maxIter);</div><div class="line">    <span class="keywordflow">if</span>(maxIter - value == 0)</div><div class="line">    {</div><div class="line">        <span class="keywordflow">return</span> 0;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keywordflow">return</span> <a class="code" href="db/de0/group__core__utils.html#ga085eca238176984a0b72df2818598d85">cvRound</a>(<a class="code" href="d2/d75/namespacecv.html#a682082a1892db64a2856403ec17ba297">sqrt</a>(value / (<span class="keywordtype">float</span>) maxIter) * 255);</div><div class="line">}</div></div><!-- fragment --><p> Using a linear scale transformation is not enough to perceive the grayscale variation. To overcome this, we will boost the perception by using a square root scale transformation (borrowed from Jeremy D. Frens in his <a href="http://www.programming-during-recess.net/2016/06/26/color-schemes-for-mandelbrot-sets/">blog post</a>): \( f \left( x \right) = \sqrt{\frac{x}{\text{maxIter}}} \times 255 \)</p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> mandelbrotFormula(<span class="keyword">const</span> complex&lt;float&gt; &amp;z0, <span class="keyword">const</span> <span class="keywordtype">int</span> maxIter=500) {</div><div class="line">    <span class="keywordtype">int</span> value = mandelbrot(z0, maxIter);</div><div class="line">    <span class="keywordflow">if</span>(maxIter - value == 0)</div><div class="line">    {</div><div class="line">        <span class="keywordflow">return</span> 0;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keywordflow">return</span> <a class="code" href="db/de0/group__core__utils.html#ga085eca238176984a0b72df2818598d85">cvRound</a>(<a class="code" href="d7/dcc/group__core__utils__softfloat.html#ga682082a1892db64a2856403ec17ba297">sqrt</a>(value / (<span class="keywordtype">float</span>) maxIter) * 255);</div><div class="line">}</div></div><!-- fragment --><p> Using a linear scale transformation is not enough to perceive the grayscale variation. To overcome this, we will boost the perception by using a square root scale transformation (borrowed from Jeremy D. Frens in his <a href="http://www.programming-during-recess.net/2016/06/26/color-schemes-for-mandelbrot-sets/">blog post</a>): \( f \left( x \right) = \sqrt{\frac{x}{\text{maxIter}}} \times 255 \)</p>
 <div class="image">
 <img src="how_to_use_OpenCV_parallel_for_sqrt_scale_transformation.png" alt="how_to_use_OpenCV_parallel_for_sqrt_scale_transformation.png"/>
 </div>
@@ -220,7 +220,7 @@ Mandelbrot set with xMin=-2.1, xMax=0.6, yMin=-1.2, yMax=1.2, maxIterations=500<
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 13 2017 09:15:04 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 25 2017 14:51:55 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.3.0</span>
+   &#160;<span id="projectnumber">3.3.0-dev</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -243,7 +243,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="fragment"><div class="line">let row = 3, col = 4;</div><div class="line">let src = <a class="code" href="d2/d75/namespacecv.html">cv</a>.imread(<span class="stringliteral">&quot;canvasInput&quot;</span>);</div><div class="line">let pixel = src.ucharPtr(row, col);</div><div class="line">let R = pixel[0];</div><div class="line">let G = pixel[1];</div><div class="line">let B = pixel[2];</div><div class="line">let A = pixel[3];</div></div><!-- fragment --><p>mat.ucharPtr(k) get the k th row of the mat. mat.ucharPtr(i, j) get the i th row and the j th column of the mat.</p>
 <h2>Image ROI </h2>
 <p>Sometimes, you will have to play with certain region of images. For eye detection in images, first face detection is done all over the image and when face is obtained, we select the face region alone and search for eyes inside it instead of searching whole image. It improves accuracy (because eyes are always on faces) and performance (because we search for a small area)</p>
-<p>We use the function: <b>getRoiRect (rect)</b> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>We use the function: <b>roi (rect)</b> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rect</td><td>rectangle Region of Interest.</td></tr>
   </table>
@@ -272,7 +272,7 @@ let src = cv.imread("roiCanvasInput");
 let dst = new cv.Mat();
 // You can try more different parameters
 let rect = new cv.Rect(100, 100, 200, 200);
-dst = src.getRoiRect(rect); 
+dst = src.roi(rect); 
 cv.imshow("roiCanvasOutput", dst);
 src.delete(); dst.delete(); 
 </textarea>
@@ -395,7 +395,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 13 2017 09:15:05 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 25 2017 14:51:55 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

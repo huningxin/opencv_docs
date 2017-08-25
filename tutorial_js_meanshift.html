@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.3.0</span>
+   &#160;<span id="projectnumber">3.3.0-dev</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -202,7 +202,7 @@ cap.read(msFrame);
 let trackWindow = new cv.Rect(300, 120, 125, 250); // simply hardcoded the values 300, 120, 125, 250
 
 // set up the ROI for tracking
-let msRoi = msFrame.getRoiRect(trackWindow);
+let msRoi = msFrame.roi(trackWindow);
 let msHsvRoi = new cv.Mat();
 cv.cvtColor(msRoi, msHsvRoi, cv.COLOR_RGBA2RGB);
 cv.cvtColor(msHsvRoi, msHsvRoi, cv.COLOR_RGB2HSV);
@@ -373,7 +373,7 @@ cap.read(csFrame);
 let trackWindow = new cv.Rect(300, 120, 125, 250); // simply hardcoded the values 300, 120, 125, 250
 
 // set up the ROI for tracking
-let csRoi = csFrame.getRoiRect(trackWindow);
+let csRoi = csFrame.roi(trackWindow);
 let csHsvRoi = new cv.Mat();
 cv.cvtColor(csRoi, csHsvRoi, cv.COLOR_RGBA2RGB);
 cv.cvtColor(csHsvRoi, csHsvRoi, cv.COLOR_RGB2HSV);
@@ -519,7 +519,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 13 2017 09:15:05 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 25 2017 14:51:56 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

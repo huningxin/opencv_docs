@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.3.0</span>
+   &#160;<span id="projectnumber">3.3.0-dev</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -154,15 +154,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 <h2>Theory </h2>
 <dl class="section note"><dt>Note</dt><dd>The explanation below belongs to the book <b>Learning OpenCV</b> by Bradski and Kaehler.</dd></dl>
-<h3>Convolution</h3>
-<p>In a very general sense, convolution is an operation between every part of an image and an operator (kernel).</p>
+<h3>Correlation</h3>
+<p>In a very general sense, correlation is an operation between every part of an image and an operator (kernel).</p>
 <h3>What is a kernel?</h3>
 <p>A kernel is essentially a fixed size array of numerical coefficients along with an <em>anchor point</em> in that array, which is typically located at the center.</p>
 <div class="image">
 <img src="filter_2d_tutorial_kernel_theory.png" alt="filter_2d_tutorial_kernel_theory.png"/>
 </div>
-<h3>How does convolution with a kernel work?</h3>
-<p>Assume you want to know the resulting value of a particular location in the image. The value of the convolution is calculated in the following way:</p>
+<h3>How does correlation with a kernel work?</h3>
+<p>Assume you want to know the resulting value of a particular location in the image. The value of the correlation is calculated in the following way:</p>
 <ol type="1">
 <li>Place the kernel anchor on top of a determined pixel, with the rest of the kernel overlaying the corresponding local pixels in the image.</li>
 <li>Multiply the kernel coefficients by the corresponding image pixel values and sum the result.</li>
@@ -202,7 +202,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li><em>ddepth</em>: The depth of <em>dst</em>. A negative value (such as \(-1\)) indicates that the depth is the same as the source.</li>
 <li><em>kernel</em>: The kernel to be scanned through the image</li>
 <li><em>anchor</em>: The position of the anchor relative to its kernel. The location <em>Point(-1, -1)</em> indicates the center by default.</li>
-<li><em>delta</em>: A value to be added to each pixel during the convolution. By default it is \(0\)</li>
+<li><em>delta</em>: A value to be added to each pixel during the correlation. By default it is \(0\)</li>
 <li><em>BORDER_DEFAULT</em>: We let this value by default (more details in the following tutorial)</li>
 </ol>
 </li>
@@ -220,7 +220,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 13 2017 09:15:05 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 25 2017 14:51:55 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

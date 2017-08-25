@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="../../opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.3.0</span>
+   &#160;<span id="projectnumber">3.3.0-dev</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -180,6 +180,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8c202bdb80ee1077d04cf64ed9045bf2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/de7/structcv_1_1Ptr.html">Ptr</a>&lt; <a class="el" href="../../de/dbf/classcv_1_1BRISK.html">BRISK</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbf/classcv_1_1BRISK.html#a8c202bdb80ee1077d04cf64ed9045bf2">create</a> (const std::vector&lt; float &gt; &amp;radiusList, const std::vector&lt; int &gt; &amp;numberList, float dMax=5.85f, float dMin=8.2f, const std::vector&lt; int &gt; &amp;indexChange=std::vector&lt; int &gt;())</td></tr>
 <tr class="memdesc:a8c202bdb80ee1077d04cf64ed9045bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../de/dbf/classcv_1_1BRISK.html" title="Class implementing the BRISK keypoint detector and descriptor extractor, described in  ...">BRISK</a> constructor for a custom pattern.  <a href="#a8c202bdb80ee1077d04cf64ed9045bf2">More...</a><br /></td></tr>
 <tr class="separator:a8c202bdb80ee1077d04cf64ed9045bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6720ec157fa5608d0f439732a0ec4322"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/de7/structcv_1_1Ptr.html">Ptr</a>&lt; <a class="el" href="../../de/dbf/classcv_1_1BRISK.html">BRISK</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbf/classcv_1_1BRISK.html#a6720ec157fa5608d0f439732a0ec4322">create</a> (int thresh, int octaves, const std::vector&lt; float &gt; &amp;radiusList, const std::vector&lt; int &gt; &amp;numberList, float dMax=5.85f, float dMin=8.2f, const std::vector&lt; int &gt; &amp;indexChange=std::vector&lt; int &gt;())</td></tr>
+<tr class="memdesc:a6720ec157fa5608d0f439732a0ec4322"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../de/dbf/classcv_1_1BRISK.html" title="Class implementing the BRISK keypoint detector and descriptor extractor, described in  ...">BRISK</a> constructor for a custom pattern, detection threshold and octaves.  <a href="#a6720ec157fa5608d0f439732a0ec4322">More...</a><br /></td></tr>
+<tr class="separator:a6720ec157fa5608d0f439732a0ec4322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classcv_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classcv_1_1Algorithm')"><img src="../../closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="../../d3/d46/classcv_1_1Algorithm.html">cv::Algorithm</a></td></tr>
 <tr class="memitem:a623841c33b58ea9c4847da04607e067b inherit pub_static_methods_classcv_1_1Algorithm"><td class="memTemplParams" colspan="2">template&lt;typename _Tp &gt; </td></tr>
 <tr class="memitem:a623841c33b58ea9c4847da04607e067b inherit pub_static_methods_classcv_1_1Algorithm"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d0/de7/structcv_1_1Ptr.html">Ptr</a>&lt; _Tp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d46/classcv_1_1Algorithm.html#a623841c33b58ea9c4847da04607e067b">load</a> (const <a class="el" href="../../d1/d8f/classcv_1_1String.html">String</a> &amp;filename, const <a class="el" href="../../d1/d8f/classcv_1_1String.html">String</a> &amp;objname=<a class="el" href="../../d1/d8f/classcv_1_1String.html">String</a>())</td></tr>
@@ -363,6 +366,84 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a6720ec157fa5608d0f439732a0ec4322"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d0/de7/structcv_1_1Ptr.html">Ptr</a>&lt;<a class="el" href="../../de/dbf/classcv_1_1BRISK.html">BRISK</a>&gt; cv::BRISK::create </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>thresh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>octaves</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; float &gt; &amp;&#160;</td>
+          <td class="paramname"><em>radiusList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>numberList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dMax</em> = <code>5.85f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dMin</em> = <code>8.2f</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>indexChange</em> = <code>std::vector&lt;&#160;int&#160;&gt;()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="../../de/dbf/classcv_1_1BRISK.html" title="Class implementing the BRISK keypoint detector and descriptor extractor, described in  ...">BRISK</a> constructor for a custom pattern, detection threshold and octaves. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thresh</td><td>AGAST detection threshold score. </td></tr>
+    <tr><td class="paramname">octaves</td><td>detection octaves. Use 0 to do single scale. </td></tr>
+    <tr><td class="paramname">radiusList</td><td>defines the radii (in pixels) where the samples around a keypoint are taken (for keypoint scale 1). </td></tr>
+    <tr><td class="paramname">numberList</td><td>defines the number of sampling points on the sampling circle. Must be the same size as radiusList.. </td></tr>
+    <tr><td class="paramname">dMax</td><td>threshold for the short pairings used for descriptor formation (in pixels for keypoint scale 1). </td></tr>
+    <tr><td class="paramname">dMin</td><td>threshold for the long pairings used for orientation determination (in pixels for keypoint scale 1). </td></tr>
+    <tr><td class="paramname">indexChange</td><td>index remapping of the bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>features2d/include/opencv2/<a class="el" href="../../d5/d0d/features2d_8hpp.html">features2d.hpp</a></li>
 </ul>
@@ -370,7 +451,7 @@ Additional Inherited Members</h2></td></tr>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 13 2017 09:15:07 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 25 2017 14:51:57 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

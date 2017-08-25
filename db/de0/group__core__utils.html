@@ -53,7 +53,7 @@ MathJax.Hub.Config(
   <td id="projectlogo"><img alt="Logo" src="../../opencv-logo-small.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">OpenCV
-   &#160;<span id="projectnumber">3.3.0</span>
+   &#160;<span id="projectnumber">3.3.0-dev</span>
    </div>
    <div id="projectbrief">Open Source Computer Vision</div>
   </td>
@@ -157,6 +157,8 @@ Modules</h2></td></tr>
 <tr class="memitem:d6/d06/group__core__utils__sse"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d06/group__core__utils__sse.html">SSE utilities</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d8/d45/group__core__utils__neon"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d45/group__core__utils__neon.html">NEON utilities</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d7/dcc/group__core__utils__softfloat"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dcc/group__core__utils__softfloat.html">Softfloat support</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -1975,7 +1977,7 @@ template&lt;typename _Tp &gt; </div>
 </div><div class="memdoc">
 
 <p>Aligns a buffer size to the specified number of bytes. </p>
-<p>The function returns the minimum number that is greater or equal to sz and is divisible by n : </p><p class="formulaDsp">
+<p>The function returns the minimum number that is greater than or equal to sz and is divisible by n : </p><p class="formulaDsp">
 \[\texttt{(sz + n-1) &amp; -n}\]
 </p>
  <dl class="params"><dt>Parameters</dt><dd>
@@ -2513,7 +2515,7 @@ template&lt;typename _Tp &gt; </div>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="../../d0/d2a/contours2_8cpp-example.html#a15">contours2.cpp</a>, <a class="el" href="../../d2/dcb/demhist_8cpp-example.html#a11">demhist.cpp</a>, <a class="el" href="../../d4/d11/distrans_8cpp-example.html#a13">distrans.cpp</a>, <a class="el" href="../../db/d3a/facedetect_8cpp-example.html#a36">facedetect.cpp</a>, <a class="el" href="../../d4/d32/minarea_8cpp-example.html#a23">minarea.cpp</a>, and <a class="el" href="../../db/db0/peopledetect_8cpp-example.html#a8">peopledetect.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="../../d0/d2a/contours2_8cpp-example.html#a15">contours2.cpp</a>, <a class="el" href="../../d2/dcb/demhist_8cpp-example.html#a11">demhist.cpp</a>, <a class="el" href="../../d4/d11/distrans_8cpp-example.html#a13">distrans.cpp</a>, <a class="el" href="../../db/d3a/facedetect_8cpp-example.html#a36">facedetect.cpp</a>, <a class="el" href="../../d4/d32/minarea_8cpp-example.html#a23">minarea.cpp</a>, <a class="el" href="../../db/db0/peopledetect_8cpp-example.html#a8">peopledetect.cpp</a>, and <a class="el" href="../../d5/dfc/warpPerspective_demo_8cpp-example.html#a24">warpPerspective_demo.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -3013,7 +3015,7 @@ template&lt;typename _Tp , typename Functor &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the index of the currently executed thread within the current parallel region. Always returns 0 if called outside of parallel region. </p>
-<p>The exact meaning of return value depends on the threading framework used by OpenCV library:</p><ul>
+<p>The exact meaning of the return value depends on the threading framework used by OpenCV library:</p><ul>
 <li><code>TBB</code> - Unsupported with current 4.1 TBB release. Maybe will be supported in future.</li>
 <li><code>OpenMP</code> - The thread number, within the current team, of the calling thread.</li>
 <li><code>Concurrency</code> - An ID for the virtual processor that the current context is executing on (0 for master thread and unique number for others, but not necessary 1,2,3,...).</li>
@@ -4894,10 +4896,10 @@ template&lt;&gt; </div>
 
 <p>OpenCV will try to set the number of threads for the next parallel region. </p>
 <p>If threads == 0, OpenCV will disable threading optimizations and run all it's functions sequentially. Passing threads &lt; 0 will reset threads number to system default. This function must be called outside of parallel region.</p>
-<p>OpenCV will try to run it's functions with specified threads number, but some behaviour differs from framework:</p><ul>
-<li><code>TBB</code> - User-defined parallel constructions will run with the same threads number, if another does not specified. If later on user creates own scheduler, OpenCV will use it.</li>
+<p>OpenCV will try to run its functions with specified threads number, but some behaviour differs from framework:</p><ul>
+<li><code>TBB</code> - User-defined parallel constructions will run with the same threads number, if another is not specified. If later on user creates his own scheduler, OpenCV will use it.</li>
 <li><code>OpenMP</code> - No special defined behaviour.</li>
-<li><code>Concurrency</code> - If threads == 1, OpenCV will disable threading optimizations and run it's functions sequentially.</li>
+<li><code>Concurrency</code> - If threads == 1, OpenCV will disable threading optimizations and run its functions sequentially.</li>
 <li><code>GCD</code> - Supports only values &lt;= 0.</li>
 <li><code>C=</code> - No special defined behaviour. <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -4974,7 +4976,7 @@ template&lt;&gt; </div>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 13 2017 09:15:06 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 25 2017 14:51:56 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
