@@ -182,7 +182,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a36380157c59b199fe860c08f8133704c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns index of output blob in output array.  <a href="#a36380157c59b199fe860c08f8133704c">More...</a><br /></td></tr>
 <tr class="separator:a36380157c59b199fe860c08f8133704c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10ea7f293d12413b4a897ddc6a8714ff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3e/classcv_1_1dnn_1_1LSTMLayer.html#a10ea7f293d12413b4a897ddc6a8714ff">setOutShape</a> (const <a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a> &amp;outTailShape=<a class="el" href="../../d6/d0f/group__dnn.html#ga8a9ab61770c140f0fa2880c90aeae832">MatShape</a>())=0</td></tr>
-<tr class="memdesc:a10ea7f293d12413b4a897ddc6a8714ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies shape of output blob which will be [[<code>T</code>], <code>N</code>] + <code>outTailShape</code>.  <a href="#a10ea7f293d12413b4a897ddc6a8714ff">More...</a><br /></td></tr>
+<tr class="memdesc:a10ea7f293d12413b4a897ddc6a8714ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies shape of output blob which will be [[<code><a class="el" href="../../d1/def/classT.html">T</a></code>], <code>N</code>] + <code>outTailShape</code>.  <a href="#a10ea7f293d12413b4a897ddc6a8714ff">More...</a><br /></td></tr>
 <tr class="separator:a10ea7f293d12413b4a897ddc6a8714ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a593731630bfc7951471941018399cdb4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3e/classcv_1_1dnn_1_1LSTMLayer.html#a593731630bfc7951471941018399cdb4">setProduceCellOutput</a> (bool produce=false)=0</td></tr>
 <tr class="memdesc:a593731630bfc7951471941018399cdb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this flag is set to true then layer will produce \( c_t \) as second output.  <a href="#a593731630bfc7951471941018399cdb4">More...</a><br /></td></tr>
@@ -416,7 +416,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Specifies shape of output blob which will be [[<code>T</code>], <code>N</code>] + <code>outTailShape</code>. </p>
+<p>Specifies shape of output blob which will be [[<code><a class="el" href="../../d1/def/classT.html">T</a></code>], <code>N</code>] + <code>outTailShape</code>. </p>
 <p>If this parameter is empty or unset then <code>outTailShape</code> = [<code>Wh</code>.size(0)] will be used, where <code>Wh</code> is parameter from <a class="el" href="../../db/d3e/classcv_1_1dnn_1_1LSTMLayer.html#a57b036d9f54ec982203bd63ea42559a0">setWeights()</a>. </p>
 
 </div>
@@ -471,7 +471,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies either interpet first dimension of input blob as timestamp dimenion either as sample. </p>
-<p>If flag is set to true then shape of input blob will be interpeted as [<code>T</code>, <code>N</code>, <code>[data dims]</code>] where <code>T</code> specifies number of timpestamps, <code>N</code> is number of independent streams. In this case each <a class="el" href="../../d3/d6c/classcv_1_1dnn_1_1Layer.html#a144114e78eacbb54a867694053b0fdbc" title="Given the input blobs, computes the output blobs. ">forward()</a> call will iterate through <code>T</code> timestamps and update layer's state <code>T</code> times.</p>
+<p>If flag is set to true then shape of input blob will be interpeted as [<code><a class="el" href="../../d1/def/classT.html">T</a></code>, <code>N</code>, <code>[data dims]</code>] where <code><a class="el" href="../../d1/def/classT.html">T</a></code> specifies number of timpestamps, <code>N</code> is number of independent streams. In this case each <a class="el" href="../../d3/d6c/classcv_1_1dnn_1_1Layer.html#a144114e78eacbb54a867694053b0fdbc" title="Given the input blobs, computes the output blobs. ">forward()</a> call will iterate through <code><a class="el" href="../../d1/def/classT.html">T</a></code> timestamps and update layer's state <code><a class="el" href="../../d1/def/classT.html">T</a></code> times.</p>
 <p>If flag is set to false then shape of input blob will be interpeted as [<code>N</code>, <code>[data dims]</code>]. In this case each <a class="el" href="../../d3/d6c/classcv_1_1dnn_1_1Layer.html#a144114e78eacbb54a867694053b0fdbc" title="Given the input blobs, computes the output blobs. ">forward()</a> call will make one iteration and produce one timestamp with shape [<code>N</code>, <code>[out dims]</code>]. </p>
 
 </div>
@@ -541,7 +541,7 @@ Additional Inherited Members</h2></td></tr>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2017 14:52:00 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 8 2017 17:44:45 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

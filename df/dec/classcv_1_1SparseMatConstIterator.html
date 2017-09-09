@@ -223,7 +223,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Read-Only Sparse Matrix Iterator. </p>
 <p>Here is how to use the iterator to compute the sum of floating-point sparse matrix elements:</p>
-<div class="fragment"><div class="line"><a class="code" href="../../df/dec/classcv_1_1SparseMatConstIterator.html#af3502cb42a852646d4f8cfed6e3b3c6b">SparseMatConstIterator</a> it = m.begin(), it_end = m.end();</div><div class="line"><span class="keywordtype">double</span> s = 0;</div><div class="line"><a class="code" href="../../db/de0/group__core__utils.html#gaf62bcd90f70e275191ab95136d85906b">CV_Assert</a>( m.type() == <a class="code" href="../../d1/d1b/group__core__hal__interface.html#ga4a3def5d72b74bed31f5f8ab7676099c">CV_32F</a> );</div><div class="line"><span class="keywordflow">for</span>( ; it != it_end; ++it )</div><div class="line">   s += it.value&lt;<span class="keywordtype">float</span>&gt;();</div></div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="fragment"><div class="line"><a class="code" href="../../df/dec/classcv_1_1SparseMatConstIterator.html#af3502cb42a852646d4f8cfed6e3b3c6b">SparseMatConstIterator</a> it = m.begin(), it_end = m.end();</div><div class="line"><span class="keywordtype">double</span> s = 0;</div><div class="line"><a class="code" href="../../db/de0/group__core__utils.html#ga283a0e0de570061124f3b230bb8c7e7e">CV_Assert</a>( m.type() == <a class="code" href="../../d1/d1b/group__core__hal__interface.html#ga4a3def5d72b74bed31f5f8ab7676099c">CV_32F</a> );</div><div class="line"><span class="keywordflow">for</span>( ; it != it_end; ++it )</div><div class="line">   s += it.value&lt;<span class="keywordtype">float</span>&gt;();</div></div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="af3502cb42a852646d4f8cfed6e3b3c6b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -463,7 +463,7 @@ template&lt;typename _Tp &gt; </div>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2017 14:51:57 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 8 2017 17:44:43 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

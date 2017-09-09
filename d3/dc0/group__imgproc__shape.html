@@ -140,6 +140,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -148,6 +149,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d7/db8/namespacecv_1_1traits"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db8/namespacecv_1_1traits.html">cv::traits</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d23/classcv_1_1Moments.html">cv::Moments</a></td></tr>
@@ -947,10 +953,11 @@ Functions</h2></td></tr>
     <tr><td class="paramname">points</td><td>Input 2D point set, stored in std::vector or <a class="el" href="../../d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">Mat</a>. </td></tr>
     <tr><td class="paramname">hull</td><td>Output convex hull. It is either an integer vector of indices or vector of points. In the first case, the hull elements are 0-based indices of the convex hull points in the original array (since the set of convex hull points is a subset of the original point set). In the second case, hull elements are the convex hull points themselves. </td></tr>
     <tr><td class="paramname">clockwise</td><td>Orientation flag. If it is true, the output convex hull is oriented clockwise. Otherwise, it is oriented counter-clockwise. The assumed coordinate system has its X axis pointing to the right, and its Y axis pointing upwards. </td></tr>
-    <tr><td class="paramname">returnPoints</td><td>Operation flag. In case of a matrix, when the flag is true, the function returns convex hull points. Otherwise, it returns indices of the convex hull points. When the output array is std::vector, the flag is ignored, and the output depends on the type of the vector: std::vector&lt;int&gt; implies returnPoints=false, std::vector&lt;Point&gt; implies returnPoints=true. </td></tr>
+    <tr><td class="paramname">returnPoints</td><td>Operation flag. In case of a matrix, when the flag is true, the function returns convex hull points. Otherwise, it returns indices of the convex hull points. When the output array is std::vector, the flag is ignored, and the output depends on the type of the vector: std::vector&lt;int&gt; implies returnPoints=false, std::vector&lt;Point&gt; implies returnPoints=true.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd><code>points</code> and <code>hull</code> should be different arrays, inplace processing isn't supported. </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="../../d0/d7a/convexhull_8cpp-example.html#a12">convexhull.cpp</a>.</dd>
 </dl>
 </div>
@@ -1664,7 +1671,7 @@ intersection examples</div></div>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2017 14:51:56 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 8 2017 17:44:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

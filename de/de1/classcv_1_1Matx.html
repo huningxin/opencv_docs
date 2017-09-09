@@ -167,22 +167,18 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a1828fc4421f037a80fdb750eeedcb60c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<a class="el" href="../../de/de1/classcv_1_1Matx.html#a1828fc4421f037a80fdb750eeedcb60cab6094014e16f8ce80466ff105b420f0a">depth</a> = DataType&lt;_Tp&gt;::depth, 
+<tr class="memitem:ab3e17a4cdbfbc6165c6c565b1bfc21ed"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="../../de/de1/classcv_1_1Matx.html#ab3e17a4cdbfbc6165c6c565b1bfc21eda883ccff445b70d8c5673612fcea63374">rows</a> = m, 
 <br />
-&#160;&#160;<a class="el" href="../../de/de1/classcv_1_1Matx.html#a1828fc4421f037a80fdb750eeedcb60ca883ccff445b70d8c5673612fcea63374">rows</a> = m, 
+&#160;&#160;<a class="el" href="../../de/de1/classcv_1_1Matx.html#ab3e17a4cdbfbc6165c6c565b1bfc21eda0be112b36f43fbfe06e8f9d1361f51b6">cols</a> = n, 
 <br />
-&#160;&#160;<a class="el" href="../../de/de1/classcv_1_1Matx.html#a1828fc4421f037a80fdb750eeedcb60ca0be112b36f43fbfe06e8f9d1361f51b6">cols</a> = n, 
+&#160;&#160;<a class="el" href="../../de/de1/classcv_1_1Matx.html#ab3e17a4cdbfbc6165c6c565b1bfc21eda9844959a8fb66345ef70c06ec8938f82">channels</a> = rows*cols, 
 <br />
-&#160;&#160;<a class="el" href="../../de/de1/classcv_1_1Matx.html#a1828fc4421f037a80fdb750eeedcb60ca9844959a8fb66345ef70c06ec8938f82">channels</a> = rows*cols, 
-<br />
-&#160;&#160;<a class="el" href="../../de/de1/classcv_1_1Matx.html#a1828fc4421f037a80fdb750eeedcb60caabf496e10c7dbcdefe32930d1033b0e8">type</a> = CV_MAKETYPE(depth, channels), 
-<br />
-&#160;&#160;<a class="el" href="../../de/de1/classcv_1_1Matx.html#a1828fc4421f037a80fdb750eeedcb60cae18e575d92a15cffb078249823e5d9ac">shortdim</a> = (m &lt; n ? m : n)
+&#160;&#160;<a class="el" href="../../de/de1/classcv_1_1Matx.html#ab3e17a4cdbfbc6165c6c565b1bfc21edae18e575d92a15cffb078249823e5d9ac">shortdim</a> = (m &lt; n ? m : n)
 <br />
  }</td></tr>
-<tr class="separator:a1828fc4421f037a80fdb750eeedcb60c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ecf9ed18e29806025b5febbabcbeb9b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../de/de1/classcv_1_1Matx.html">Matx</a>&lt; _Tp, <a class="el" href="../../de/de1/classcv_1_1Matx.html#a1828fc4421f037a80fdb750eeedcb60cae18e575d92a15cffb078249823e5d9ac">shortdim</a>, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/classcv_1_1Matx.html#a6ecf9ed18e29806025b5febbabcbeb9b">diag_type</a></td></tr>
+<tr class="separator:ab3e17a4cdbfbc6165c6c565b1bfc21ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ecf9ed18e29806025b5febbabcbeb9b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../de/de1/classcv_1_1Matx.html">Matx</a>&lt; _Tp, <a class="el" href="../../de/de1/classcv_1_1Matx.html#ab3e17a4cdbfbc6165c6c565b1bfc21edae18e575d92a15cffb078249823e5d9ac">shortdim</a>, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/classcv_1_1Matx.html#a6ecf9ed18e29806025b5febbabcbeb9b">diag_type</a></td></tr>
 <tr class="separator:a6ecf9ed18e29806025b5febbabcbeb9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa55844d27a10c24f9879df52d30ef93"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../de/de1/classcv_1_1Matx.html">Matx</a>&lt; _Tp, m, n &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/classcv_1_1Matx.html#aaa55844d27a10c24f9879df52d30ef93">mat_type</a></td></tr>
 <tr class="separator:aaa55844d27a10c24f9879df52d30ef93"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -403,7 +399,7 @@ class cv::Matx&lt; _Tp, m, n &gt;</h3>
 template&lt;typename _Tp, int m, int n&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="../../de/de1/classcv_1_1Matx.html">Matx</a>&lt;_Tp, <a class="el" href="../../de/de1/classcv_1_1Matx.html#a1828fc4421f037a80fdb750eeedcb60cae18e575d92a15cffb078249823e5d9ac">shortdim</a>, 1&gt; <a class="el" href="../../de/de1/classcv_1_1Matx.html">cv::Matx</a>&lt; _Tp, m, n &gt;::<a class="el" href="../../de/de1/classcv_1_1Matx.html#a6ecf9ed18e29806025b5febbabcbeb9b">diag_type</a></td>
+          <td class="memname">typedef <a class="el" href="../../de/de1/classcv_1_1Matx.html">Matx</a>&lt;_Tp, <a class="el" href="../../de/de1/classcv_1_1Matx.html#ab3e17a4cdbfbc6165c6c565b1bfc21edae18e575d92a15cffb078249823e5d9ac">shortdim</a>, 1&gt; <a class="el" href="../../de/de1/classcv_1_1Matx.html">cv::Matx</a>&lt; _Tp, m, n &gt;::<a class="el" href="../../de/de1/classcv_1_1Matx.html#a6ecf9ed18e29806025b5febbabcbeb9b">diag_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -439,7 +435,7 @@ template&lt;typename _Tp, int m, int n&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
-<a class="anchor" id="a1828fc4421f037a80fdb750eeedcb60c"></a>
+<a class="anchor" id="ab3e17a4cdbfbc6165c6c565b1bfc21ed"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -451,17 +447,13 @@ template&lt;typename _Tp, int m, int n&gt; </div>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a1828fc4421f037a80fdb750eeedcb60cab6094014e16f8ce80466ff105b420f0a"></a>depth&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="ab3e17a4cdbfbc6165c6c565b1bfc21eda883ccff445b70d8c5673612fcea63374"></a>rows&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a1828fc4421f037a80fdb750eeedcb60ca883ccff445b70d8c5673612fcea63374"></a>rows&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="ab3e17a4cdbfbc6165c6c565b1bfc21eda0be112b36f43fbfe06e8f9d1361f51b6"></a>cols&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a1828fc4421f037a80fdb750eeedcb60ca0be112b36f43fbfe06e8f9d1361f51b6"></a>cols&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="ab3e17a4cdbfbc6165c6c565b1bfc21eda9844959a8fb66345ef70c06ec8938f82"></a>channels&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a1828fc4421f037a80fdb750eeedcb60ca9844959a8fb66345ef70c06ec8938f82"></a>channels&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a1828fc4421f037a80fdb750eeedcb60caabf496e10c7dbcdefe32930d1033b0e8"></a>type&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><a class="anchor" id="a1828fc4421f037a80fdb750eeedcb60cae18e575d92a15cffb078249823e5d9ac"></a>shortdim&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="ab3e17a4cdbfbc6165c6c565b1bfc21edae18e575d92a15cffb078249823e5d9ac"></a>shortdim&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
@@ -2842,7 +2834,7 @@ template&lt;typename _Tp, int m, int n&gt; </div>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2017 14:51:57 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 8 2017 17:44:43 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

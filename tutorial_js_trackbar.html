@@ -174,13 +174,17 @@ canvas {
 <body>
 <div id="CodeArea">
 <h2>Input your code</h2>
-<textarea rows="8" cols="70" id="TestCode" spellcheck="false">
+<textarea rows="11" cols="70" id="TestCode" spellcheck="false">
 let alpha = value/trackbar.max;
 let beta = ( 1.0 - alpha );
+let src1 = cv.imread("canvasInput1");
+let src2 = cv.imread("canvasInput2");
 let dst = new cv.Mat();
 cv.addWeighted( src1, alpha, src2, beta, 0.0, dst, -1);
 cv.imshow("canvasOutput", dst);
 dst.delete();
+src1.delete();
+src2.delete();
 </textarea>
 <p class="err" id="tbErr"></p>
 </div>
@@ -189,7 +193,7 @@ dst.delete();
         <canvas id="canvasInput1"></canvas>
         <canvas id="canvasInput2"></canvas>
     </div>
-    Weight: <input type="range" id="trackbar" disabled="true" value="50" min="0" max="100" step="1" 
+    Weight: <input type="range" id="trackbar" disabled="true" value="50" min="0" max="100" step="1"
     oninput="addWeighted(this.value)"><input type="text" id="weightValue" size="3" value="50"><br>
     <canvas id="canvasOutput"></canvas>
 </div>
@@ -200,7 +204,7 @@ let weightValue = document.getElementById('weightValue');
 let trackbar = document.getElementById('trackbar');
 
 function addWeighted(value) {
-    weightValue.value = value;    
+    weightValue.value = value;
     let text = document.getElementById("TestCode").value;
     try {
         eval(text);
@@ -208,15 +212,13 @@ function addWeighted(value) {
     } catch(err) {
         document.getElementById("tbErr").innerHTML = err;
     }
+
 }
 
 loadImageToCanvas("apple.jpg", "canvasInput1");
 loadImageToCanvas("orange.jpg", "canvasInput2");
 
-let src1, src2;
 function onReady() {
-    src1 = cv.imread("canvasInput1");
-    src2 = cv.imread("canvasInput2");
     addWeighted(trackbar.value);
     trackbar.disabled = false;
 }
@@ -232,7 +234,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2017 14:51:55 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 8 2017 17:44:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

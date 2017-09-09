@@ -1,6 +1,7 @@
 var searchData=
 [
   ['how_20to_20use_20background_20subtraction_20methods',['How to Use Background Subtraction Methods',['../tutorial_background_subtraction.html',1,'tutorial_table_of_content_video']]],
+  ['how_20to_20run_20deep_20networks_20on_20android_20device',['How to run deep networks on Android device',['../tutorial_dnn_android.html',1,'']]],
   ['how_20to_20enable_20halide_20backend_20for_20improve_20efficiency',['How to enable Halide backend for improve efficiency',['../tutorial_dnn_halide.html',1,'tutorial_table_of_content_dnn']]],
   ['how_20to_20schedule_20your_20network_20for_20halide_20backend',['How to schedule your network for Halide backend',['../tutorial_dnn_halide_scheduling.html',1,'tutorial_table_of_content_dnn']]],
   ['harris_20corner_20detector',['Harris corner detector',['../tutorial_harris_detector.html',1,'tutorial_table_of_content_features2d']]],

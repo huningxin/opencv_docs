@@ -26,7 +26,7 @@ var searchData=
   ['event_5frbuttondblclk',['EVENT_RBUTTONDBLCLK',['../d7/dfc/group__highgui.html#gga927593befdddc7e7013602bca9b079b0a32fba0899e8c3664d5252c059ce83d75',1,'cv']]],
   ['event_5frbuttondown',['EVENT_RBUTTONDOWN',['../d7/dfc/group__highgui.html#gga927593befdddc7e7013602bca9b079b0aa3536f83b6f48da5121041f58fc7a683',1,'cv']]],
   ['event_5frbuttonup',['EVENT_RBUTTONUP',['../d7/dfc/group__highgui.html#gga927593befdddc7e7013602bca9b079b0aacdda7d94278928c34b61a7bd8be9f62',1,'cv']]],
-  ['exec_5fkernel',['EXEC_KERNEL',['../d7/d9f/classcv_1_1ocl_1_1Device.html#a186ec635cb15bb0965512faa88198c8eacc62899c052a7270c485b7f13b80decb',1,'cv::ocl::Device']]],
-  ['exec_5fnative_5fkernel',['EXEC_NATIVE_KERNEL',['../d7/d9f/classcv_1_1ocl_1_1Device.html#a186ec635cb15bb0965512faa88198c8ea24f564396eb16e7ba60abaa27c0f36a7',1,'cv::ocl::Device']]],
-  ['expr',['EXPR',['../d4/d32/classcv_1_1__InputArray.html#abedee61c7763d8d659f733ccddca6ad2a84ed741d208c2de3eaa9658ce1554379',1,'cv::_InputArray']]]
+  ['exec_5fkernel',['EXEC_KERNEL',['../d7/d9f/classcv_1_1ocl_1_1Device.html#a8b9054e8e7e2b663500ed381f8b26629acc62899c052a7270c485b7f13b80decb',1,'cv::ocl::Device']]],
+  ['exec_5fnative_5fkernel',['EXEC_NATIVE_KERNEL',['../d7/d9f/classcv_1_1ocl_1_1Device.html#a8b9054e8e7e2b663500ed381f8b26629a24f564396eb16e7ba60abaa27c0f36a7',1,'cv::ocl::Device']]],
+  ['expr',['EXPR',['../d4/d32/classcv_1_1__InputArray.html#a4877f69bebe2f726a4720456ddd25e44a84ed741d208c2de3eaa9658ce1554379',1,'cv::_InputArray']]]
 ];

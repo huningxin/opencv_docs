@@ -211,7 +211,7 @@ let rect = new cv.Rect(50, 50, 260, 280);
 cv.grabCut(src, mask, rect, bgdModel, fgdModel, 1, cv.GC_INIT_WITH_RECT);
 // draw foreground
 for (let i = 0; i < src.rows; i++)
-    for (let j = 0; j < src.cols; j++) 
+    for (let j = 0; j < src.cols; j++)
         if (mask.ucharPtr(i, j)[0] == 0 || mask.ucharPtr(i, j)[0] == 2) {
             src.ucharPtr(i, j)[0] = 0;
             src.ucharPtr(i, j)[1] = 0;
@@ -223,7 +223,7 @@ let point1 = new cv.Point(rect.x, rect.y);
 let point2 = new cv.Point(rect.x + rect.width, rect.y + rect.height);
 cv.rectangle(src, point1, point2, color);
 cv.imshow("grabCutCanvasOutput", src);
-src.delete(); mask.delete(); bgdModel.delete(); fgdModel.delete(); 
+src.delete(); mask.delete(); bgdModel.delete(); fgdModel.delete();
 </textarea>
 <p class="err" id="grabCutErr"></p>
 </div>
@@ -270,7 +270,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2017 14:51:55 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 8 2017 17:44:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

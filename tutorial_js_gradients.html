@@ -212,7 +212,7 @@ cv.Sobel(src, dsty, cv.CV_8U, 0, 1, 3, 1, 0, cv.BORDER_DEFAULT);
 // cv.Scharr(src, dstx, cv.CV_8U, 1, 0, 1, 0, cv.BORDER_DEFAULT);
 // cv.Scharr(src, dsty, cv.CV_8U, 0, 1, 1, 0, cv.BORDER_DEFAULT);
 cv.imshow("SobelCanvasOutputX", dstx);
-cv.imshow("SobelCanvasOutputY", dsty); 
+cv.imshow("SobelCanvasOutputY", dsty);
 src.delete(); dstx.delete(); dsty.delete();
 </textarea>
 <p class="err" id="SobelErr"></p>
@@ -222,7 +222,7 @@ src.delete(); dstx.delete(); dsty.delete();
         <p>Original</p>
         <canvas id="SobelCanvasInput"></canvas>
         <input type="file" id="SobelInput" name="file" />
-    </div>       
+    </div>
     <div>
         <p>Sobel X</p>
         <canvas id="SobelCanvasOutputX"></canvas>
@@ -353,7 +353,7 @@ cv.Sobel(src, dstx, cv.CV_8U, 1, 0, 3, 1, 0, cv.BORDER_DEFAULT);
 cv.Sobel(src, absDstx, cv.CV_64F, 1, 0, 3, 1, 0, cv.BORDER_DEFAULT);
 cv.convertScaleAbs(absDstx, absDstx, 1, 0);
 cv.imshow("absSobelCanvasOutput8U", dstx);
-cv.imshow("absSobelCanvasOutput64F", absDstx); 
+cv.imshow("absSobelCanvasOutput64F", absDstx);
 src.delete(); dstx.delete(); absDstx.delete();
 </textarea>
 <p class="err" id="absSobelErr"></p>
@@ -363,7 +363,7 @@ src.delete(); dstx.delete(); absDstx.delete();
         <p>Original</p>
         <canvas id="absSobelCanvasInput"></canvas>
         <input type="file" id="absSobelInput" name="file" />
-    </div>       
+    </div>
     <div>
         <p>Sobel X(cv.CV_8U)</p>
         <canvas id="absSobelCanvasOutput8U"></canvas>
@@ -384,7 +384,7 @@ function absSobelExecuteCode() {
     }
 }
 
-loadImageToCanvas("LinuxLogo.jpg", "absSobelCanvasInput");
+loadImageToCanvas("shape.jpg", "absSobelCanvasInput");
 let absSobelInputElement = document.getElementById("absSobelInput");
 absSobelInputElement.addEventListener("change", absSobelHandleFiles, false);
 function absSobelHandleFiles(e) {
@@ -409,7 +409,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2017 14:51:55 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 8 2017 17:44:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

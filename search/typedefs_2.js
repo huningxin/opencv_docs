@@ -1,7 +1,7 @@
 var searchData=
 [
   ['centersalgfunction',['centersAlgFunction',['../df/d1f/classcvflann_1_1KMeansIndex.html#acdd18637694a7b41c142f122df9945ec',1,'cvflann::KMeansIndex']]],
-  ['channel_5ftype',['channel_type',['../df/dfc/classcv_1_1Mat__.html#a4c8d83a036ea24d2704c0727782a5963',1,'cv::Mat_::channel_type()'],['../d0/d3a/classcv_1_1DataType.html#aab1ae478f92e00f43f2805c1a37abe68',1,'cv::DataType::channel_type()']]],
+  ['channel_5ftype',['channel_type',['../df/dfc/classcv_1_1Mat__.html#a4c8d83a036ea24d2704c0727782a5963',1,'cv::Mat_']]],
   ['color',['Color',['../d6/d32/classcv_1_1viz_1_1Viz3d.html#aba7de64923e52365d94def373007ae50',1,'cv::viz::Viz3d']]],
   ['complexd',['Complexd',['../dc/d84/group__core__basic.html#ga3a5d93a0cbc1d360dbd3abf218bbb4ae',1,'cv']]],
   ['complexf',['Complexf',['../dc/d84/group__core__basic.html#gaab0325d447419758daf5de162ffb051f',1,'cv']]],

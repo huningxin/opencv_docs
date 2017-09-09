@@ -51,8 +51,8 @@ var searchData=
   ['dpseamfinder',['DpSeamFinder',['../d0/dd5/classcv_1_1detail_1_1DpSeamFinder.html',1,'cv::detail']]],
   ['drawmatchesflags',['DrawMatchesFlags',['../de/d30/structcv_1_1DrawMatchesFlags.html',1,'cv']]],
   ['dtrees',['DTrees',['../d8/d89/classcv_1_1ml_1_1DTrees.html',1,'cv::ml']]],
-  ['dualtvl1opticalflow',['DualTVL1OpticalFlow',['../dc/d47/classcv_1_1DualTVL1OpticalFlow.html',1,'cv']]],
   ['dualtvl1opticalflow',['DualTVL1OpticalFlow',['../d6/db1/classcv_1_1superres_1_1DualTVL1OpticalFlow.html',1,'cv::superres']]],
+  ['dualtvl1opticalflow',['DualTVL1OpticalFlow',['../dc/d47/classcv_1_1DualTVL1OpticalFlow.html',1,'cv']]],
   ['dynamicbitset',['DynamicBitset',['../d1/d73/classcvflann_1_1DynamicBitset.html',1,'cvflann']]],
   ['dynamicsharedmem',['DynamicSharedMem',['../d3/d2b/structcv_1_1cudev_1_1DynamicSharedMem.html',1,'cv::cudev']]],
   ['dynamicsharedmem_3c_20double_20_3e',['DynamicSharedMem&lt; double &gt;',['../db/d28/structcv_1_1cudev_1_1DynamicSharedMem_3_01double_01_4.html',1,'cv::cudev']]]

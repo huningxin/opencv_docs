@@ -205,8 +205,8 @@ image</div></div>
     <tr><td class="paramname">maxLevel</td><td>0-based maximal pyramid level number; if set to 0, pyramids are not used (single level), if set to 1, two levels are used, and so on; if pyramids are passed to input then algorithm will use as many levels as pyramids have but no more than maxLevel. </td></tr>
     <tr><td class="paramname">criteria</td><td>parameter, specifying the termination criteria of the iterative search algorithm (after the specified maximum number of iterations criteria.maxCount or when the search window moves by less than criteria.epsilon. </td></tr>
     <tr><td class="paramname">flags</td><td>operation flags:<ul>
-<li><a class="el" href="dc/d6b/group__video__track.html#ggad3c7afd06d698dd0a307b61cff2211daa9d4430ac75199af0cf6fcdefba30eafe">cv.OPTFLOW_USE_INITIAL_FLOW</a> uses initial estimations, stored in nextPts; if the flag is not set, then prevPts is copied to nextPts and is considered the initial estimate.</li>
-<li><a class="el" href="dc/d6b/group__video__track.html#ggad3c7afd06d698dd0a307b61cff2211daadd75f0bd85d1bd739b39b8900bc12c58">cv.OPTFLOW_LK_GET_MIN_EIGENVALS</a> use minimum eigen values as an error measure (see minEigThreshold description); if the flag is not set, then L1 distance between patches around the original and a moved point, divided by number of pixels in a window, is used as a error measure. </li>
+<li><a class="el" href="dc/d6b/group__video__track.html#gga87d510909ac3c2b369f1fd7f4a5b16dda9d4430ac75199af0cf6fcdefba30eafe">cv.OPTFLOW_USE_INITIAL_FLOW</a> uses initial estimations, stored in nextPts; if the flag is not set, then prevPts is copied to nextPts and is considered the initial estimate.</li>
+<li><a class="el" href="dc/d6b/group__video__track.html#gga87d510909ac3c2b369f1fd7f4a5b16ddadd75f0bd85d1bd739b39b8900bc12c58">cv.OPTFLOW_LK_GET_MIN_EIGENVALS</a> use minimum eigen values as an error measure (see minEigThreshold description); if the flag is not set, then L1 distance between patches around the original and a moved point, divided by number of pixels in a window, is used as a error measure. </li>
 </ul>
 </td></tr>
     <tr><td class="paramname">minEigThreshold</td><td>the algorithm calculates the minimum eigen value of a 2x2 normal matrix of optical flow equations, divided by number of pixels in a window; if this value is less than minEigThreshold, then a corresponding feature is filtered out and its flow is not processed, so it allows to remove bad points and get a performance boost.</td></tr>
@@ -303,10 +303,10 @@ lkofLoopIndex = setInterval(
             p0.data32F[i*2] = goodNew[i].x;
             p0.data32F[i*2+1] = goodNew[i].y;
         }
-    }, 33); 
+    }, 33);
 </textarea>
 <p class="err" id="lkofErr"></p>
-</div> 
+</div>
 <div id="contentarea">
     <button id="lkofStartup" disabled="true" onclick="lkofStartup()">try it</button>
     <button id="lkofStop" disabled="true" onclick="lkofStopVideo()">stop</button><br>
@@ -353,7 +353,7 @@ function lkofStartup() {
         document.getElementById("lkofErr").innerHTML = " ";
     } catch(err) {
         document.getElementById("lkofErr").innerHTML = err;
-    }   
+    }
     document.getElementById("lkofStartup").disabled = true;
 }
 
@@ -414,8 +414,8 @@ function lkofStopVideo() {
     <tr><td class="paramname">polyN</td><td>size of the pixel neighborhood used to find polynomial expansion in each pixel; larger values mean that the image will be approximated with smoother surfaces, yielding more robust algorithm and more blurred motion field, typically polyN =5 or 7. </td></tr>
     <tr><td class="paramname">polySigma</td><td>standard deviation of the Gaussian that is used to smooth derivatives used as a basis for the polynomial expansion; for polyN=5, you can set polySigma=1.1, for polyN=7, a good value would be polySigma=1.5. </td></tr>
     <tr><td class="paramname">flags</td><td>operation flags that can be a combination of the following:<ul>
-<li><a class="el" href="dc/d6b/group__video__track.html#ggad3c7afd06d698dd0a307b61cff2211daa9d4430ac75199af0cf6fcdefba30eafe">cv.OPTFLOW_USE_INITIAL_FLOW</a> uses the input flow as an initial flow approximation.</li>
-<li><a class="el" href="dc/d6b/group__video__track.html#ggad3c7afd06d698dd0a307b61cff2211daa4ffe37adbc548e44a61025a26a1914aa">cv.OPTFLOW_FARNEBACK_GAUSSIAN</a> uses the Gaussian 𝚠𝚒𝚗𝚜𝚒𝚣𝚎×𝚠𝚒𝚗𝚜𝚒𝚣𝚎 filter instead of a box filter of the same size for optical flow estimation; usually, this option gives z more accurate flow than with a box filter, at the cost of lower speed; normally, winsize for a Gaussian window should be set to a larger value to achieve the same level of robustness.</li>
+<li><a class="el" href="dc/d6b/group__video__track.html#gga87d510909ac3c2b369f1fd7f4a5b16dda9d4430ac75199af0cf6fcdefba30eafe">cv.OPTFLOW_USE_INITIAL_FLOW</a> uses the input flow as an initial flow approximation.</li>
+<li><a class="el" href="dc/d6b/group__video__track.html#gga87d510909ac3c2b369f1fd7f4a5b16dda4ffe37adbc548e44a61025a26a1914aa">cv.OPTFLOW_FARNEBACK_GAUSSIAN</a> uses the Gaussian 𝚠𝚒𝚗𝚜𝚒𝚣𝚎×𝚠𝚒𝚗𝚜𝚒𝚣𝚎 filter instead of a box filter of the same size for optical flow estimation; usually, this option gives z more accurate flow than with a box filter, at the cost of lower speed; normally, winsize for a Gaussian window should be set to a larger value to achieve the same level of robustness.</li>
 </ul>
 </td></tr>
   </table>
@@ -485,7 +485,7 @@ dofLoopIndex = setInterval(
         cv.cvtColor(hsv, rgb, cv.COLOR_HSV2RGB);
         cv.imshow("dofCanvasOutput", rgb);
         next.copyTo(prvs);
-    }, 33);    
+    }, 33);
 </textarea>
 <p class="err" id="dofErr"></p>
 </div>
@@ -619,7 +619,7 @@ if (typeof cv !== 'undefined') {
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2017 14:51:56 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 8 2017 17:44:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

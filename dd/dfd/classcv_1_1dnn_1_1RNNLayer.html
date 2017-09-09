@@ -303,9 +303,9 @@ Additional Inherited Members</h2></td></tr>
 <li>input: should contain packed input \(x_t\).</li>
 <li>output: should contain output \(o_t\) (and \(h_t\) if <a class="el" href="../../dd/dfd/classcv_1_1dnn_1_1RNNLayer.html#a9f2270d30bb34a13b1c2c83aa16c3496" title="If this flag is set to true then layer will produce  as second output. ">setProduceHiddenOutput()</a> is set to true).</li>
 </ul>
-<p>input[0] should have shape [<code>T</code>, <code>N</code>, <code>data_dims</code>] where <code>T</code> and <code>N</code> is number of timestamps and number of independent samples of \(x_t\) respectively.</p>
-<p>output[0] will have shape [<code>T</code>, <code>N</code>, \(N_o\)], where \(N_o\) is number of rows in \( W_{xo} \) matrix.</p>
-<p>If <a class="el" href="../../dd/dfd/classcv_1_1dnn_1_1RNNLayer.html#a9f2270d30bb34a13b1c2c83aa16c3496" title="If this flag is set to true then layer will produce  as second output. ">setProduceHiddenOutput()</a> is set to true then <code>output</code>[1] will contain a <a class="el" href="../../d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">Mat</a> with shape [<code>T</code>, <code>N</code>, \(N_h\)], where \(N_h\) is number of rows in \( W_{hh} \) matrix. </p>
+<p>input[0] should have shape [<code><a class="el" href="../../d1/def/classT.html">T</a></code>, <code>N</code>, <code>data_dims</code>] where <code><a class="el" href="../../d1/def/classT.html">T</a></code> and <code>N</code> is number of timestamps and number of independent samples of \(x_t\) respectively.</p>
+<p>output[0] will have shape [<code><a class="el" href="../../d1/def/classT.html">T</a></code>, <code>N</code>, \(N_o\)], where \(N_o\) is number of rows in \( W_{xo} \) matrix.</p>
+<p>If <a class="el" href="../../dd/dfd/classcv_1_1dnn_1_1RNNLayer.html#a9f2270d30bb34a13b1c2c83aa16c3496" title="If this flag is set to true then layer will produce  as second output. ">setProduceHiddenOutput()</a> is set to true then <code>output</code>[1] will contain a <a class="el" href="../../d3/d63/classcv_1_1Mat.html" title="n-dimensional dense array class ">Mat</a> with shape [<code><a class="el" href="../../d1/def/classT.html">T</a></code>, <code>N</code>, \(N_h\)], where \(N_h\) is number of rows in \( W_{hh} \) matrix. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="abc9954a46911f411abc280adf5fb3c52"></a>
 <div class="memitem">
@@ -432,7 +432,7 @@ Additional Inherited Members</h2></td></tr>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 25 2017 14:52:00 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 8 2017 17:44:45 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -3,7 +3,7 @@ var searchData=
   ['warp_5ffill_5foutliers',['WARP_FILL_OUTLIERS',['../da/d54/group__imgproc__transform.html#gga5bb5a1fea74ea38e1a5445ca803ff121a94cc44aa86159abcff4683ec6841b097',1,'cv']]],
   ['warp_5finverse_5fmap',['WARP_INVERSE_MAP',['../da/d54/group__imgproc__transform.html#gga5bb5a1fea74ea38e1a5445ca803ff121aa48be1c433186c4eae1ea86aa0ca75ba',1,'cv']]],
   ['warp_5fshuffle_5ffunctions',['WARP_SHUFFLE_FUNCTIONS',['../d8/d40/group__cudacore__init.html#gga776cf8e0301b18e19be4782754274fe0a22dd302fe5c91cbb63078b4676f58cae',1,'cv::cuda']]],
-  ['warp_5fsize',['WARP_SIZE',['../df/dfc/group__cudev.html#gga1c2b65df761bc405e1b8730ef498bcf8a9e7909cabd2fc84e1e7092a2f348eaf1',1,'cv::cudev']]],
+  ['warp_5fsize',['WARP_SIZE',['../df/dfc/group__cudev.html#ggae0726f80de8fed953becdbede30a55d5a9e7909cabd2fc84e1e7092a2f348eaf1',1,'cv::cudev']]],
   ['wave_5fcorrect_5fhoriz',['WAVE_CORRECT_HORIZ',['../d7/d74/group__stitching__rotation.html#gga83b24d4c3e93584986a56d9e43b9cf7faa9e3a58207a58e3245aab95af18b68a9',1,'cv::detail']]],
   ['wave_5fcorrect_5fvert',['WAVE_CORRECT_VERT',['../d7/d74/group__stitching__rotation.html#gga83b24d4c3e93584986a56d9e43b9cf7fa3d3661394e07da0c7c51ddeb84851212',1,'cv::detail']]],
   ['window_5fautosize',['WINDOW_AUTOSIZE',['../d7/dfc/group__highgui.html#ggabf7d2c5625bc59ac130287f925557ac3acf621ace7a54954cbac01df27e47228f',1,'cv']]],
@@ -22,5 +22,5 @@ var searchData=
   ['write',['WRITE',['../da/d56/classcv_1_1FileStorage.html#a973e41cb75ef6230412a567723b7482da747a241cefee7b8af34c3d804c864ad6',1,'cv::FileStorage']]],
   ['write_5fbase64',['WRITE_BASE64',['../da/d56/classcv_1_1FileStorage.html#a973e41cb75ef6230412a567723b7482da74cdcbdb96c29f19e3ccc2ba4ab81614',1,'cv::FileStorage']]],
   ['write_5fcombined',['WRITE_COMBINED',['../d0/d44/classcv_1_1cuda_1_1HostMem.html#aa0d69b2aa95680a6b2af6dc4dda44e16aef6b60397f05650d972d2cf55e3523eb',1,'cv::cuda::HostMem']]],
-  ['write_5fonly',['WRITE_ONLY',['../d3/d17/classcv_1_1ocl_1_1KernelArg.html#ade583bd114c69c541035b657074160e7a7e7f7fcb59366af118874fb12865b52f',1,'cv::ocl::KernelArg::WRITE_ONLY()'],['../d2/d3c/group__core__opengl.html#gga6b2a295dc840db8b6728db2f3a439d6eadca1f60cf44ecc42163b5f03318abb77',1,'cv::ogl::Buffer::WRITE_ONLY()']]]
+  ['write_5fonly',['WRITE_ONLY',['../d3/d17/classcv_1_1ocl_1_1KernelArg.html#aef28f35149e940d9aa6c986a683587a0a7e7f7fcb59366af118874fb12865b52f',1,'cv::ocl::KernelArg::WRITE_ONLY()'],['../d2/d3c/group__core__opengl.html#gga6b2a295dc840db8b6728db2f3a439d6eadca1f60cf44ecc42163b5f03318abb77',1,'cv::ogl::Buffer::WRITE_ONLY()']]]
 ];
