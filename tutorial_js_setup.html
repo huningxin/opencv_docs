@@ -161,19 +161,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 <h3>Obtaining the Cutting-edge OpenCV from the Git Repository</h3>
 <p>Launch Git client and clone <a href="http://github.com/opencv/opencv">OpenCV repository</a>.</p>
-<p>For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd ~/&lt;my_working_directory&gt;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;git clone https://github.com/opencv/opencv.git</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>It requires <code>git</code> installed in your development environment.</dd></dl>
+<p>For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;git clone https://github.com/opencv/opencv.git</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>It requires <code>git</code> installed in your development environment.</dd></dl>
 <h2>Building OpenCV.js from Source </h2>
 <ol type="1">
-<li><p class="startli">To build <code>opencv.js</code>, execute python script <code>&lt;opencv_dir&gt;/platforms/js/build_js.py &lt;build_dir&gt; &lt;opencv_dir&gt;</code>.</p>
-<p class="startli">For example, to build in <code>build_js</code> directory: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd &lt;opencv_dir&gt;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;python ./platforms/js/build_js.py build_js .</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>It requires <code>python</code> and <code>cmake</code> installed in your development environment.</dd></dl>
+<li><p class="startli">To build <code>opencv.js</code>, execute python script <code>&lt;opencv_src_dir&gt;/platforms/js/build_js.py &lt;build_dir&gt;</code>.</p>
+<p class="startli">For example, to build in <code>build_js</code> directory: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd opencv</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;python ./platforms/js/build_js.py build_js</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>It requires <code>python</code> and <code>cmake</code> installed in your development environment.</dd></dl>
 </li>
-<li><p class="startli">The build script builds asm.js version by default. To build WebAssembly version, append <code>--build_wasm</code> option.</p>
-<p class="startli">For example, to build wasm version in <code>build_wasm</code> directory: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;python ./platforms/js/build_js.py build_wasm . --build_wasm</div></div><!-- fragment --></li>
+<li><p class="startli">The build script builds asm.js version by default. To build WebAssembly version, append <code>--build_wasm</code> switch.</p>
+<p class="startli">For example, to build wasm version in <code>build_wasm</code> directory: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;python ./platforms/js/build_js.py build_wasm --build_wasm</div></div><!-- fragment --></li>
 <li><p class="startli">[optional] To build documents, append <code>--build_doc</code> option.</p>
-<p class="startli">For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;python ./platforms/js/build_js.py build_js . --build_doc</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>It requires <code>doxygen</code> installed in your development environment.</dd></dl>
+<p class="startli">For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;python ./platforms/js/build_js.py build_js --build_doc</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>It requires <code>doxygen</code> installed in your development environment.</dd></dl>
 </li>
 <li><p class="startli">[optional] To build tests, append <code>--build_test</code> option.</p>
-<p class="startli">For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;python ./platforms/js/build_js.py build_js . --build_test</div></div><!-- fragment --><p class="startli">To run tests, launch a local web server in &lt;build_dir&gt;/bin folder. For example, node http-server which serves on <code>localhost:8080</code>.</p>
+<p class="startli">For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;python ./platforms/js/build_js.py build_js --build_test</div></div><!-- fragment --><p class="startli">To run tests, launch a local web server in &lt;build_dir&gt;/bin folder. For example, node http-server which serves on <code>localhost:8080</code>.</p>
 <p class="startli">Navigate the web browser to <code><a href="http://localhost:8000/tests.html">http://localhost:8000/tests.html</a></code>, which runs the unit tests automatically.</p>
 <p class="startli">You can also run tests using Node.js.</p>
 <p class="startli">For example: </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;cd bin</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;npm install</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;node tests.js</div></div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>It requires <code>node</code> installed in your development environment. </dd></dl>
@@ -183,7 +183,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 8 2017 17:44:41 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 11 2017 10:01:34 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
