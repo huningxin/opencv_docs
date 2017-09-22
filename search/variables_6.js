@@ -39,6 +39,6 @@ var searchData=
   ['func_5faddr',['func_addr',['../df/d6a/structCvPluginFuncInfo.html#a0f8c5dc69cbf48ba580bb8bc226622c6',1,'CvPluginFuncInfo']]],
   ['func_5fnames',['func_names',['../df/d6a/structCvPluginFuncInfo.html#a91d414b5fe9137f058f1f0ff78bca630',1,'CvPluginFuncInfo']]],
   ['func_5ftab',['func_tab',['../df/db0/structCvModuleInfo.html#a42b47b9fcdb2fb331ee37e107e485d53',1,'CvModuleInfo']]],
-  ['fx',['fx',['../d5/db1/structcv_1_1cudev_1_1ResizePtr.html#a2504642a05f313ad0798b0745e9f1842',1,'cv::cudev::ResizePtr']]],
-  ['fy',['fy',['../d5/db1/structcv_1_1cudev_1_1ResizePtr.html#aba1db2738b76bb71b114ec3375ffcb7f',1,'cv::cudev::ResizePtr']]]
+  ['fx',['fx',['../d5/db1/structcv_1_1cudev_1_1ResizePtr.html#a2504642a05f313ad0798b0745e9f1842',1,'cv::cudev::ResizePtr::fx()'],['../d1/d7f/classORB__SLAM2_1_1Frame.html#ab505e3f86afa1c3d16b98fda89ec394c',1,'ORB_SLAM2::Frame::fx()'],['../d3/d22/classORB__SLAM2_1_1KeyFrame.html#a951e9ac5670b8543a7386dee5714da0c',1,'ORB_SLAM2::KeyFrame::fx()']]],
+  ['fy',['fy',['../d5/db1/structcv_1_1cudev_1_1ResizePtr.html#aba1db2738b76bb71b114ec3375ffcb7f',1,'cv::cudev::ResizePtr::fy()'],['../d1/d7f/classORB__SLAM2_1_1Frame.html#a226a0adc90bc7a09502fc4db00ee20d7',1,'ORB_SLAM2::Frame::fy()'],['../d3/d22/classORB__SLAM2_1_1KeyFrame.html#ab1acd1b8dad098299d350f67dc4517c0',1,'ORB_SLAM2::KeyFrame::fy()']]]
 ];

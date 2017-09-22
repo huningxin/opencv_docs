@@ -4,7 +4,7 @@ var searchData=
   ['h264_5fmvc',['H264_MVC',['../d0/d61/group__cudacodec.html#gga71943a1181287609b5d649f53ce6c146ab43df77d9c586151d39620eea3d13a51',1,'cv::cudacodec']]],
   ['h264_5fsvc',['H264_SVC',['../d0/d61/group__cudacodec.html#gga71943a1181287609b5d649f53ce6c146a5f138ef5c88368b5b3e544c0d8798a60',1,'cv::cudacodec']]],
   ['hard_5fmargin',['HARD_MARGIN',['../de/d54/classcv_1_1ml_1_1SVMSGD.html#a9b5c495b5593ffda8a7055da07d0b751acd1de0100047b02983977bc0a98ff86f',1,'cv::ml::SVMSGD']]],
-  ['harris_5fscore',['HARRIS_SCORE',['../db/d95/classcv_1_1ORB.html#aefb01af4ca96bc581d9659099316df5da8e3438f0b6ff355dfd1cc991c760b090',1,'cv::ORB']]],
+  ['harris_5fscore',['HARRIS_SCORE',['../db/d95/classcv_1_1ORB.html#aefb01af4ca96bc581d9659099316df5da8e3438f0b6ff355dfd1cc991c760b090',1,'cv::ORB::HARRIS_SCORE()'],['../d7/d36/classORB__SLAM2_1_1ORBextractor.html#ae1098e906e3697dd9acf94fe6bd89fd8a0f496d253d29ce9b88ab80575b311b56',1,'ORB_SLAM2::ORBextractor::HARRIS_SCORE()']]],
   ['hash_5fbit',['HASH_BIT',['../dd/da9/classcv_1_1SparseMat.html#a1e96af0c6bda2b24e2a3627f61cdb738a79cfd2c6ddc2c192623e8426429d27d1',1,'cv::SparseMat']]],
   ['hash_5fscale',['HASH_SCALE',['../dd/da9/classcv_1_1SparseMat.html#a1e96af0c6bda2b24e2a3627f61cdb738a28ca477c8ed1afabd0da753827149eeb',1,'cv::SparseMat']]],
   ['headerisnull',['HeaderIsNull',['../d1/d0d/namespacecv_1_1Error.html#a759fa1af92f7aa7377c76ffb142abccaa1349d0a8af3047dfd9d32f62cfcadae8',1,'cv::Error']]],

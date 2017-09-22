@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['eltwiselayer',['EltwiseLayer',['../d6/d6a/classcv_1_1dnn_1_1EltwiseLayer.html',1,'cv::dnn']]],
-  ['elulayer',['ELULayer',['../df/da5/classcv_1_1dnn_1_1ELULayer.html',1,'cv::dnn']]],
   ['em',['EM',['../d1/dfb/classcv_1_1ml_1_1EM.html',1,'cv::ml']]],
   ['emdhistogramcostextractor',['EMDHistogramCostExtractor',['../d0/d1c/classcv_1_1EMDHistogramCostExtractor.html',1,'cv']]],
   ['emdl1histogramcostextractor',['EMDL1HistogramCostExtractor',['../da/d8e/classcv_1_1EMDL1HistogramCostExtractor.html',1,'cv']]],
@@ -40,5 +38,6 @@ var searchData=
   ['exp_5ffunc_3c_20uint_20_3e',['exp_func&lt; uint &gt;',['../d3/d6c/structcv_1_1cudev_1_1exp__func_3_01uint_01_4.html',1,'cv::cudev']]],
   ['exp_5ffunc_3c_20ushort_20_3e',['exp_func&lt; ushort &gt;',['../d6/dde/structcv_1_1cudev_1_1exp__func_3_01ushort_01_4.html',1,'cv::cudev']]],
   ['exposurecompensator',['ExposureCompensator',['../d2/d37/classcv_1_1detail_1_1ExposureCompensator.html',1,'cv::detail']]],
-  ['expr',['Expr',['../de/dfb/structcv_1_1cudev_1_1Expr.html',1,'cv::cudev']]]
+  ['expr',['Expr',['../de/dfb/structcv_1_1cudev_1_1Expr.html',1,'cv::cudev']]],
+  ['extractornode',['ExtractorNode',['../df/df9/classORB__SLAM2_1_1ExtractorNode.html',1,'ORB_SLAM2']]]
 ];

@@ -11,9 +11,9 @@ var searchData=
   ['level',['level',['../d7/d14/structCvTreeNodeIterator.html#a2e15a5c9c012f972d1af74f020d31d65',1,'CvTreeNodeIterator']]],
   ['line',['line',['../d1/dee/classcv_1_1Exception.html#aa81481ded6391d046768d9829c56fd90',1,'cv::Exception']]],
   ['line_5ftype',['line_type',['../db/d2b/structCvFont.html#aad561dba61a70aea869ea429bf692299',1,'CvFont::line_type()'],['../d2/dbf/structcv_1_1QtFont.html#a128c7f4c9bb3a29aabace35d44ad4004',1,'cv::QtFont::line_type()']]],
+  ['lit',['lit',['../df/df9/classORB__SLAM2_1_1ExtractorNode.html#a5301b76ea0e33bb066a46776810d742c',1,'ORB_SLAM2::ExtractorNode']]],
   ['loaded_5ffrom',['loaded_from',['../df/d6a/structCvPluginFuncInfo.html#a32b220f7101b603e2208e7a1b48611af',1,'CvPluginFuncInfo']]],
   ['locations',['locations',['../d3/d34/structcv_1_1DetectionROI.html#a9e3ba3daa336f41774e72b8ee2787876',1,'cv::DetectionROI']]],
   ['log_5f',['log_',['../d2/d6c/classcv_1_1videostab_1_1StabilizerBase.html#a3d134bf4df68ce2a559d5d69fb187c88',1,'cv::videostab::StabilizerBase']]],
-  ['logsoftmax',['logSoftMax',['../d8/d18/classcv_1_1dnn_1_1SoftmaxLayer.html#aa55c1c0d83caf0946865e225ae37f664',1,'cv::dnn::SoftmaxLayer']]],
   ['logstep',['logStep',['../d6/dca/classcv_1_1ml_1_1ParamGrid.html#a577e7820786e30214651d8a9702fd940',1,'cv::ml::ParamGrid']]]
 ];

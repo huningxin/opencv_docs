@@ -1,14 +1,10 @@
 var searchData=
 [
-  ['adapter_2ejs',['adapter.js',['../dd/df8/adapter_8js.html',1,'']]],
   ['adding_5fimages_2emarkdown',['adding_images.markdown',['../d3/dd6/adding__images_8markdown.html',1,'']]],
   ['affine_2ehpp',['affine.hpp',['../de/d48/affine_8hpp.html',1,'']]],
-  ['agast_2etxt',['agast.txt',['../dc/d8b/agast_8txt.html',1,'']]],
-  ['agast_5fscore_2etxt',['agast_score.txt',['../d2/d4e/agast__score_8txt.html',1,'']]],
   ['akaze_5fmatching_2emarkdown',['akaze_matching.markdown',['../de/dc7/akaze__matching_8markdown.html',1,'']]],
   ['akaze_5ftracking_2emarkdown',['akaze_tracking.markdown',['../da/d4b/akaze__tracking_8markdown.html',1,'']]],
   ['all_5findices_2eh',['all_indices.h',['../d0/deb/all__indices_8h.html',1,'']]],
-  ['all_5flayers_2ehpp',['all_layers.hpp',['../dd/d6b/all__layers_8hpp.html',1,'']]],
   ['allocator_2eh',['allocator.h',['../da/da9/allocator_8h.html',1,'']]],
   ['android_5fdev_5fintro_2emarkdown',['android_dev_intro.markdown',['../d1/dc0/android__dev__intro_8markdown.html',1,'']]],
   ['android_5focl_5fintro_2emarkdown',['android_ocl_intro.markdown',['../d1/dd0/android__ocl__intro_8markdown.html',1,'']]],

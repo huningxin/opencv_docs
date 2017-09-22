@@ -1,15 +1,12 @@
 var searchData=
 [
-  ['warp_2ehpp',['warp.hpp',['../d3/d85/core_2include_2opencv2_2core_2cuda_2warp_8hpp.html',1,'']]],
-  ['warp_2ehpp',['warp.hpp',['../df/d40/cudev_2include_2opencv2_2cudev_2warp_2warp_8hpp.html',1,'']]],
+  ['warp_2ehpp',['warp.hpp',['../d3/d85/core_2include_2opencv2_2core_2cuda_2warp_8hpp.html',1,'(Global Namespace)'],['../df/d40/cudev_2include_2opencv2_2cudev_2warp_2warp_8hpp.html',1,'(Global Namespace)']]],
   ['warp_5faffine_2emarkdown',['warp_affine.markdown',['../d8/db4/warp__affine_8markdown.html',1,'']]],
   ['warp_5freduce_2ehpp',['warp_reduce.hpp',['../d4/d42/warp__reduce_8hpp.html',1,'']]],
   ['warp_5fshuffle_2ehpp',['warp_shuffle.hpp',['../d9/daf/warp__shuffle_8hpp.html',1,'']]],
-  ['warpers_2ehpp',['warpers.hpp',['../dc/de7/detail_2warpers_8hpp.html',1,'']]],
-  ['warpers_2ehpp',['warpers.hpp',['../da/d64/warpers_8hpp.html',1,'']]],
+  ['warpers_2ehpp',['warpers.hpp',['../dc/de7/detail_2warpers_8hpp.html',1,'(Global Namespace)'],['../da/d64/warpers_8hpp.html',1,'(Global Namespace)']]],
   ['warpers_5finl_2ehpp',['warpers_inl.hpp',['../d4/d82/warpers__inl_8hpp.html',1,'']]],
-  ['warping_2ehpp',['warping.hpp',['../d7/d51/expr_2warping_8hpp.html',1,'']]],
-  ['warping_2ehpp',['warping.hpp',['../db/ddb/ptr2d_2warping_8hpp.html',1,'']]],
+  ['warping_2ehpp',['warping.hpp',['../d7/d51/expr_2warping_8hpp.html',1,'(Global Namespace)'],['../db/ddb/ptr2d_2warping_8hpp.html',1,'(Global Namespace)']]],
   ['widget_5faccessor_2ehpp',['widget_accessor.hpp',['../d7/d5d/widget__accessor_8hpp.html',1,'']]],
   ['widget_5fpose_2emarkdown',['widget_pose.markdown',['../d6/d3c/widget__pose_8markdown.html',1,'']]],
   ['widgets_2ehpp',['widgets.hpp',['../d0/dd3/widgets_8hpp.html',1,'']]],

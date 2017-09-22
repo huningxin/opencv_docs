@@ -35,6 +35,9 @@ var searchData=
   ['makevec_3c_20ushort_2c_202_20_3e',['MakeVec&lt; ushort, 2 &gt;',['../d3/d31/structcv_1_1cudev_1_1MakeVec_3_01ushort_00_012_01_4.html',1,'cv::cudev']]],
   ['makevec_3c_20ushort_2c_203_20_3e',['MakeVec&lt; ushort, 3 &gt;',['../d4/d72/structcv_1_1cudev_1_1MakeVec_3_01ushort_00_013_01_4.html',1,'cv::cudev']]],
   ['makevec_3c_20ushort_2c_204_20_3e',['MakeVec&lt; ushort, 4 &gt;',['../de/de5/structcv_1_1cudev_1_1MakeVec_3_01ushort_00_014_01_4.html',1,'cv::cudev']]],
+  ['map',['Map',['../d7/dce/classORB__SLAM2_1_1Map.html',1,'ORB_SLAM2']]],
+  ['mapdrawer',['MapDrawer',['../d4/d8e/classORB__SLAM2_1_1MapDrawer.html',1,'ORB_SLAM2']]],
+  ['mappoint',['MapPoint',['../d2/d38/classORB__SLAM2_1_1MapPoint.html',1,'ORB_SLAM2']]],
   ['maskgenerator',['MaskGenerator',['../d6/dfb/classcv_1_1BaseCascadeClassifier_1_1MaskGenerator.html',1,'cv::BaseCascadeClassifier']]],
   ['mat',['Mat',['../d3/d63/classcv_1_1Mat.html',1,'cv']]],
   ['mat_5f',['Mat_',['../df/dfc/classcv_1_1Mat__.html',1,'cv']]],
@@ -72,10 +75,8 @@ var searchData=
   ['maximum_3c_20uchar_20_3e',['maximum&lt; uchar &gt;',['../dc/d84/structcv_1_1cudev_1_1maximum_3_01uchar_01_4.html',1,'cv::cudev']]],
   ['maximum_3c_20uint_20_3e',['maximum&lt; uint &gt;',['../d8/dfa/structcv_1_1cudev_1_1maximum_3_01uint_01_4.html',1,'cv::cudev']]],
   ['maximum_3c_20ushort_20_3e',['maximum&lt; ushort &gt;',['../d0/dac/structcv_1_1cudev_1_1maximum_3_01ushort_01_4.html',1,'cv::cudev']]],
-  ['maxunpoollayer',['MaxUnpoolLayer',['../d1/d59/classcv_1_1dnn_1_1MaxUnpoolLayer.html',1,'cv::dnn']]],
   ['mercatorprojector',['MercatorProjector',['../d1/daa/structcv_1_1detail_1_1MercatorProjector.html',1,'cv::detail']]],
-  ['mercatorwarper',['MercatorWarper',['../de/d04/classcv_1_1MercatorWarper.html',1,'cv']]],
-  ['mercatorwarper',['MercatorWarper',['../dc/d7a/classcv_1_1detail_1_1MercatorWarper.html',1,'cv::detail']]],
+  ['mercatorwarper',['MercatorWarper',['../de/d04/classcv_1_1MercatorWarper.html',1,'cv::MercatorWarper'],['../dc/d7a/classcv_1_1detail_1_1MercatorWarper.html',1,'cv::detail::MercatorWarper']]],
   ['mergedebevec',['MergeDebevec',['../df/d62/classcv_1_1MergeDebevec.html',1,'cv']]],
   ['mergeexposures',['MergeExposures',['../d6/d5e/classcv_1_1MergeExposures.html',1,'cv']]],
   ['mergemertens',['MergeMertens',['../d7/dd6/classcv_1_1MergeMertens.html',1,'cv']]],
@@ -107,6 +108,5 @@ var searchData=
   ['mser',['MSER',['../d3/d28/classcv_1_1MSER.html',1,'cv']]],
   ['multibandblender',['MultiBandBlender',['../d5/d4b/classcv_1_1detail_1_1MultiBandBlender.html',1,'cv::detail']]],
   ['multiplies',['multiplies',['../d3/da3/structcv_1_1cudev_1_1multiplies.html',1,'cv::cudev']]],
-  ['mutex',['Mutex',['../d6/d5e/classcv_1_1Mutex.html',1,'cv']]],
-  ['mvnlayer',['MVNLayer',['../d4/db5/classcv_1_1dnn_1_1MVNLayer.html',1,'cv::dnn']]]
+  ['mutex',['Mutex',['../d6/d5e/classcv_1_1Mutex.html',1,'cv']]]
 ];

@@ -25,13 +25,11 @@ var searchData=
   ['qtfontstyles',['QtFontStyles',['../d7/dfc/group__highgui.html#ga985c48f130e04061bd651de78441082e',1,'cv']]],
   ['qtfontweights',['QtFontWeights',['../d7/dfc/group__highgui.html#gacd4a7935f4c2b336f8bbde275d952927',1,'cv']]],
   ['quad_5fstrip',['QUAD_STRIP',['../d2/d3c/group__core__opengl.html#ggaf53526c205a92260f356fe6589460aabaa746cc01f0f606c16249ef41beb14eaa',1,'cv::ogl']]],
-  ['quadedge',['QuadEdge',['../d4/dbc/structcv_1_1Subdiv2D_1_1QuadEdge.html#aee056355aa7a7353a2ba3ad9e0c2c6e4',1,'cv::Subdiv2D::QuadEdge::QuadEdge()'],['../d4/dbc/structcv_1_1Subdiv2D_1_1QuadEdge.html#a3ac2567dc1e60f3b0f9f4058c80824e6',1,'cv::Subdiv2D::QuadEdge::QuadEdge(int edgeidx)']]],
-  ['quadedge',['QuadEdge',['../d4/dbc/structcv_1_1Subdiv2D_1_1QuadEdge.html',1,'cv::Subdiv2D']]],
+  ['quadedge',['QuadEdge',['../d4/dbc/structcv_1_1Subdiv2D_1_1QuadEdge.html',1,'cv::Subdiv2D::QuadEdge'],['../d4/dbc/structcv_1_1Subdiv2D_1_1QuadEdge.html#aee056355aa7a7353a2ba3ad9e0c2c6e4',1,'cv::Subdiv2D::QuadEdge::QuadEdge()'],['../d4/dbc/structcv_1_1Subdiv2D_1_1QuadEdge.html#a3ac2567dc1e60f3b0f9f4058c80824e6',1,'cv::Subdiv2D::QuadEdge::QuadEdge(int edgeidx)']]],
   ['quads',['QUADS',['../d2/d3c/group__core__opengl.html#ggaf53526c205a92260f356fe6589460aaba6fe3c72a87b56e3f16bc1cf13fa9fc53',1,'cv::ogl']]],
   ['quality',['quality',['../d9/d37/classcv_1_1ml_1_1DTrees_1_1Split.html#a786677a90e3adb753937fc51bfa93b21',1,'cv::ml::DTrees::Split']]],
   ['queryidx',['queryIdx',['../d4/de0/classcv_1_1DMatch.html#a47475576327f6ba9cd39250881b4d330',1,'cv::DMatch']]],
-  ['queryifcomplete',['queryIfComplete',['../d9/df3/classcv_1_1cuda_1_1Stream.html#ada7c250ceb7fd0210b1b5a3162d8dfd9',1,'cv::cuda::Stream::queryIfComplete()'],['../d5/d38/classcv_1_1cuda_1_1Event.html#a8cc27f8e0b2cf1d7c73fe80e833825eb',1,'cv::cuda::Event::queryIfComplete()']]],
-  ['querymemory',['queryMemory',['../d7/d7c/classcv_1_1cuda_1_1DeviceInfo.html#a4e711586ddb1e369a50ecea5703786cf',1,'cv::cuda::DeviceInfo']]],
-  ['queue',['Queue',['../dd/dc0/classcv_1_1ocl_1_1Queue.html#a702c155117f520fcd90b24ca902f861f',1,'cv::ocl::Queue::Queue()'],['../dd/dc0/classcv_1_1ocl_1_1Queue.html#a62648111989b26f6067ea65ed954505e',1,'cv::ocl::Queue::Queue(const Context &amp;c, const Device &amp;d=Device())'],['../dd/dc0/classcv_1_1ocl_1_1Queue.html#a31e41d67d14f8e12f3876e30546f7a84',1,'cv::ocl::Queue::Queue(const Queue &amp;q)']]],
-  ['queue',['Queue',['../dd/dc0/classcv_1_1ocl_1_1Queue.html',1,'cv::ocl']]]
+  ['queryifcomplete',['queryIfComplete',['../d9/df3/classcv_1_1cuda_1_1Stream.html#a9fab618395d42fa31987506e42fab1b4',1,'cv::cuda::Stream::queryIfComplete()'],['../d5/d38/classcv_1_1cuda_1_1Event.html#aa4cff2204d3bd883376e87885d7b8287',1,'cv::cuda::Event::queryIfComplete()']]],
+  ['querymemory',['queryMemory',['../d7/d7c/classcv_1_1cuda_1_1DeviceInfo.html#a5452c3b639a257950902a8f47fb54301',1,'cv::cuda::DeviceInfo']]],
+  ['queue',['Queue',['../dd/dc0/classcv_1_1ocl_1_1Queue.html',1,'cv::ocl::Queue'],['../dd/dc0/classcv_1_1ocl_1_1Queue.html#a702c155117f520fcd90b24ca902f861f',1,'cv::ocl::Queue::Queue()'],['../dd/dc0/classcv_1_1ocl_1_1Queue.html#a62648111989b26f6067ea65ed954505e',1,'cv::ocl::Queue::Queue(const Context &amp;c, const Device &amp;d=Device())'],['../dd/dc0/classcv_1_1ocl_1_1Queue.html#a31e41d67d14f8e12f3876e30546f7a84',1,'cv::ocl::Queue::Queue(const Queue &amp;q)']]]
 ];

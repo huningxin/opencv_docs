@@ -15,7 +15,6 @@ var searchData=
   ['mat',['MAT',['../d4/d32/classcv_1_1__InputArray.html#a4877f69bebe2f726a4720456ddd25e44a78b5339efc1a4718ab6a1b688ccffc1c',1,'cv::_InputArray::MAT()'],['../de/d95/structcv_1_1Param.html#af70fd28322e558f4445d7c2da3d7d771aa9c41a3c06351521a39dedf1466edafc',1,'cv::Param::MAT()']]],
   ['mat_5fvector',['MAT_VECTOR',['../de/d95/structcv_1_1Param.html#af70fd28322e558f4445d7c2da3d7d771a90a3c051015b461c80e2fb29a8259220',1,'cv::Param']]],
   ['matx',['MATX',['../d4/d32/classcv_1_1__InputArray.html#a4877f69bebe2f726a4720456ddd25e44a52401c0e7c2c1bd3e55d86f06b529279',1,'cv::_InputArray']]],
-  ['max',['MAX',['../de/d7d/classcv_1_1dnn_1_1PoolingLayer.html#a717ccab21e525f7951aa9c4d8f532fdca3ba6524c3efa05bdba5df597a02e5389',1,'cv::dnn::PoolingLayer::MAX()'],['../d6/d6a/classcv_1_1dnn_1_1EltwiseLayer.html#a39acdfb0ac8cf0ddcb737acccddc69d6a2087fe63a0b071272929b1f54a46e43e',1,'cv::dnn::EltwiseLayer::MAX()']]],
   ['max_5fdim',['MAX_DIM',['../dd/da9/classcv_1_1SparseMat.html#a1e96af0c6bda2b24e2a3627f61cdb738abe1aff4cd2b540afd5a3f4ffca3bd9a2',1,'cv::SparseMat']]],
   ['max_5fdist',['MAX_DIST',['../dc/d8c/namespacecvflann.html#aaf5ebd053bd32f6b924e6e59868a1ee1a5e71dcdc1803389b9725c736bac4db70',1,'cvflann']]],
   ['max_5fiter',['MAX_ITER',['../d9/d5d/classcv_1_1TermCriteria.html#a56fecdc291ccaba8aad27d67ccf72c57a56ca2bc5cd06345060a1c1c66a8fc06e',1,'cv::TermCriteria']]],
@@ -23,7 +22,7 @@ var searchData=
   ['middlebutton',['MiddleButton',['../dc/d3b/classcv_1_1viz_1_1MouseEvent.html#ada240f2528500ad1615e76fb2fd9e2baacd85df21decb225a207beaca4c1a3778',1,'cv::viz::MouseEvent']]],
   ['mini_5fbatch',['MINI_BATCH',['../d6/df9/classcv_1_1ml_1_1LogisticRegression.html#a11394898c4732995dd3af8a665f92894aabdf956ee52b567744e53767d0f41df1',1,'cv::ml::LogisticRegression']]],
   ['minkowski',['MINKOWSKI',['../dc/d8c/namespacecvflann.html#aaf5ebd053bd32f6b924e6e59868a1ee1aeaf8417a4e1389212df9e73f8af46227',1,'cvflann']]],
-  ['mixed_5fclone',['MIXED_CLONE',['../d1/d0d/group__photo.html#gga5828c50696fecad6f69b093ec4d4087ba9aeff931a5d5d18b094397f0ca5bb85f',1,'cv']]],
+  ['mixed_5fclone',['MIXED_CLONE',['../d1/d0d/group__photo.html#gga91b75e26c5445934a60ca4d1f3f267e0a9aeff931a5d5d18b094397f0ca5bb85f',1,'cv']]],
   ['mm_5faffine',['MM_AFFINE',['../d4/d2c/group__videostab__motion.html#ggac61e59db30b7d13983885d3ad3116ce1a30b3b23d3cdd42fd8a7c4e286472de36',1,'cv::videostab']]],
   ['mm_5fhomography',['MM_HOMOGRAPHY',['../d4/d2c/group__videostab__motion.html#ggac61e59db30b7d13983885d3ad3116ce1a3071d1039ef9d542486f51a864134fb2',1,'cv::videostab']]],
   ['mm_5frigid',['MM_RIGID',['../d4/d2c/group__videostab__motion.html#ggac61e59db30b7d13983885d3ad3116ce1a633545fdfe3273bb79ce349f79a1383c',1,'cv::videostab']]],
@@ -38,7 +37,8 @@ var searchData=
   ['mode_5fsgbm_5f3way',['MODE_SGBM_3WAY',['../d2/d85/classcv_1_1StereoSGBM.html#a27830c851955ca5ea172155a289141eeaa3ffd07d169f0d913c2402bf20595a9f',1,'cv::StereoSGBM']]],
   ['modify_5fa',['MODIFY_A',['../df/df7/classcv_1_1SVD.html#a4700f5207e66cdd9924bf64e34911832afb6aab7965c8f601696b10fa109e2789',1,'cv::SVD']]],
   ['monochrome',['Monochrome',['../d0/d61/group__cudacodec.html#gga1887af7daca9ccca0f51f90bc8777280a854c4e9c8ccb88e9bad306cdc21d38ee',1,'cv::cudacodec']]],
-  ['monochrome_5ftransfer',['MONOCHROME_TRANSFER',['../d1/d0d/group__photo.html#gga5828c50696fecad6f69b093ec4d4087ba8a64bb74d3ef61a73cf755f3a881fe70',1,'cv']]],
+  ['monochrome_5ftransfer',['MONOCHROME_TRANSFER',['../d1/d0d/group__photo.html#gga91b75e26c5445934a60ca4d1f3f267e0a8a64bb74d3ef61a73cf755f3a881fe70',1,'cv']]],
+  ['monocular',['MONOCULAR',['../dc/d7d/classORB__SLAM2_1_1System.html#a3f14b84bb9663e1129e649e592bd14cfad1e5840d6aeaa77d25724ea0b27437cd',1,'ORB_SLAM2::System']]],
   ['morph_5fblackhat',['MORPH_BLACKHAT',['../d4/d86/group__imgproc__filter.html#gga7be549266bad7b2e6a04db49827f9f32a24d27f56df6b98b1cb92ae8108d4638f',1,'cv']]],
   ['morph_5fclose',['MORPH_CLOSE',['../d4/d86/group__imgproc__filter.html#gga7be549266bad7b2e6a04db49827f9f32a68c4b9c6144a30bcd52d1cdf39bb30e1',1,'cv']]],
   ['morph_5fcross',['MORPH_CROSS',['../d4/d86/group__imgproc__filter.html#ggac2db39b56866583a95a5680313c314ada318435753d0b9f7faa241a658ec2e191',1,'cv']]],
@@ -63,5 +63,5 @@ var searchData=
   ['mpeg1',['MPEG1',['../d0/d61/group__cudacodec.html#gga71943a1181287609b5d649f53ce6c146a76b84b89602cb58f49870dcc45a8b8cc',1,'cv::cudacodec']]],
   ['mpeg2',['MPEG2',['../d0/d61/group__cudacodec.html#gga71943a1181287609b5d649f53ce6c146ab8ff0b5ad78506988d6138ea88e96b5a',1,'cv::cudacodec']]],
   ['mpeg4',['MPEG4',['../d0/d61/group__cudacodec.html#gga71943a1181287609b5d649f53ce6c146a9948c662291bfed72125faca82012e3f',1,'cv::cudacodec']]],
-  ['multi_5fband',['MULTI_BAND',['../d6/d4a/classcv_1_1detail_1_1Blender.html#aa6f65ce72e25326b2843a724e447dfd4a2561f45ebefa078e121969723c3d2753',1,'cv::detail::Blender']]]
+  ['multi_5fband',['MULTI_BAND',['../d6/d4a/classcv_1_1detail_1_1Blender.html#a46df78e45a3cd71b77673c75bd7e746ca2561f45ebefa078e121969723c3d2753',1,'cv::detail::Blender']]]
 ];

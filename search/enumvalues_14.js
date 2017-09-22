@@ -12,7 +12,7 @@ var searchData=
   ['thresh_5ftriangle',['THRESH_TRIANGLE',['../d7/d1b/group__imgproc__misc.html#ggaa9e58d2860d4afa658ef70a9b1115576a22ffcf680811aed95be6c7f5cd809621',1,'cv']]],
   ['thresh_5ftrunc',['THRESH_TRUNC',['../d7/d1b/group__imgproc__misc.html#ggaa9e58d2860d4afa658ef70a9b1115576ac7e89a5e95490116e7d2082b3096b2b8',1,'cv']]],
   ['threshold',['THRESHOLD',['../df/d74/classcv_1_1FastFeatureDetector.html#a0252bad61e882ddf74ad2a36bad9b5aea86ae705d0195c26863b5284ffd6a1066',1,'cv::FastFeatureDetector::THRESHOLD()'],['../d7/d19/classcv_1_1AgastFeatureDetector.html#a87678ca0b47e75d5eec008713468ccb0a8d01c1ae87944f51bfc772f7302d7b6d',1,'cv::AgastFeatureDetector::THRESHOLD()']]],
-  ['tile_5fdim',['tile_dim',['../dd/d44/structcv_1_1cudev_1_1DefaultTransposePolicy.html#adec52c1ed5c3921eaadc66de6610eecea90744d11b53edcf0ae06d4352693be38',1,'cv::cudev::DefaultTransposePolicy']]],
+  ['tile_5fdim',['tile_dim',['../dd/d44/structcv_1_1cudev_1_1DefaultTransposePolicy.html#a80ff1898d743751efec567732ba00ea1a90744d11b53edcf0ae06d4352693be38',1,'cv::cudev::DefaultTransposePolicy']]],
   ['tm_5fccoeff',['TM_CCOEFF',['../df/dfb/group__imgproc__object.html#gga3a7850640f1fe1f58fe91a2d7583695dac5babb7dfda59544e3e31ea928f8cb16',1,'cv']]],
   ['tm_5fccoeff_5fnormed',['TM_CCOEFF_NORMED',['../df/dfb/group__imgproc__object.html#gga3a7850640f1fe1f58fe91a2d7583695dac6677e2af5e0fae82cc5339bfaef5038',1,'cv']]],
   ['tm_5fccorr',['TM_CCORR',['../df/dfb/group__imgproc__object.html#gga3a7850640f1fe1f58fe91a2d7583695da5be00b45a4d99b5e42625b4400bfde65',1,'cv']]],

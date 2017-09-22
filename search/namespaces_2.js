@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['logging',['logging',['../d2/d9c/namespaceutils_1_1logging.html',1,'utils']]],
-  ['utils',['utils',['../d6/d84/namespaceutils.html',1,'']]]
+  ['orb_5fslam2',['ORB_SLAM2',['../d8/d15/namespaceORB__SLAM2.html',1,'']]]
 ];
