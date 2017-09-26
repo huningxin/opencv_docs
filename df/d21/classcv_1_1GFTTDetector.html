@@ -224,6 +224,8 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a99865287feeb2dc1d75ab464e2fc1816"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/de7/structcv_1_1Ptr.html">Ptr</a>&lt; <a class="el" href="../../df/d21/classcv_1_1GFTTDetector.html">GFTTDetector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d21/classcv_1_1GFTTDetector.html#a99865287feeb2dc1d75ab464e2fc1816">create</a> (int maxCorners=1000, double qualityLevel=0.01, double minDistance=1, int blockSize=3, bool useHarrisDetector=false, double k=0.04)</td></tr>
 <tr class="separator:a99865287feeb2dc1d75ab464e2fc1816"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72873253d5f6a5383a2bee0842c0fdd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d0/de7/structcv_1_1Ptr.html">Ptr</a>&lt; <a class="el" href="../../df/d21/classcv_1_1GFTTDetector.html">GFTTDetector</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d21/classcv_1_1GFTTDetector.html#ad72873253d5f6a5383a2bee0842c0fdd">create</a> (int maxCorners, double qualityLevel, double minDistance, int blockSize, int gradiantSize, bool useHarrisDetector=false, double k=0.04)</td></tr>
+<tr class="separator:ad72873253d5f6a5383a2bee0842c0fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classcv_1_1Algorithm"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classcv_1_1Algorithm')"><img src="../../closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="../../d3/d46/classcv_1_1Algorithm.html">cv::Algorithm</a></td></tr>
 <tr class="memitem:a623841c33b58ea9c4847da04607e067b inherit pub_static_methods_classcv_1_1Algorithm"><td class="memTemplParams" colspan="2">template&lt;typename _Tp &gt; </td></tr>
 <tr class="memitem:a623841c33b58ea9c4847da04607e067b inherit pub_static_methods_classcv_1_1Algorithm"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="../../d0/de7/structcv_1_1Ptr.html">Ptr</a>&lt; _Tp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d46/classcv_1_1Algorithm.html#a623841c33b58ea9c4847da04607e067b">load</a> (const <a class="el" href="../../d1/d8f/classcv_1_1String.html">String</a> &amp;filename, const <a class="el" href="../../d1/d8f/classcv_1_1String.html">String</a> &amp;objname=<a class="el" href="../../d1/d8f/classcv_1_1String.html">String</a>())</td></tr>
@@ -248,7 +250,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Wrapping class for feature detection using the goodFeaturesToTrack function. : </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a99865287feeb2dc1d75ab464e2fc1816"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99865287feeb2dc1d75ab464e2fc1816">&#9670;&nbsp;</a></span>create()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a99865287feeb2dc1d75ab464e2fc1816">&#9670;&nbsp;</a></span>create() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,6 +281,72 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>blockSize</em> = <code>3</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useHarrisDetector</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>k</em> = <code>0.04</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad72873253d5f6a5383a2bee0842c0fdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72873253d5f6a5383a2bee0842c0fdd">&#9670;&nbsp;</a></span>create() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d0/de7/structcv_1_1Ptr.html">Ptr</a>&lt;<a class="el" href="../../df/d21/classcv_1_1GFTTDetector.html">GFTTDetector</a>&gt; cv::GFTTDetector::create </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxCorners</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>qualityLevel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>minDistance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>blockSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>gradiantSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -648,7 +716,7 @@ Additional Inherited Members</h2></td></tr>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 25 2017 11:23:22 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 26 2017 08:42:37 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

@@ -25,6 +25,7 @@ var searchData=
   ['js_5fhoughlines_2emarkdown',['js_houghlines.markdown',['../d0/df9/js__houghlines_8markdown.html',1,'']]],
   ['js_5fimage_5farithmetics_2emarkdown',['js_image_arithmetics.markdown',['../de/df1/js__image__arithmetics_2js__image__arithmetics_8markdown.html',1,'(Global Namespace)'],['../d1/d93/js__some__data__structures_2js__image__arithmetics_8markdown.html',1,'(Global Namespace)']]],
   ['js_5fimage_5fdisplay_2emarkdown',['js_image_display.markdown',['../d6/d6a/js__image__display_8markdown.html',1,'']]],
+  ['js_5fimgproc_5fcamera_2emarkdown',['js_imgproc_camera.markdown',['../d7/db4/js__imgproc__camera_8markdown.html',1,'']]],
   ['js_5fintro_2emarkdown',['js_intro.markdown',['../d6/d50/js__intro_8markdown.html',1,'']]],
   ['js_5flucas_5fkanade_2emarkdown',['js_lucas_kanade.markdown',['../dd/d67/js__lucas__kanade_8markdown.html',1,'']]],
   ['js_5fmeanshift_2emarkdown',['js_meanshift.markdown',['../d8/d53/js__meanshift_8markdown.html',1,'']]],

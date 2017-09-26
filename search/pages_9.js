@@ -12,6 +12,7 @@ var searchData=
   ['installation_20in_20ios',['Installation in iOS',['../d5/da3/tutorial_ios_install.html',1,'tutorial_table_of_content_introduction']]],
   ['introduction_20to_20java_20development',['Introduction to Java Development',['../d9/d52/tutorial_java_dev_intro.html',1,'tutorial_table_of_content_introduction']]],
   ['image_20gradients',['Image Gradients',['../da/d85/tutorial_js_gradients.html',1,'tutorial_js_table_of_contents_imgproc']]],
+  ['image_20processing_20for_20video_20capture',['Image Processing for Video Capture',['../d8/d54/tutorial_js_imgproc_camera.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['introduction_20to_20opencv_2ejs_20and_20tutorials',['Introduction to OpenCV.js and Tutorials',['../df/d0a/tutorial_js_intro.html',1,'tutorial_js_table_of_contents_setup']]],
   ['image_20pyramids',['Image Pyramids',['../d5/d0f/tutorial_js_pyramids.html',1,'tutorial_js_table_of_contents_imgproc']]],
   ['image_20processing',['Image Processing',['../d2/df0/tutorial_js_table_of_contents_imgproc.html',1,'tutorial_js_root']]],
