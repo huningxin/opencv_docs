@@ -264,6 +264,7 @@ $(function() {
 <li>16-bit images: (currently not supported)</li>
 <li>32-bit images: L, u, and v are left as is</li>
 </ul>
+<p>Note that when converting integer Luv images to RGB the intermediate X, Y and Z values are truncated to \( [0, 2] \) range to fit white point limitations. It may lead to incorrect representation of colors with odd XYZ values.</p>
 <p>The above formulae for converting RGB to/from various color spaces have been taken from multiple sources on the web, primarily from the Charles Poynton site <a href="http://www.poynton.com/ColorFAQ.html">http://www.poynton.com/ColorFAQ.html</a></p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d1b/group__imgproc__misc.html#gga4e0972be5de079fed4e3a10e24ef5ef0a8199112edf021b1586c75ca20a46ecd1" title="convert RGB/BGR to CIE Luv, color conversions ">cv::COLOR_BGR2Luv</a>, <a class="el" href="../../d7/d1b/group__imgproc__misc.html#gga4e0972be5de079fed4e3a10e24ef5ef0a5e11d9e294ba89668c080662a8321e45">cv::COLOR_RGB2Luv</a>, <a class="el" href="../../d7/d1b/group__imgproc__misc.html#gga4e0972be5de079fed4e3a10e24ef5ef0a514896aa2d19659f6a2eca67bb0748f1">cv::COLOR_Luv2BGR</a>, <a class="el" href="../../d7/d1b/group__imgproc__misc.html#gga4e0972be5de079fed4e3a10e24ef5ef0a8d68e3f1814d0a649731c0f56835b8c3">cv::COLOR_Luv2RGB</a></dd></dl>
 <p><a class="anchor" id="color_convert_bayer"></a></p><h2>Bayer \(\rightarrow\) RGB </h2>
@@ -278,7 +279,7 @@ Bayer pattern</div></div>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 26 2017 13:09:03 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 28 2017 10:11:10 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

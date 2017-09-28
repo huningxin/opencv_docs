@@ -171,6 +171,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ga1d6bb77486c8f92d79c8793ad995d541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1a/group__imgproc__feature.html#ga1d6bb77486c8f92d79c8793ad995d541">cv::goodFeaturesToTrack</a> (<a class="el" href="../../dc/d84/group__core__basic.html#gab1371a23c90d5f4725ea98240377d7a1">InputArray</a> image, <a class="el" href="../../dc/d84/group__core__basic.html#gaad17fda1d0f0d1ee069aebb1df2913c0">OutputArray</a> corners, int maxCorners, double qualityLevel, double minDistance, <a class="el" href="../../dc/d84/group__core__basic.html#gab1371a23c90d5f4725ea98240377d7a1">InputArray</a> mask=<a class="el" href="../../dc/d84/group__core__basic.html#gad9287b23bba2fed753b36ef561ae7346">noArray</a>(), int blockSize=3, bool useHarrisDetector=false, double k=0.04)</td></tr>
 <tr class="memdesc:ga1d6bb77486c8f92d79c8793ad995d541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines strong corners on an image.  <a href="../../dd/d1a/group__imgproc__feature.html#ga1d6bb77486c8f92d79c8793ad995d541">More...</a><br /></td></tr>
 <tr class="separator:ga1d6bb77486c8f92d79c8793ad995d541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf8a051fb13cab1eba5e2149f75e902f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1a/group__imgproc__feature.html#gaaf8a051fb13cab1eba5e2149f75e902f">cv::goodFeaturesToTrack</a> (<a class="el" href="../../dc/d84/group__core__basic.html#gab1371a23c90d5f4725ea98240377d7a1">InputArray</a> image, <a class="el" href="../../dc/d84/group__core__basic.html#gaad17fda1d0f0d1ee069aebb1df2913c0">OutputArray</a> corners, int maxCorners, double qualityLevel, double minDistance, <a class="el" href="../../dc/d84/group__core__basic.html#gab1371a23c90d5f4725ea98240377d7a1">InputArray</a> mask, int blockSize, int gradientSize, bool useHarrisDetector=false, double k=0.04)</td></tr>
+<tr class="separator:gaaf8a051fb13cab1eba5e2149f75e902f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga47849c3be0d0406ad3ca45db65a25d2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1a/group__imgproc__feature.html#ga47849c3be0d0406ad3ca45db65a25d2d">cv::HoughCircles</a> (<a class="el" href="../../dc/d84/group__core__basic.html#gab1371a23c90d5f4725ea98240377d7a1">InputArray</a> image, <a class="el" href="../../dc/d84/group__core__basic.html#gaad17fda1d0f0d1ee069aebb1df2913c0">OutputArray</a> circles, int method, double dp, double minDist, double param1=100, double param2=100, int minRadius=0, int maxRadius=0)</td></tr>
 <tr class="memdesc:ga47849c3be0d0406ad3ca45db65a25d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds circles in a grayscale image using the Hough transform.  <a href="../../dd/d1a/group__imgproc__feature.html#ga47849c3be0d0406ad3ca45db65a25d2d">More...</a><br /></td></tr>
 <tr class="separator:ga47849c3be0d0406ad3ca45db65a25d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -698,7 +700,7 @@ image</div></div>
 </div>
 </div>
 <a id="ga1d6bb77486c8f92d79c8793ad995d541"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1d6bb77486c8f92d79c8793ad995d541">&#9670;&nbsp;</a></span>goodFeaturesToTrack()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1d6bb77486c8f92d79c8793ad995d541">&#9670;&nbsp;</a></span>goodFeaturesToTrack() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -793,6 +795,82 @@ image</div></div>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dd/d1a/group__imgproc__feature.html#ga3dbce297c1feb859ee36707e1003e0a8" title="Calculates the minimal eigenvalue of gradient matrices for corner detection. ">cornerMinEigenVal</a>, <a class="el" href="../../dd/d1a/group__imgproc__feature.html#gac1fc3598018010880e370e2f709b4345" title="Harris corner detector. ">cornerHarris</a>, <a class="el" href="../../dc/d6b/group__video__track.html#ga473e4b886d0bcc6b65831eb88ed93323" title="Calculates an optical flow for a sparse feature set using the iterative Lucas-Kanade method with pyra...">calcOpticalFlowPyrLK</a>, <a class="el" href="../../dc/d6b/group__video__track.html#ga762cbe5efd52cf078950196f3c616d48" title="Computes an optimal affine transformation between two 2D point sets. ">estimateRigidTransform</a>, </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="../../d2/d0a/lkdemo_8cpp-example.html#a20">lkdemo.cpp</a>.</dd>
 </dl>
+</div>
+</div>
+<a id="gaaf8a051fb13cab1eba5e2149f75e902f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaf8a051fb13cab1eba5e2149f75e902f">&#9670;&nbsp;</a></span>goodFeaturesToTrack() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cv::goodFeaturesToTrack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dc/d84/group__core__basic.html#gab1371a23c90d5f4725ea98240377d7a1">InputArray</a>&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/d84/group__core__basic.html#gaad17fda1d0f0d1ee069aebb1df2913c0">OutputArray</a>&#160;</td>
+          <td class="paramname"><em>corners</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxCorners</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>qualityLevel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>minDistance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/d84/group__core__basic.html#gab1371a23c90d5f4725ea98240377d7a1">InputArray</a>&#160;</td>
+          <td class="paramname"><em>mask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>blockSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>gradientSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useHarrisDetector</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>k</em> = <code>0.04</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <a id="ga47849c3be0d0406ad3ca45db65a25d2d"></a>
@@ -1118,7 +1196,7 @@ image</div></div>
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 26 2017 13:09:05 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 28 2017 10:11:12 for OpenCV by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
